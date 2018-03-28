@@ -1,0 +1,35 @@
+h1{
+    color:#af1e23;
+    font-size: 64px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 5px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.board{
+    width: 800px; /*szerokość całego okna*/
+    /*margin-left:auto;
+    margin-right:auto;*/
+    margin:0 auto;
+    text-align:center;
+    border: 4px solid blue;
+}
+.pole {
+    width: 550px;
+    height: 125px;
+    display: inline-block;
+    margin: 3px;
+    /*background:orangered;*/
+    /*background-image: url("background.png");*/
+    border: 4px solid #209781;
+    border-radius: 5px;
+}
+
+.zdjeciejarek{
+    width: 200px;
+    border: 3px solid red;
+    margin: 3px;
+}
+
