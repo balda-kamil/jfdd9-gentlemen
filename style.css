@@ -1,6 +1,18 @@
+body {
+    background: linear-gradient(to right bottom,#C2185B 0%,  #304FFE 100%);
+}
+
 .hero {
     font-family: Arial, sans-serif;
-    color: white;
-    background: linear-gradient(to right bottom,#C2185B 0%,  #304FFE 100%);
+    color: black;
     height: 600px;
+    background-image: url("img/clipboard-list.png");
+    background-size: 50px;
+    opacity: 0.5;
+
+}
+
+.app-image {
+    margin: 200px 50px auto 200px;
+    float: left;
 }
