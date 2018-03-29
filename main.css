@@ -13,6 +13,7 @@ body {
 main {
     margin: 0 auto;
     width: 1024px;
+    height: 768px;
 }
 
 h1 {
@@ -51,4 +52,8 @@ a {
 
 .bg-s-light {
     background-color: #FDA403;
+}
+
+.bg-ss-light {
+    background-color: #fda403;
 }
