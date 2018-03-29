@@ -1,6 +1,4 @@
-# jfdd9-gentlemen
-
-**_`this will be webstite about best TODO app in the world*`_**
+<p align = "center">
 
 ```
    _____ ______ _   _ _______ _      ______ __  __ ______ _   _ 
@@ -10,5 +8,10 @@
  | |__| | |____| |\  |  | |  | |____| |____| |  | | |____| |\  |
   \_____|______|_| \_|  |_|  |______|______|_|  |_|______|_| \_|
                                                                 
-                                                                
 ```
+
+# jfdd9-gentlemen
+
+**_`this will be webstite about best TODO app in the world*`_**
+
+</p>
