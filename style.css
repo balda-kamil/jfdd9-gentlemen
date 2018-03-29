@@ -1,0 +1,21 @@
+#form-div {
+    margin: auto;
+    width: 1024px;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.form-fields {
+    color: pink;
+    margin: auto;
+}
+
+.form-zapro{
+
+}
+
+.btn{
+    padding: 30px;
+}
+

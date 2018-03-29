@@ -7,13 +7,21 @@
 </head>
 <body>
 
-    <div id="form">
-        <p class="id-zapro">Chcesz jako pierwszy dowiedzieć się o premierze naszego produktu? Zapisz się!</p>
-        <form method="POST" action="https://formspree.io/baldakamil@gmail.com">
+    <div id="form-div">
+
+        <p class="form-zapro">Chcesz jako pierwszy dowiedzieć się o premierze naszego produktu? Zapisz się!</p>
+
+        <form class="form-fields" method="POST" action="https://formspree.io/baldakamil@gmail.com">
             <input type="name" name="client-name" placeholder="Wpisz swoje imie">
             <input type="email" name="client-email" placeholder="Wpisz Twój adres email">
+
             <input type="hidden" name="_next" value="jfdd9-gentlemen/thanks.html"/>
-            <button type="submit">Wyślij</button>
+
+            <div class="btn">
+                <button type="submit">Wyślij</button>
+            </div>
+
+
             <p class="form-sec">Możesz być spokojny o swoje dane, nie wykorzystjemy ich w celach marketingowych, nie sprzedajemy ich. Są one tylko dla naszej informacji!</p>
         </form>
 
