@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to right bottom,#C2185B 0%,  #304FFE 100%);
+    background: linear-gradient(to right bottom, #C2185B 0%, #304FFE 100%);
 }
 
 .hero {
@@ -8,11 +8,13 @@ body {
     height: 600px;
     background-image: url("img/clipboard-list.png");
     background-size: 50px;
-    opacity: 0.5;
+    opacity: 0.6;
+}
 
+.app-describe {
+    padding-top: 50px;
 }
 
 .app-image {
-    margin: 200px 50px auto 200px;
     float: left;
 }
