@@ -17,12 +17,44 @@
     font-family: Lato;
 }
 
-.btn{
-    padding: 30px;
+
+/* this code below is strongly integrated with button - please don't change it - thanks!*/
+.btn {
+    background: #304FFE;
+    background-image: -webkit-linear-gradient(top, #304FFE, #C2185B);
+    background-image: -moz-linear-gradient(top, #304FFE, #C2185B);
+    background-image: -ms-linear-gradient(top, #304FFE, #C2185B);
+    background-image: -o-linear-gradient(top, #304FFE, #C2185B);
+    background-image: linear-gradient(to bottom, #304FFE, #C2185B);
+    -webkit-border-radius: 36px;
+    -moz-border-radius: 36px;
+    border-radius: 36px;
+    color: #000000;
+    font-family: Lato, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 19px;
+    box-shadow: 1px 1px 20px 0px #000000;
+    -webkit-box-shadow: 1px 1px 20px 0px #000000;
+    -moz-box-shadow: 1px 1px 20px 0px #000000;
+    border: solid #304FFE 0px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
 }
 
-.thx {
+.btn:hover {
+    background: #C2185b;
+    background-image: -webkit-linear-gradient(top, #C2185b, #304FFE);
+    background-image: -moz-linear-gradient(top, #C2185b, #304FFE);
+    background-image: -ms-linear-gradient(top, #C2185b, #304FFE);
+    background-image: -o-linear-gradient(top, #C2185b, #304FFE);
+    background-image: linear-gradient(to bottom, #C2185b, #304FFE);
+    text-decoration: none;
+}
 
+.btn2 {
+    margin: 15px;
 }
 
 
