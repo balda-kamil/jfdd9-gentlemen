@@ -1,19 +1,60 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
 
+/* ... reset ... */
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #ffffe5;
     font-family: 'Roboto', sans-serif;
 }
 
-main {
+/* ... navigation ... */
+nav {
+    padding: 20px;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+nav p {
+    padding: 5px;
+    display: block;
+    float: left;
+}
+nav ul {
+    list-style-type: none;
+}
+nav li {
+    display: inline-block;
+    float: right;
+}
+nav a {
+    display: block;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #ffffff;
+}
+
+/* ... header ... */
+header {
+    top: 78px;
+    position: relative;
+    padding: 3em 0;
+    height: 400px;
+}
+
+/* ... container ... */
+.container {
     margin: 0 auto;
-    width: 1024px;
-    height: 768px;
+    width: 1024px;}
+
+main {
+    height: 2768px;
 }
 
 h1 {
@@ -26,34 +67,80 @@ a {
     text-decoration: none;
 }
 
-.text-dark {
-    color: #8A1253;
+/* ... text colors ... */
+.tx-body {
+    color: #222529;
+}
+.tx-grey {
+    color: #999999;
+}
+.tx-section {
+    color: #d62261;
+}
+.tx-menu {
+    color: #eb91b0;
+}
+.tx-banner {
+    color: #fd81ab;
+}
+.tx-white {
+    color: #ffffff;
 }
 
-.text-middle {
-    color: #C51350;
+/* ... background colors ... */
+.bg-body {
+    background-color: #f8f9fa;
+}
+.bg-menu {
+    background-color: #d62261;
+}
+.bg-banner {
+    background-color: #c01e5c;
+    background: linear-gradient(#d62261, #c01e5c);
+}
+.bg-white {
+    background-color: #ffffff;
 }
 
-.text-light {
-    color: #E8751A;
+/* ... font weight ... */
+.weight-300 {
+    font-weight: 300;
+}
+.weight-400 {
+    font-weight: 400;
+}
+.weight-500 {
+    font-weight: 500;
+}
+.weight-700 {
+    font-weight: 700;
+}
+.weight-900 {
+    font-weight: 900;
 }
 
-.bg-dark {
-    background-color: #8A1253;
+/* ... font size ... */
+.font-30em {
+    font-size: 3.0em;
 }
-
-.bg-middle {
-    background-color: #C51350;
+.font-25em {
+    font-size: 2.5em;
 }
-
-.bg-light {
-    background-color: #E8751A;
+.font-20em {
+    font-size: 2.0em;
 }
-
-.bg-s-light {
-    background-color: #FDA403;
+.font-15em {
+    font-size: 1.5em;
 }
-
-.bg-ss-light {
-    background-color: #ffeda9;
+.font-13em {
+    font-size: 1.3em;
+}
+.font-12em {
+    font-size: 1.2em;
+}
+.font-11em {
+    font-size: 1.1em;
+}
+.font-10em {
+    font-size: 1.0em;
 }
