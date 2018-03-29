@@ -42,7 +42,7 @@
     display: inline-block;
     cursor: pointer;
 }
-
+/*this also :D*/
 .btn:hover {
     background: #C2185b;
     background-image: -webkit-linear-gradient(top, #C2185b, #304FFE);
@@ -52,7 +52,7 @@
     background-image: linear-gradient(to bottom, #C2185b, #304FFE);
     text-decoration: none;
 }
-
+/*and this*/
 .btn2 {
     margin: 15px;
 }
