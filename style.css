@@ -6,7 +6,7 @@ body {
 
 .hero {
     color: #d2d2d2;
-    margin: 0px auto;
+    margin: 0 auto;
     height: 800px;
     width: 1240px;
     background-image: url("img/clipboard-list.png");
@@ -24,16 +24,16 @@ body {
     padding-right: 30px;
 
 }
+
 .hero-title {
     height: 300px;
     font-size: 50px;
-    padding-top:30px;
+    padding-top: 30px;
     font-weight: bolder;
     letter-spacing: 5px;
     text-shadow: 5px 5px black;
 
 }
-
 
 .hero-describe {
     width: 800px;
@@ -44,8 +44,20 @@ body {
     border: #d2d2d2 solid 8px;
     border-radius: 10px;
     background: linear-gradient(to right bottom, #C2185B 0%, #304FFE 100%);
+}
 
+.hero span {
+    text-decoration: underline;
+}
 
-      }
+.hero-newsletter {
+    text-align: center;
+    margin: 30px auto;
+    font-size: 20px;
+}
 
-
+.hero-newsletter a:link {
+    text-decoration: none;
+    color: #C2185B;
+    font-weight: bolder;
+}
