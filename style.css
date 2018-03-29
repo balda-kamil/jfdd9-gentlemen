@@ -12,10 +12,13 @@
 }
 
 .form-zapro{
-
+    font-size: 26px;
+    font-weight: bold;
+    font-family: Lato;
 }
 
 .btn{
     padding: 30px;
 }
+
 
