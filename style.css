@@ -1,8 +1,10 @@
+/*
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: linear-gradient(to right bottom, #C2185B 0%, #304FFE 100%);
+    background: #c01e5c;*/
 }
+
 
 .hero {
     color: #d2d2d2;
@@ -15,7 +17,7 @@ body {
 
 .hero-img-title {
     padding-top: 100px;
-    padding-left: 140px;
+    padding-left: 120px;
 }
 
 .hero-image {
@@ -43,7 +45,7 @@ body {
     font-weight: bolder;
     border: #d2d2d2 solid 8px;
     border-radius: 10px;
-    background: linear-gradient(to right bottom, #C2185B 0%, #304FFE 100%);
+   /* background: linear-gradient(to right bottom, #C2185B 0%, #304FFE 100%);*/
 }
 
 .hero span {
