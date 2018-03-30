@@ -28,12 +28,13 @@
 }
 
 .hero-describe {
-    width: 800px;
+    width: 720px;
     margin: 50px auto;
     text-align: center;
     font-size: 35px;
     border: solid 4px;
     border-radius: 10px;
+    padding: 5px;
 
 }
 
