@@ -6,22 +6,23 @@
  */
 
 h1 {
-    color: #af1e23;
-    font-size: 64px;
-    font-weight: 400;
+    /*color: #af1e23;*/
+    /*font-size: 64px;*/
+    /*font-weight: 400;*/
     text-align: center;
     letter-spacing: 5px;
     margin-top: 20px;
     margin-bottom: 0;
-    font-family: Arial, sans-serif;
 }
 
 h2 {
     text-align: center;
+    color:#c01e5c;
 }
 
 p {
     text-align: center;
+    color:#c01e5c;
 }
 
 a {
@@ -43,7 +44,7 @@ a:link, a:visited {
     border: 4px solid blue;
 }
 
-.polejarek, .polekamil, .polekuba, .polepatryk {
+.team-polejarek, .team-polekamil, .team-polekuba, .team-polepatryk {
     /*width: 45%;*/
     /*width: 750px;*/
     /*display: inline-block;*/
@@ -51,44 +52,47 @@ a:link, a:visited {
     /*paddint:0px;
     background:orangered;
     background-image: url("background.png");*/
-    border: 4px solid #209781;
+    border: 4px solid #c01e5c;
     border-radius: 5px;
     clear: both;
-    overflow: auto;
+    overflow: hidden;
     /*display:inline-block;*/
 
 }
 
-.zdjecie {
+.team-zdjecie {
     width: 150px;
     height: 150px;
-    border: 3px solid red;
-    border-radius: 100%;
+    border: 3px solid #c01e5c;
+    border-radius: 50%;
     float: left;
     background-size: cover;
     transition: transform 1s;
+    margin: 10px;
 }
 
-.zdjecie:hover {
-    border-color: white;
+.team-zdjecie:hover {
+    border-color: #f8f9fa;
     transform: rotate(180deg);
 
 }
 
-.zdjecie-jarek, .zdjecie-kuba, .zdjecie-kamil, .zdjecie-patryk {
+.team-zdjecie-jarek,.team-zdjecie-kuba, .team-zdjecie-kamil, .team-zdjecie-patryk {
     background-image: url("img/talib.png");
     /*margin-right: auto;*/
     /*margin-top:-120px;*/
     /*display: inline-block;*/
 }
 
-.jarek, .kuba, .kamil, .patryk {
+.team-jarek, .team-kuba, .team-kamil, .team-patryk {
     /*float: right;*/
     width: 600px;
-    height: 150px;
-    border: 4px solid greenyellow;
+    height: 130px;
+    border: 4px solid #c01e5c;
     display: inline-block;
-    margin: 3px;
+    margin: 10px;
+    background:#f8f9fa;
+    padding:10px;
     /*background-image: url("img/talib.png");
     background-size:contain;*/
     /*margin-top: -120px;*/
