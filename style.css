@@ -1,20 +1,39 @@
+.form-field {
+    border: 1px solid black;
+    width: 450px;
+    margin: auto;
+    background: background: #d3d3d3; /* Old browsers */
+    background: -moz-linear-gradient(top, #d3d3d3 45%, #999999 100%, #999999 100%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #d3d3d3 45%,#999999 100%,#999999 100%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #d3d3d3 45%,#999999 100%,#999999 100%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */;
+
+    padding: 30px;
+}
+
+.form-sec{
+    font-size: smaller;
+    color: #999999;
+    font-style: italic;
+}
+
+
+
 #form-div {
     margin: auto;
     width: 1024px;
     border: 1px solid black;
     padding: 10px;
     text-align: center;
-}
+   }
 
-.form-fields {
-    color: pink;
-    margin: auto;
-}
+
 
 .form-zapro{
     font-size: 26px;
     font-weight: bold;
     font-family: Lato;
+    padding: 15px;
 }
 
 
@@ -26,21 +45,20 @@
     background-image: -ms-linear-gradient(top, #304FFE, #C2185B);
     background-image: -o-linear-gradient(top, #304FFE, #C2185B);
     background-image: linear-gradient(to bottom, #304FFE, #C2185B);
-    -webkit-border-radius: 36px;
-    -moz-border-radius: 36px;
-    border-radius: 36px;
-    color: #000000;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: white;
     font-family: Lato, sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    padding: 19px;
-    box-shadow: 1px 1px 20px 0px #000000;
-    -webkit-box-shadow: 1px 1px 20px 0px #000000;
-    -moz-box-shadow: 1px 1px 20px 0px #000000;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px;
     border: solid #304FFE 0px;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+    width: 200px;
+    margin: 10px;
 }
 /*this also :D*/
 .btn:hover {
@@ -51,27 +69,21 @@
     background-image: -o-linear-gradient(top, #C2185b, #304FFE);
     background-image: linear-gradient(to bottom, #C2185b, #304FFE);
     text-decoration: none;
+    -webkit-box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
+
 }
 /*and this*/
 .btn2 {
-    margin: 15px;
+    margin: 1px;
 }
 
-input[class="inp-field"] {
-    font-family: Arial, sans-serif;
-    font-size: 25px;
-    margin: 20px;
-    background: #d6c5c3;
-    color: #C2185B;
-
+.inp-field{
+    width: 200px;
+    height: 30px;
+    border-radius: 4px;
 }
 
-input[class="inp-field"]:hover {
-    border-bottom: 1px solid #B9C1CA;
-}
-
-input[class="inp-field"]:focus {
-    outline: none;
-}
 
 
