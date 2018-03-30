@@ -57,4 +57,21 @@
     margin: 15px;
 }
 
+input[class="inp-field"] {
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    margin: 20px;
+    background: #d6c5c3;
+    color: #C2185B;
+
+}
+
+input[class="inp-field"]:hover {
+    border-bottom: 1px solid #B9C1CA;
+}
+
+input[class="inp-field"]:focus {
+    outline: none;
+}
+
 
