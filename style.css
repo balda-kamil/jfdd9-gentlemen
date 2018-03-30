@@ -9,23 +9,31 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */;
 
     padding: 30px;
+    -webkit-box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.75);
 }
 
 .form-sec{
-    font-size: smaller;
     color: #999999;
     font-style: italic;
+    font-size: smaller;
 }
 
-
+.form-sec:hover {
+    color: black;
+    transition:  2s;
+    -webkit-transition:  2s;
+}
 
 #form-div {
     margin: auto;
     width: 1024px;
-    border: 1px solid black;
     padding: 10px;
     text-align: center;
-   }
+    background-color: #d62261;
+}
+
 
 
 
