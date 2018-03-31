@@ -1,0 +1,49 @@
+body {
+    font-family: sans-serif;
+}
+
+
+
+.flexcontainer {
+    padding: 3px;
+    margin: 5px;
+    border: 1px solid red;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:row;
+
+}
+
+.pole {
+    width: 600px;
+    border: 1px solid blue;
+    margin: 3px;
+    display: flex;
+
+
+
+}
+
+.zdjecie {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 1px;
+}
+
+.person {
+    height:150px;
+    width:450px;
+    border: 1px solid black;
+    margin-left: 5px;
+}
+
+@media (min-width: 760px) {
+    .flex-container{
+        flex-direction:column;
+    }
+
+}
