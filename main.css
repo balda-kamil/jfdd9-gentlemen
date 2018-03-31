@@ -8,6 +8,8 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
+	background-color: #f8f9fa;
+	color: #222529;
 }
 
 /* ... navigation ... */
@@ -32,41 +34,61 @@ nav li {
 }
 nav a {
 	display: block;
-	padding: 5px 10px;
-	transition: 0.3s;
+	padding: 0 8px;
+	border: 2px solid #d62261;
+	border-radius: 8px;
 }
 nav a:hover {
-	color: #ffffff;
+	color: #d62261;
+	background-color: white;
+	border: 2px solid white;
+	border-radius: 8px;
+}
+a {
+	text-decoration: none;
+}
+a {
+	transition: 0.4s;
 }
 
 /* ... header ... */
+.spacer {
+	height: 68px;
+}
 header {
-	top: 78px;
 	position: relative;
-	padding: 3em 0;
-	height: 400px;
+	padding: 5em 0;
+}
+header p {
+	margin: 10px;
+}
+
+/* ... other ... */
+main {
+	position: relative;
+	height: 2000px;
+}
+h1 {
+	padding: 1em;
+}
+
+.subscribe {
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 0 7px;
+}
+.subscribe:hover {
+	color: #d62261;
+	background-color: white;
 }
 
 /* ... container ... */
 .container {
 	margin: 0 auto;
-	width: 1024px;
+	max-width: 1024px;
 }
 
-main {
-	height: 1000px;
-}
-
-h1 {
-	font-size: 3em;
-	padding: 10px;
-	text-align: center;
-}
-
-a {
-	text-decoration: none;
-}
-
+/* =================== */
 /* ... text colors ... */
 .tx-body {
 	color: #222529;
@@ -148,4 +170,14 @@ a {
 /* ... clear-fix ... */
 .clear-fix {
 	clear: both;
+}
+
+.tx-center {
+	text-align: center;
+}
+.tx-left {
+	text-align: left;
+}
+.tx-right {
+	text-align: right;
 }
