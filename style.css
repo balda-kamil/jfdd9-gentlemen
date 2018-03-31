@@ -1,0 +1,39 @@
+body {
+    background: linear-gradient(to right bottom, #C2185B 0%, #304FFE 100%);
+
+}
+
+.hero {
+    font-family: Arial, sans-serif;
+    color: black;
+    margin: 30px;
+    height: 640px;
+    width: 1200px;
+    background-image: url("img/clipboard-list.png");
+    background-size: 50px;
+    opacity: 0.4;
+}
+
+.app-describe h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    letter-spacing: 10px;
+    text-shadow: 2px 2px black;
+}
+ .app-describe p {
+     font-size: 25px;
+ }
+
+.app-describe {
+    padding-top: 10px;
+}
+
+.app-image {
+    float: left;
+    padding-right: 60px;
+}
+
+.app-img-text {
+    padding-top: 100px;
+    padding-left: 200px;
+}
