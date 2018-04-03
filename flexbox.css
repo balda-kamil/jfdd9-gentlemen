@@ -32,7 +32,10 @@
     transform: rotate(180deg);
 }
 
-.zdjecie-jarek, .zdjecie-kuba, .zdjecie-kamil, .zdjecie-patryk {
+.zdjecie-jarek {
+	background-image: url("img/figi2.jpg");
+}
+.zdjecie-kuba, .zdjecie-kamil, .zdjecie-patryk {
     background-image: url("img/talib.png");
 }
 

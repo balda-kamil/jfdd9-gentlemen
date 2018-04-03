@@ -34,14 +34,33 @@ nav ul {
 nav li {
     display: inline-block;
 }
-nav a {
+nav li a {
     display: block;
     padding: 5px 10px;
     border-radius: 5px;
     transition: 0.6s;
 }
-nav a:hover {
+nav li a:hover {
     color: #d62261;
+    background-color: #f8f9fa;
+}
+.button {
+    display: none;
+    float: right;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.6s;
+}
+.line {
+    background-color: #eb91b0;
+    width: 30px;
+    height: 4px;
+    margin: 4px;
+}
+.button:hover > .line {
+    background-color: #d62261;
+}
+.button:hover {
     background-color: #f8f9fa;
 }
 
@@ -140,4 +159,14 @@ a {
 }
 .font-10em {
     font-size: 1.0em;
+}
+
+@media screen and (max-width: 768px) {
+    .menu {
+	      display: none;
+    }
+    .button {
+        display: inline-block;
+        cursor: pointer;
+    }
 }
