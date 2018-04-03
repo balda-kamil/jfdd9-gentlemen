@@ -20,39 +20,35 @@ nav {
     right: 0;
     z-index: 100;
 }
-nav p {
+nav img {
     padding: 5px;
     display: block;
     float: left;
+    height: 23px;
+    width: auto;
 }
 nav ul {
     list-style-type: none;
+    float: right;
 }
 nav li {
     display: inline-block;
-    float: right;
 }
 nav a {
     display: block;
     padding: 5px 10px;
-    transition: 0.3s;
+    border-radius: 5px;
+    transition: 0.6s;
 }
 nav a:hover {
-    color: #ffffff;
-}
-
-/* ... header ... */
-header {
-    top: 78px;
-    position: relative;
-    padding: 3em 0;
-    height: 400px;
+    color: #d62261;
+    background-color: #f8f9fa;
 }
 
 /* ... container ... */
 .container {
     margin: 0 auto;
-    width: 1024px;}
+    max-width: 1024px;}
 
 main {
     height: 2768px;
