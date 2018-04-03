@@ -52,26 +52,27 @@
     text-align: center;
 }
 
+/*
 .hero span {
     text-decoration: underline;
-}
+}*/
 
 .hero-newsletter {
     text-align: center;
     margin: 30px auto;
 }
 
-.hero-newsletter a:link {
+.hero-newsletter a:link, .hero-newsletter a:visited {
     padding: 2px 4px;
     text-decoration: none;
-    font-weight: bolder;
-    color:white;
-    border: white solid 2px;
+/*    font-weight: bolder;*/
+    color: #f8f9fa;
+    border: #f8f9fa solid 2px;
     border-radius: 4px;
     transition: 0.6s;
 }
 
 .hero-newsletter a:hover {
     color: #D62261;
-    background-color: white;
+    background-color: #f8f9fa;
 }
