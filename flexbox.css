@@ -1,0 +1,57 @@
+
+
+.flexcontainer {
+    padding: 3px;
+    margin: 5px;
+    border: 1px solid #f8f9fa;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:row;
+
+}
+
+.team-pole {
+    width: 600px;
+    border: 5px solid #c01e5c;
+    margin: 3px;
+    display: flex;
+
+
+
+}
+
+.zdjecie {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid #f8f9fa;
+    margin: 5px;
+    background-size: cover;
+    transition: transform 1s;
+}
+
+.zdjecie:hover {
+    border-color: white;
+    transform: rotate(180deg);
+}
+
+.zdjecie-jarek, .zdjecie-kuba, .zdjecie-kamil, .zdjecie-patryk {
+    background-image: url("img/talib.png");
+}
+
+
+.person {
+    height:150px;
+    width:450px;
+    border: 1px solid #f8f9fa;
+    margin: 5px;
+}
+
+@media (min-width: 760px) {
+    .flex-container{
+        flex-direction:column;
+    }
+
+}
