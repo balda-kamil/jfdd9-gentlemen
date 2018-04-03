@@ -33,13 +33,9 @@
 .hero-img-title {
     width: 650px;
     margin: 0 auto;
-
-
-
 }
 .hero-image {
     float: left;
-
 }
 
 .clear-fix{
@@ -74,7 +70,6 @@
     border-radius: 4px;
     transition: 0.6s;
 }
-
 
 .hero-newsletter a:hover {
     color: #D62261;
