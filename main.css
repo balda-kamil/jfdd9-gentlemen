@@ -2,145 +2,184 @@
 
 /* ... reset ... */
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
+	background-color: #f8f9fa;
+	color: #222529;
 }
 
 /* ... navigation ... */
 nav {
-    padding: 20px;
-    overflow: hidden;
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 100;
+	padding: 20px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 100;
 }
 nav p {
-    padding: 5px;
-    display: block;
-    float: left;
+	padding: 5px;
+	display: block;
+	float: left;
 }
 nav ul {
-    list-style-type: none;
+	list-style-type: none;
+	float: right;
 }
 nav li {
-    display: inline-block;
-    float: right;
+	display: inline-block;
 }
 nav a {
-    display: block;
-    padding: 5px 10px;
-    transition: 0.3s;
+	display: block;
+	padding: 0 8px;
+	border: 2px solid #d62261;
+	border-radius: 5px;
 }
 nav a:hover {
-    color: #ffffff;
+	color: #d62261;
+	background-color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+a {
+	text-decoration: none;
+}
+a {
+	transition: 0.4s;
 }
 
 /* ... header ... */
+.spacer {
+	height: 68px;
+}
 header {
-    top: 78px;
-    position: relative;
-    padding: 3em 0;
-    height: 400px;
+	position: relative;
+	padding: 5em 0;
+}
+header p {
+	margin: 10px;
+}
+
+/* ... other ... */
+main {
+	position: relative;
+	height: 2000px;
+}
+h1 {
+	padding: 1em;
+}
+
+.subscribe {
+	color: #c01e5c;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 0 7px;
+}
+.subscribe:hover {
+	color: white;
+	background-color: #c01e5c;
 }
 
 /* ... container ... */
 .container {
-    margin: 0 auto;
-    width: 1024px;}
-
-main {
-    height: 2768px;
+	margin: 0 auto;
+	max-width: 1024px;
 }
 
-h1 {
-    font-size: 3em;
-    padding: 10px;
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-}
-
+/* =================== */
 /* ... text colors ... */
 .tx-body {
-    color: #222529;
+	color: #222529;
 }
 .tx-grey {
-    color: #999999;
+	color: #999999;
 }
 .tx-section {
-    color: #d62261;
+	color: #d62261;
 }
 .tx-menu {
-    color: #eb91b0;
+	color: #eb91b0;
 }
 .tx-banner {
-    color: #fd81ab;
+	color: #fd81ab;
 }
 .tx-white {
-    color: #ffffff;
+	color: #ffffff;
 }
 
 /* ... background colors ... */
 .bg-body {
-    background-color: #f8f9fa;
+	background-color: #f8f9fa;
 }
 .bg-menu {
-    background-color: #d62261;
+	background-color: #d62261;
 }
 .bg-banner {
-    background-color: #c01e5c;
-    background: linear-gradient(#d62261, #c01e5c);
+	background-color: #c01e5c;
+	background: linear-gradient(#d62261, #c01e5c);
 }
 .bg-white {
-    background-color: #ffffff;
+	background-color: #ffffff;
 }
 
 /* ... font weight ... */
 .weight-300 {
-    font-weight: 300;
+	font-weight: 300;
 }
 .weight-400 {
-    font-weight: 400;
+	font-weight: 400;
 }
 .weight-500 {
-    font-weight: 500;
+	font-weight: 500;
 }
 .weight-700 {
-    font-weight: 700;
+	font-weight: 700;
 }
 .weight-900 {
-    font-weight: 900;
+	font-weight: 900;
 }
 
 /* ... font size ... */
 .font-30em {
-    font-size: 3.0em;
+	font-size: 3.0em;
 }
 .font-25em {
-    font-size: 2.5em;
+	font-size: 2.5em;
 }
 .font-20em {
-    font-size: 2.0em;
+	font-size: 2.0em;
 }
 .font-15em {
-    font-size: 1.5em;
+	font-size: 1.5em;
 }
 .font-13em {
-    font-size: 1.3em;
+	font-size: 1.3em;
 }
 .font-12em {
-    font-size: 1.2em;
+	font-size: 1.2em;
 }
 .font-11em {
-    font-size: 1.1em;
+	font-size: 1.1em;
 }
 .font-10em {
-    font-size: 1.0em;
+	font-size: 1.0em;
+}
+
+/* ... clear-fix ... */
+.clear-fix {
+	clear: both;
+}
+
+.tx-center {
+	text-align: center;
+}
+.tx-left {
+	text-align: left;
+}
+.tx-right {
+	text-align: right;
 }
