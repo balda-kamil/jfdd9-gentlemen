@@ -3,17 +3,6 @@ body {
 
 }
 
-.hero {
-    font-family: Arial, sans-serif;
-    color: black;
-    margin: 30px;
-    height: 640px;
-    width: 1200px;
-    background-image: url("img/clipboard-list.png");
-    background-size: 50px;
-    opacity: 0.4;
-}
-
 .app-describe h1 {
     font-size: 60px;
     font-weight: bolder;
@@ -36,4 +25,64 @@ body {
 .app-img-text {
     padding-top: 100px;
     padding-left: 200px;
+}
+
+.hero {
+
+    margin: 78px auto ;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    background-image: url("img/clipboard-list.png");
+    background-size: 30px;
+}
+
+.hero-img-title {
+    width: 650px;
+    margin: 0 auto;
+
+
+
+}
+.hero-image {
+    float: left;
+
+}
+
+.clear-fix{
+    clear: both;
+}
+
+.hero-title {
+    padding-top: 45px;
+}
+
+.hero-describe {
+    width: 720px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.hero span {
+    text-decoration: underline;
+}
+
+.hero-newsletter {
+    text-align: center;
+    margin: 30px auto;
+}
+
+.hero-newsletter a:link {
+    padding: 2px 4px;
+    text-decoration: none;
+    font-weight: bolder;
+    color:white;
+    border: white solid 2px;
+    border-radius: 4px;
+    transition: 0.6s;
+}
+
+
+.hero-newsletter a:hover {
+    color: #D62261;
+    background-color: white;
 }
