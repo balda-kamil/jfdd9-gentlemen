@@ -7,7 +7,7 @@
 }
 
 .form-field:hover{
-    box-shadow: 0px 17px 45px -8px rgba(217,217,217,0.87);
+    box-shadow: 0 17px 45px -8px rgba(217,217,217,0.87);
 }
 
 .form-sec{
@@ -37,7 +37,7 @@
     font-weight: bold;
     font-family: Roboto, sans-serif;
     padding: 15px;
-    text-shadow: 0px 17px 45px -8px rgba(217,217,217,0.87);
+    text-shadow: 0 17px 45px -8px rgba(217,217,217,0.87);
 }
 
 
@@ -57,17 +57,23 @@
     border-color: #ff4081;
     box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.15);
     transition: 350ms ease all;
+    outline: 0;
+}
+
+.btn:focus{
+    outline: 0;
 }
 
 
 
 
 .inp-field{
+    box-sizing: border-box;
     width: 200px;
     height: 30px;
     border-radius: 0;
     outline: 0;
-    padding-left: 15px;
+    text-align: center;
     outline-offset: 0;
     border: 1px solid #eee;
     /* dodabox sizing border box eby border sie wlicza w szeroko elementu*/
@@ -75,7 +81,8 @@
 }
 
 .inp-field:focus{
-   border-left: 4px solid #ff4081;
+    border-left: 2px solid #ff4081;
+    border-right: 2px solid #ff4081;
 
 
 }
