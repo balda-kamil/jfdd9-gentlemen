@@ -1,27 +1,4 @@
 
-h1 {
-    text-align: center;
-    letter-spacing: 5px;
-    margin-top: 20px;
-    margin-bottom: 0;
-}
-
-h2 {
-    text-align: center;
-}
-
-p {
-    text-align: center;
-}
-
-a {
-    text-align: center;
-    font-size: 24px;
-}
-
-a:link, a:visited {
-    color: #E9B64A;
-}
 
 .flexcontainer {
     padding: 3px;
