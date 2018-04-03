@@ -1,34 +1,36 @@
 .flexcontainer {
     width: 100%;
-    padding: 3px;
-    margin: 5px;
-/*    border: 1px solid #f8f9fa;*/
-    display:flex;
-    flex-wrap:wrap;
+/*    padding: 3px;*/
+/*    margin: 5px;*/
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    flex-direction:row;
+    align-items: start;
+    flex-direction: row;
 }
 
 .team-pole {
-    width: 500px;
-/*    border: 5px solid #c01e5c;*/
-    margin: 3px;
+    width: calc(50% - 20px);
+    margin: 5px auto;
+    padding: 5px;
     display: flex;
+    transition: 0.3s;
+}
+
+.team-pole:hover {
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.15);
 }
 
 .zdjecie {
     width: 130px;
     height: 130px;
     border-radius: 50%;
-/*    border: 1px solid #f8f9fa;*/
     margin: 5px;
     background-size: cover;
     transition: transform 1s;
 }
 
 .zdjecie:hover {
- /*   border-color: white;*/
     transform: rotate(180deg);
 }
 
@@ -37,14 +39,20 @@
 }
 
 .person {
-    height:150px;
-    width:350px;
- /*   border: 1px solid #f8f9fa;*/
-    margin: 5px;
+    width: calc(100% - 150px);
+    margin: 5px 5px 0 5px;
 }
 
-@media (min-width: 760px) {
-    .flex-container{
-        flex-direction:column;
+.person p, .person h2 {
+	padding-bottom: 10px;
+}
+
+@media (max-width: 1022px) {
+    .flexcontainer {
+        flex-direction: column;
+	      justify-content: center;
+    }
+    .team-pole {
+        width: 70%;
     }
 }

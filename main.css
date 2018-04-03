@@ -29,10 +29,10 @@ nav img {
 }
 nav ul {
     list-style-type: none;
+    float: right;
 }
 nav li {
     display: inline-block;
-    float: right;
 }
 nav a {
     display: block;
@@ -40,7 +40,8 @@ nav a {
     transition: 0.3s;
 }
 nav a:hover {
-    color: #ffffff;
+    color: #fff;
+
 }
 
 /* ... header ... */
@@ -54,7 +55,7 @@ header {
 /* ... container ... */
 .container {
     margin: 0 auto;
-    width: 1024px;}
+    max-width: 1024px;}
 
 main {
     height: 2768px;
