@@ -24,7 +24,7 @@
 .form-div {
     margin: auto;
     width: 1024px;
-    padding: 10px;
+    padding: 10px 0 10px 0;
     text-align: center;
     background-color: #fafafa;
 }
@@ -90,6 +90,15 @@
 .btn-name-field{
     margin-bottom: 10px;
 
+}
+
+.thx {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    padding: 15px;
+    text-align: center;
+    color: #d62261;
 }
 
 
