@@ -15,6 +15,7 @@ nav {
     padding: 20px;
     overflow: hidden;
     position: fixed;
+    top:0;
     left: 0;
     right: 0;
     z-index: 100;
@@ -93,7 +94,7 @@ a {
 .bg-banner {
     background-color: #c01e5c;
     background: linear-gradient(#d62261, #c01e5c);
-}
+    }
 .bg-white {
     background-color: #ffffff;
 }
