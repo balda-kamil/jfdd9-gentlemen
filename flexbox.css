@@ -1,13 +1,34 @@
-body {
-    font-family: sans-serif;
+
+h1 {
+    text-align: center;
+    letter-spacing: 5px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-family: Arial, sans-serif;
+    color:#c01e5c;
 }
 
+h2 {
+    text-align: center;
+}
 
+p {
+    text-align: center;
+}
+
+a {
+    text-align: center;
+    font-size: 24px;
+}
+
+a:link, a:visited {
+    color: #E9B64A;
+}
 
 .flexcontainer {
     padding: 3px;
     margin: 5px;
-    border: 1px solid red;
+    border: 1px solid #f8f9fa;
     display:flex;
     flex-wrap:wrap;
     justify-content: space-around;
@@ -16,9 +37,9 @@ body {
 
 }
 
-.pole {
+.team-pole {
     width: 600px;
-    border: 1px solid blue;
+    border: 5px solid #c01e5c;
     margin: 3px;
     display: flex;
 
@@ -30,15 +51,27 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 1px solid black;
-    margin: 1px;
+    border: 1px solid #f8f9fa;
+    margin: 5px;
+    background-size: cover;
+    transition: transform 1s;
 }
+
+.zdjecie:hover {
+    border-color: white;
+    transform: rotate(180deg);
+}
+
+.zdjecie-jarek, .zdjecie-kuba, .zdjecie-kamil, .zdjecie-patryk {
+    background-image: url("img/talib.png");
+}
+
 
 .person {
     height:150px;
     width:450px;
-    border: 1px solid black;
-    margin-left: 5px;
+    border: 1px solid #f8f9fa;
+    margin: 5px;
 }
 
 @media (min-width: 760px) {
