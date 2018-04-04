@@ -162,12 +162,25 @@ a {
     font-size: 1.0em;
 }
 
+input[type=checkbox]{
+    display: none;
+}
+input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
+
 @media screen and (max-width: 820px) {
     .menu {
+        position: static;
 	      display: none;
     }
     .button {
         display: inline-block;
         cursor: pointer;
+    }
+    ul li, li a {
+        width: 100%;
+        text-align: center;
+        right: 30px;
     }
 }
