@@ -76,3 +76,105 @@
     color: #D62261;
     background-color: #f8f9fa;
 }
+
+.form-field {
+    width: 450px;
+    margin: auto;
+    padding: 30px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+.form-field:hover{
+    box-shadow: 0px 10px 35px -10px rgba(0,0,0,0.75);
+}
+
+.form-sec{
+    color: #999999;
+    font-size: smaller;
+    transition: color 2s;
+}
+
+.form-sec:hover {
+    color: black;
+    transition: color  2s;
+}
+
+.form-div {
+    margin: auto;
+    width: 1024px;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+
+
+
+.form-zapro{
+    font-size: 26px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    padding: 15px;
+    text-shadow: 0 17px 45px -8px rgba(217,217,217,0.87);
+    width: 450px;
+    margin: auto;
+}
+
+
+/* this code below is strongly integrated with button - please don't change it - thanks!*/
+.btn {
+    color: #fff;
+    font-family: Rubic, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 200px;
+    margin: 10px;
+    background-color: #ff4081;
+    border-color: #ff4081;
+    box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.15);
+    transition: 350ms ease all;
+    outline: 0;
+}
+
+.btn:focus{
+    outline: 0;
+}
+
+.inp-field{
+    box-sizing: border-box;
+    width: 200px;
+    height: 30px;
+    border-radius: 0;
+    outline: 0;
+    text-align: center;
+    outline-offset: 0;
+    border: 1px solid #eee;
+    /* dodabox sizing border box eby border sie wlicza w szeroko elementu*/
+
+}
+
+.inp-field:focus{
+    border-left: 2px solid #ff4081;
+    border-right: 2px solid #ff4081;
+
+
+}
+
+.btn-name-field{
+    margin-bottom: 10px;
+
+}
+
+.thx {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    padding: 15px;
+    text-align: center;
+    color: #d62261;
+}
