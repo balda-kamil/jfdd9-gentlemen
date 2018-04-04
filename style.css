@@ -23,7 +23,7 @@
 }
 
 .hero {
-    margin: 73px auto ;
+    margin: 73px auto;
     padding-bottom: 100px;
     padding-top: 100px;
     background-image: url("img/clipboard-list.png");
@@ -52,11 +52,6 @@
     text-align: center;
 }
 
-/*
-.hero span {
-    text-decoration: underline;
-}*/
-
 .hero-newsletter {
     text-align: center;
     margin: 30px auto;
@@ -65,7 +60,6 @@
 .hero-newsletter a:link, .hero-newsletter a:visited {
     padding: 2px 4px;
     text-decoration: none;
-/*    font-weight: bolder;*/
     color: #f8f9fa;
     border: #f8f9fa solid 2px;
     border-radius: 4px;
@@ -90,7 +84,6 @@
 }
 
 .form-sec{
-/*    color: #999999;*/
     font-size: smaller;
     transition: color 2s;
 }
@@ -113,7 +106,7 @@
     margin: auto;
 }
 
-/* this code below is strongly integrated with button - please don't change it - thanks!*/
+/* this code below is strongly integrated with button - please don't change it - thanks! */
 .btn {
     color: #fff;
     font-family: Rubic, sans-serif;
@@ -125,7 +118,6 @@
     cursor: pointer;
     width: 200px;
     margin: 10px;
-/*    background-color: #ff4081;*/
     border-color: #ff4081;
     box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.15);
     transition: 350ms ease all;
