@@ -52,6 +52,7 @@ nav li a:hover {
     transition: 0.3s;
 }
 .line {
+    display: block;
     background-color: #eb91b0;
     width: 30px;
     height: 4px;
@@ -161,7 +162,7 @@ a {
     font-size: 1.0em;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 820px) {
     .menu {
 	      display: none;
     }
