@@ -38,7 +38,7 @@ nav li a {
     display: block;
     padding: 5px 10px;
     border-radius: 5px;
-    transition: 0.6s;
+    transition: 0.3s;
 }
 nav li a:hover {
     color: #d62261;
@@ -49,9 +49,10 @@ nav li a:hover {
     float: right;
     padding: 5px 10px;
     border-radius: 5px;
-    transition: 0.6s;
+    transition: 0.3s;
 }
 .line {
+    display: block;
     background-color: #eb91b0;
     width: 30px;
     height: 4px;
@@ -161,7 +162,7 @@ a {
     font-size: 1.0em;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 820px) {
     .menu {
 	      display: none;
     }
