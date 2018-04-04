@@ -12,6 +12,7 @@
     margin: 10px auto;
     padding: 5px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     transition: 0.3s;
 }
@@ -71,4 +72,15 @@
     .team-pole {
         width: 90%;
     }
+}
+
+@media (max-width: 414px) {
+    .team-pole {
+	      flex-direction: column;
+        justify-content: center;
+    }
+	.person {
+		width: 100%;
+		text-align: center;
+	}
 }

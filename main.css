@@ -65,6 +65,12 @@ nav li a:hover {
     background-color: #f8f9fa;
 }
 
+/* ... footer ... */
+footer {
+    margin-top: 5em;
+    height: 300px;
+}
+
 /* ... container ... */
 .container {
     margin: 0 auto;
@@ -114,6 +120,9 @@ a {
 }
 .bg-white {
     background-color: #ffffff;
+}
+.bg-footer {
+    background-color: #222529;;
 }
 
 /* ... font weight ... */

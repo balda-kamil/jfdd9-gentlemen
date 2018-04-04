@@ -40,12 +40,11 @@
     background-color: #f8f9fa;
 }
 
-/* ... PREMIERA ... */
+/* ... FORMULARZ ... */
 .form-field {
-    width: 450px;
+    max-width: 550px;
     margin: auto;
-    padding: 30px;
-    background-color: #fff;
+    padding: 20px;
     transition: 0.3s;
 }
 
@@ -54,7 +53,7 @@
 }
 
 .form-sec{
-    font-size: smaller;
+    padding-top: 30px;
     transition: color 2s;
 }
 
@@ -66,28 +65,24 @@
 .form-div {
     padding-top: 3em;
     text-align: center;
-    background-color: #fafafa;
 }
 
 .form-zapro{
-    padding: 15px;
-    text-shadow: 0 17px 45px -8px rgba(217,217,217,0.87);
-    width: 450px;
-    margin: auto;
+    padding-bottom: 30px;
 }
 
 /* this code below is strongly integrated with button - please don't change it - thanks! */
 .btn {
     color: #fff;
     font-family: Rubic, sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
     padding: 10px;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
-    width: 200px;
-    margin: 10px;
+    width: 280px;
+    margin-top: 10px;
     border-color: #ff4081;
     box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.15);
     transition: 350ms ease all;
@@ -105,14 +100,14 @@
 
 .inp-field{
     box-sizing: border-box;
-    width: 200px;
-    height: 30px;
+    width: 280px;
+    height: 40px;
     border-radius: 0;
     outline: 0;
     text-align: center;
     outline-offset: 0;
     border: 1px solid #eee;
-    /* dodabox sizing border box eby border sie wlicza w szeroko elementu*/
+    /* doda box sizing border box zeby border sie wliczal w szerokosc elementu*/
 }
 
 .inp-field:focus{
@@ -145,5 +140,13 @@
     }
     .hero-describe {
         font-size: 1.7em;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .hero-newsletter a {
+        display: block;
+        width: 110px;
+        margin: 0 auto;
     }
 }
