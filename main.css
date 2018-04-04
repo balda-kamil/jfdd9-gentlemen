@@ -134,6 +134,9 @@ a {
 }
 
 /* ... font size ... */
+.font-50em {
+    font-size: 5.0em;
+}
 .font-30em {
     font-size: 3.0em;
 }
