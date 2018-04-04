@@ -3,11 +3,11 @@
     margin: auto;
     padding: 30px;
     background-color: #fff;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .form-field:hover{
-    box-shadow: 0 17px 45px -8px rgba(217,217,217,0.87);
+    box-shadow: 0px 10px 35px -10px rgba(0,0,0,0.75);
 }
 
 .form-sec{
@@ -38,6 +38,8 @@
     font-family: Roboto, sans-serif;
     padding: 15px;
     text-shadow: 0 17px 45px -8px rgba(217,217,217,0.87);
+    width: 450px;
+    margin: auto;
 }
 
 
@@ -63,9 +65,6 @@
 .btn:focus{
     outline: 0;
 }
-
-
-
 
 .inp-field{
     box-sizing: border-box;
