@@ -20,39 +20,54 @@ nav {
     right: 0;
     z-index: 100;
 }
-nav p {
+nav img {
     padding: 5px;
     display: block;
     float: left;
+    height: 23px;
+    width: auto;
 }
 nav ul {
     list-style-type: none;
+    float: right;
 }
 nav li {
     display: inline-block;
-    float: right;
 }
-nav a {
+nav li a {
     display: block;
     padding: 5px 10px;
-    transition: 0.3s;
+    border-radius: 5px;
+    transition: 0.6s;
 }
-nav a:hover {
-    color: #ffffff;
+nav li a:hover {
+    color: #d62261;
+    background-color: #f8f9fa;
 }
-
-/* ... header ... */
-header {
-    top: 78px;
-    position: relative;
-    padding: 3em 0;
-    height: 400px;
+.button {
+    display: none;
+    float: right;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.6s;
+}
+.line {
+    background-color: #eb91b0;
+    width: 30px;
+    height: 4px;
+    margin: 4px;
+}
+.button:hover > .line {
+    background-color: #d62261;
+}
+.button:hover {
+    background-color: #f8f9fa;
 }
 
 /* ... container ... */
 .container {
     margin: 0 auto;
-    width: 1024px;}
+    max-width: 1024px;}
 
 main {
     height: 2768px;
@@ -144,4 +159,14 @@ a {
 }
 .font-10em {
     font-size: 1.0em;
+}
+
+@media screen and (max-width: 768px) {
+    .menu {
+	      display: none;
+    }
+    .button {
+        display: inline-block;
+        cursor: pointer;
+    }
 }

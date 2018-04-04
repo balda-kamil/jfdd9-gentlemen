@@ -1,58 +1,67 @@
-
-
-
 .flexcontainer {
-    padding: 3px;
-    margin: 5px;
-    border: 1px solid #f8f9fa;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction:row;
-
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    flex-direction: row;
 }
 
 .team-pole {
-    width: 600px;
-    border: 5px solid #c01e5c;
-    margin: 3px;
+    width: calc(50% - 30px);
+    margin: 10px auto;
+    padding: 5px;
     display: flex;
+    transition: 0.3s;
+}
 
-
-
+.team-pole:hover {
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.15);
 }
 
 .zdjecie {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 1px solid #f8f9fa;
     margin: 5px;
     background-size: cover;
-    transition: transform 1s;
+    transition: transform 0.6s;
 }
 
 .zdjecie:hover {
-    border-color: white;
     transform: rotate(180deg);
 }
 
-.zdjecie-jarek, .zdjecie-kuba, .zdjecie-kamil, .zdjecie-patryk {
+.zdjecie-jarek {
+	background-image: url("img/figi2.jpg");
+}
+.zdjecie-kuba, .zdjecie-kamil, .zdjecie-patryk {
     background-image: url("img/talib.png");
 }
 
-
 .person {
-    height:150px;
-    width:450px;
-    border: 1px solid #f8f9fa;
-    margin: 5px;
+    width: calc(100% - 150px);
+    margin: 5px 5px 0 5px;
 }
 
-@media (min-width: 760px) {
-    .flex-container{
-        flex-direction:column;
-    }
+.person a {
+    transition: 0.6s;
+}
 
+.person a:hover {
+    color: #d62261;
+}
+
+.person p, .person h2 {
+    padding-bottom: 10px;
+}
+
+@media (max-width: 1022px) {
+    .flexcontainer {
+        flex-direction: column;
+	      justify-content: center;
+    }
+    .team-pole {
+        width: 70%;
+    }
 }
