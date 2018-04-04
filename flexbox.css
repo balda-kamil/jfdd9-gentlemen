@@ -66,3 +66,9 @@
         width: 70%;
     }
 }
+
+@media screen and (max-width: 820px) {
+    .team-pole {
+        width: 90%;
+    }
+}
