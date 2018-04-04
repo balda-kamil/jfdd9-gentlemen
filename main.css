@@ -54,7 +54,7 @@ nav li a:hover {
 .line {
     display: block;
     background-color: #eb91b0;
-    width: 30px;
+    width: 24px;
     height: 4px;
     margin: 4px;
 }
@@ -68,10 +68,7 @@ nav li a:hover {
 /* ... container ... */
 .container {
     margin: 0 auto;
-    max-width: 1024px;}
-
-main {
-    height: 2768px;
+    max-width: 1024px;
 }
 
 h1 {
@@ -181,6 +178,11 @@ input[type=checkbox]:checked ~ #menu{
     ul li, li a {
         width: 100%;
         text-align: center;
-        right: 30px;
+    }
+    nav li a {
+        padding: 5px 0;
+    }
+    nav ul {
+        float: none;
     }
 }
