@@ -45,7 +45,7 @@
 }
 
 .person a {
-    transition: 0.6s;
+    transition: 0.3s;
 }
 
 .person a:hover {

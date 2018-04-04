@@ -69,7 +69,7 @@
     color: #f8f9fa;
     border: #f8f9fa solid 2px;
     border-radius: 4px;
-    transition: 0.6s;
+    transition: 0.3s;
 }
 
 .hero-newsletter a:hover {
@@ -86,11 +86,11 @@
 }
 
 .form-field:hover{
-    box-shadow: 0px 10px 35px -10px rgba(0,0,0,0.75);
+    box-shadow: 0 10px 35px -10px rgba(0,0,0,0.75);
 }
 
 .form-sec{
-    color: #999999;
+/*    color: #999999;*/
     font-size: smaller;
     transition: color 2s;
 }
@@ -101,26 +101,17 @@
 }
 
 .form-div {
-    margin: auto;
-    width: 1024px;
-    padding: 10px 0 10px 0;
+    padding-top: 3em;
     text-align: center;
     background-color: #fafafa;
 }
 
-
-
-
 .form-zapro{
-    font-size: 26px;
-    font-weight: bold;
-    font-family: Roboto, sans-serif;
     padding: 15px;
     text-shadow: 0 17px 45px -8px rgba(217,217,217,0.87);
     width: 450px;
     margin: auto;
 }
-
 
 /* this code below is strongly integrated with button - please don't change it - thanks!*/
 .btn {
@@ -134,11 +125,16 @@
     cursor: pointer;
     width: 200px;
     margin: 10px;
-    background-color: #ff4081;
+/*    background-color: #ff4081;*/
     border-color: #ff4081;
     box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.15);
     transition: 350ms ease all;
     outline: 0;
+}
+
+.btn:hover {
+    background-color: #f8f9fa;
+    color: #d62261;
 }
 
 .btn:focus{
@@ -155,19 +151,15 @@
     outline-offset: 0;
     border: 1px solid #eee;
     /* dodabox sizing border box eby border sie wlicza w szeroko elementu*/
-
 }
 
 .inp-field:focus{
     border-left: 2px solid #ff4081;
     border-right: 2px solid #ff4081;
-
-
 }
 
 .btn-name-field{
     margin-bottom: 10px;
-
 }
 
 .thx {
