@@ -73,11 +73,15 @@ nav span a:hover {
 .button:hover {
     background-color: #f8f9fa;
 }
+.active {
+    color: #d62261;
+    background-color: #f8f9fa;
+}
 
 /* ... footer ... */
 footer {
     margin-top: 5em;
-    height: 300px;
+    height: 200px;
 }
 
 /* ... container ... */

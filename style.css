@@ -33,7 +33,7 @@
     color: #f8f9fa;
     border: #f8f9fa solid 2px;
     border-radius: 4px;
-    transition: 0.3s;
+    transition: color 0.3s;
 }
 .hero-newsletter a:hover {
     color: #d62261;
