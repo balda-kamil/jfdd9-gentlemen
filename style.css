@@ -143,10 +143,10 @@
     }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 550px) {
     .hero-newsletter a {
         display: block;
-        width: 110px;
+        width: 120px;
         margin: 0 auto;
     }
 }
