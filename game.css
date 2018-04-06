@@ -5,7 +5,7 @@
 	text-align: center;
 }
 
-.start {
+.game-start {
 	display: none;
 	width: 10rem;
 	height: 10rem;
@@ -14,15 +14,15 @@
 	position: absolute;
 	margin: 15rem;
 }
-.start:hover {
+.game-start:hover {
 	color: #d62261;
 	background-color: white;
 }
 
-button {
+button, .game-task {
 	border: none;
 }
-button:hover {
+button:hover, .game-task:hover {
 	cursor: pointer;
 }
 
@@ -33,21 +33,21 @@ button:hover {
 	border: 2px solid #d62261;
 }
 
-.score {
+.game-score {
 	width: 100%;
 	height: 2.8rem;
 	border-bottom: 1px solid #999999;
 	display: flex;
 	justify-content: space-around;
 }
-.time-span, .money-span, .points-span {
+.game-time-span, .game-money-span, .game-points-span {
 	padding: 0.5rem;
 }
-.time, .money, .points {
+.game-time, .game-money, .game-points {
 	font-weight: 700;
 }
 
-.instruction {
+.game-instruction {
 	display: none;
 	position: absolute;
 	border: 1px solid #d62261;
@@ -56,20 +56,20 @@ button:hover {
 	margin-left: 5rem;
 	margin-top: 1rem;
 }
-.instruction p {
+.game-instruction p {
 	margin: 1rem;
 	text-align: center;
 }
 
-.board {
+.game-board {
 	width: 100%;
 	height: 37.2rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 }
-.task {
+.game-task {
 	margin: 1rem;
 	width: 8rem;
 	height: 8rem;
@@ -77,17 +77,18 @@ button:hover {
 	color: white;
 	background-color: #d62261;
 	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.task span {
-	display: block;
+.game-task-text {
+	text-align: center;
 }
-.task span:first-child {
+
+.game-task-text p:first-child {
 	border-bottom: 1px solid #f8f9fa;
 	padding-bottom: 0.3rem;
 }
-.task span:last-child {
+.game-task-text p:last-child {
 	padding-top: 0.3rem;
 }
-.task-0 {
-}
-
