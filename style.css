@@ -76,7 +76,7 @@
 /******************CSS sekcji NEW FUNCTION ******************************/
 
 .new-function {
-    padding-top: 3em;
+    padding-top: 3rem;
     text-align: center;
     width: 100%;
 }
@@ -85,13 +85,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .function-1, .function-2, .function-3, .function-4 {
-
     width: 220px;
-    margin: 0 0.1em;
+    margin: 0 0.5em;
 }
 
 
