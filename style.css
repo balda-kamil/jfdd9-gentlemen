@@ -87,7 +87,7 @@
     justify-content: center;
 }
 
-.function-1, .function-2, .function-3, .function-4 {
+.function {
     padding: 0.5em;
     width: 220px;
     margin: 0 0.5em;
@@ -95,7 +95,7 @@
 .describe-1, .describe-2, .describe-3, .describe-4 {
     text-align: justify;
 }
-.function-1:hover, .function-2:hover, .function-3:hover, .function-4:hover{
+.function:hover{
     box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.15);
 }
 
