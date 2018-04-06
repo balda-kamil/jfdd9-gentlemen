@@ -73,6 +73,27 @@
     padding-bottom: 30px;
 }
 
+/******************CSS sekcji NEW FUNCTION ******************************/
+
+.new-function {
+    padding-top: 3em;
+    text-align: center;
+    width: 100%;
+}
+.funkcje {
+    margin: 3em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.function-1, .function-2, .function-3, .function-4 {
+    width: 20%;
+}
+
+
+
+
 /* this code below is strongly integrated with button - please don't change it - thanks! */
 .btn {
     color: #fff;
