@@ -10,8 +10,31 @@ function task(points, price) {
 	task.appendChild(taskText);
 }
 
-var game_data = [1, 1200, 2, 1100, 3, 1000, 4, 900, 5, 800, 6, 700, 7, 600, 8, 500, 9, 400, 10, 300, 11, 200, 12, 100];
+var game_data = [
+	1,  1200,
+	2,  1100,
+	3,  1000,
+	4,  900,
+	5,  800,
+	6,  700,
+	7,  600,
+	8,  500,
+	9,  400,
+	10, 300,
+	11, 200,
+	12, 100
+];
 
+// pomieszanie tasków
+for (i = game_data.length; i > 0; i -= 2) {
+	var swap = Math.floor(Math.random() * i * 2);
+	var tmp = game_data[i];
+	game_data[i] = game_data[swap];
+	game_data[swap] = tmp;
+}
+
+// wyświetlenie tasków
 for (var i = 0; i < 24; i += 2) {
 	task(game_data[i], game_data[i + 1]);
 }
+
