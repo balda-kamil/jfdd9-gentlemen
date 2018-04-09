@@ -1,16 +1,17 @@
 function task(points, price) {
-	var wrapper = document.createElement('div');
-	var taskText = document.createElement('div');
+	var board = document.querySelector('.game-board');
+	var task = document.createElement('div');
+	board.appendChild(task);
+	task.classList.add('game-task');
 
+	var taskText = document.createElement('div');
 	taskText.classList.add('game-task-text');
 	taskText.innerHTML = '<p>$' + price + '</p><p>' + points + ' pkt</p>';
-
-	wrapper.appendChild(taskText);
-	return wrapper;
+	task.appendChild(taskText);
 }
 
-task(2, 100);
+var game_data = [1, 1200, 2, 1100, 3, 1000, 4, 900, 5, 800, 6, 700, 7, 600, 8, 500, 9, 400, 10, 300, 11, 200, 12, 100];
 
-var x = document.querySelector('.game-task-text');
-
-x.innerText = 'foo';
+for (var i = 0; i < 24; i += 2) {
+	task(game_data[i], game_data[i + 1]);
+}
