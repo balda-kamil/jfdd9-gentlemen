@@ -73,11 +73,20 @@ nav span a:hover {
 .button:hover {
     background-color: #f8f9fa;
 }
+.active {
+    color: #d62261;
+    background-color: #f8f9fa;
+}
 
 /* ... footer ... */
 footer {
     margin-top: 5em;
-    height: 300px;
+    padding-top: 1em;
+    padding-bottom: 2em;
+}
+footer p {
+    padding-top: 0.5em;
+    text-align: center;
 }
 
 /* ... container ... */
@@ -124,7 +133,7 @@ a {
     background-color: #d62261;
 }
 .bg-banner {
-    background-color: #c01e5c;
+    background: #c01e5c;
     background: linear-gradient(#d62261, #c01e5c);
 }
 .bg-white {
