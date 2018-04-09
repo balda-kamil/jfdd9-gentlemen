@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TASKMEN</title>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="flexbox.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
+            integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+            crossorigin="anonymous"></script>
+</head>
+<body class="bg-body">
+
+<nav class="bg-menu weight-500">
+  <span><a href="index.html" class="tx-menu font-15em"><i class="fas fa-edit"></i></a></span>
+	<label for="show-menu" class="show-menu button">
+		<span class="line"></span>
+		<span class="line"></span>
+		<span class="line"></span>
+	</label>
+	<input type="checkbox" id="show-menu" role="button">
+    <ul id="menu" class="menu font-12em weight-400">
+        <li><a href="#" class="tx-menu">O produkcie</a></li>
+        <li><a href="#team" class="tx-menu">Team</a></li>
+        <li><a href="#form-div" class="tx-menu">Zapis na premierę</a></li>
+        <li><a href="#" class="tx-menu">Planowane funkcje</a></li>
+        <li><a href="#contact" class="tx-menu">Kontakt</a></li>
+    </ul>
+</nav>
+
+<div class="bg-banner tx-white">
+    <div class="hero">
+        <div class="container section1">
+            <div class="hero-img-title">
+                <img class="hero-image" src="img/edit.png" alt="brand logo">
+                <h1 class="hero-title font-50em weight-700">TASKMEN <i class="fas fa-check"></i></h1>
+            </div>
+            <p class="hero-describe font-20em weight-300">Probably the best <span class="weight-700">list-to-do</span> app in the World!<br/>Remember: true gentlemen never forget...</p>
+            <p class="hero-newsletter font-15em">Interested? <a href="#form-div">Subscribe</a> to our newsletter.</p>
+        </div>
+    </div>
+</div>
+
+<div id="team">
+    <div class="container section2">
+        <h1 class="tx-section">Poznaj nasz Team</h1>
+        <div class="flexcontainer">
+            <div class="team-pole bg-white">
+                <div class="zdjecie zdjecie-jarek"></div>
+                <div class ="person jarek">
+                    <h2 class="font-20em weight-400">Jarek</h2>
+                    <p class="font-12em">Jarek pracował w IT kiedy jeszcze nie było internetu ;)
+                        Jego login do poczty na wp to jarek@wp.pl.</p>
+                    <p class="font-12em"><a class="tx-grey" href ="https://www.google.pl" target='_blank'> <i class="fab fa-facebook-square"></i> </a><a href="https://www.google.pl" target='_blank' class="tx-grey"><i class="fas fa-envelope-square"></i></a></p>
+                </div>
+            </div>
+            <div class="team-pole bg-white">
+                <div class="zdjecie zdjecie-kuba"></div>
+                <div class="person kuba">
+                    <h2 class="font-20em weight-400">Kuba</h2>
+                    <p class="font-12em">Kuba siedzi obok Kamila i jest Gitarzystą :)
+                        To najbardziej usportowiony członek naszego zepołu.</p>
+                    <p class="font-12em"><a class="tx-grey" href ="https://www.google.pl" target='_blank'> <i class="fab fa-facebook-square"></i> </a><a href="https://www.google.pl" target='_blank' class="tx-grey"><i class="fas fa-envelope-square"></i></a></p>
+                </div>
+            </div>
+            <div class="team-pole bg-white">
+                <div class="zdjecie zdjecie-kamil"></div>
+                <div class="person kamil">
+                    <h2 class="font-20em weight-400">Kamil</h2>
+                    <p class="font-12em">Kamil lubi bawić się klockami ze swoim synem, wieczorami koduje, a później się dziwi, że jest niewyspany.</p>
+                    <p class="font-12em"><a class="tx-grey" href ="https://www.google.pl" target='_blank'> <i class="fab fa-facebook-square"></i> </a><a href="https://www.google.pl" target='_blank' class="tx-grey"><i class="fas fa-envelope-square"></i></a></p>
+                </div>
+            </div>
+            <div class="team-pole bg-white">
+                <div class="zdjecie zdjecie-patryk"></div>
+                <div class="person patryk">
+                    <h2 class="font-20em weight-400">Patryk</h2>
+                    <p class="font-12em">Skromność Patryka nie pozwala mu nic o sobie napisać ;)</p>
+                    <p class="font-12em"><a class="tx-grey" href ="https://www.google.pl" target='_blank'> <i class="fab fa-facebook-square"></i> </a><a href="https://www.google.pl" target='_blank' class="tx-grey"><i class="fas fa-envelope-square"></i></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="form-div"></div>
+<div class="form-div">
+    <div class="container section3">
+        <h1 class="tx-section">Zapis na premierę</h1>
+        <div class="form-field bg-white">
+            <form class="form-fields" method="POST" action="https://formspree.io/baldakamil@gmail.com">
+                <p class="form-zapro font-15em">Chcesz jako pierwszy dowiedzieć się o premierze naszego produktu?</p>
+                <div class="btn-name-field">
+                    <input type="name" class="inp-field font-11em" name="client-name" placeholder="Wpisz swoje imię">
+                </div>
+                <div class="btn-email-field">
+                    <input type="email" class="inp-field font-11em" name="client-email" placeholder="Wpisz Twój adres email">
+                </div>
+                <input type="hidden" name="_next" value="jfdd9-gentlemen/thanks.html"/>
+                <div class="btn2">
+                    <button type="submit" class="btn bg-menu">Zapisz się</button>
+                </div>
+            </form>
+            <p class="form-sec tx-grey">Możesz być spokojny o swoje dane, nie wykorzystjemy ich w celach marketingowych, nie sprzedajemy ich. Są one tylko dla naszej informacji!</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container section4" style="height: 700px; margin: 200px;">
+    <p class="font-15em">Planowane funkcje</p>
+    <p class="font-12em"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;123 456 789</p>
+    <p class="font-12em"><i class="fas fa-envelope"></i>&nbsp;&nbsp;imie.nazwisko@example.pl</p>
+</div>
+
+<footer id="contact" class="bg-footer tx-white">
+    <div class="container section5" style="height: 700px; margin: 200px;">
+        <p class="font-15em">Kontakt do zespołu</p>
+        <p class="font-12em"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;123 456 789</p>
+        <p class="font-12em"><i class="fas fa-envelope"></i>&nbsp;&nbsp;imie.nazwisko@example.pl</p>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>
