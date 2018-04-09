@@ -5,8 +5,15 @@
 	text-align: center;
 }
 
-.game-start {
+.display-none {
 	display: none;
+}
+.display-block {
+	display: block;
+}
+
+.game-start {
+//	display: none;
 	width: 10rem;
 	height: 10rem;
 	border: 2px solid #d62261;
@@ -48,7 +55,7 @@ button:hover, .game-task:hover {
 }
 
 .game-instruction {
-	display: none;
+//	display: none;
 	position: absolute;
 	border: 1px solid #d62261;
 	background-color: #ddd;
