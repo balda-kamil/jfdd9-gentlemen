@@ -16,20 +16,20 @@
 }
 
 .game-start {
-//	display: none;
 	width: 10rem;
 	height: 10rem;
-	border: 2px solid #d62261;
+	border: 1px solid #d62261;
 	border-radius: 50%;
 	position: absolute;
 	margin: 15rem;
+	z-index: 100;
 }
-.game-start:hover {
+.game-start:hover, .game-task:hover {
 	color: #d62261;
 	background-color: white;
 }
 
-button, .game-task {
+button {
 	border: none;
 }
 button:hover, .game-task:hover {
@@ -58,13 +58,13 @@ button:hover, .game-task:hover {
 }
 
 .game-instruction {
-//	display: none;
 	position: absolute;
 	border: 1px solid #d62261;
 	background-color: #ddd;
 	width: 30rem;
 	margin-left: 5rem;
 	margin-top: 1rem;
+	z-index: 100;
 }
 .game-instruction p {
 	margin: 1rem;
@@ -81,11 +81,12 @@ button:hover, .game-task:hover {
 }
 .game-task {
 	margin: 1rem;
-	width: 8rem;
-	height: 8rem;
+	width: 7.5rem;
+	height: 7.5rem;
 	font-size: 1.5rem;
 	color: white;
 	background-color: #d62261;
+	border: 1px solid #d62261;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
