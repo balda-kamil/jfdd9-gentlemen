@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>TASKMEN - subscription added</title>
-    <meta http-equiv="refresh" content="3;index.html" />
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TASKMEN - subscription added</title>
+<!--  <meta http-equiv="refresh" content="3;index.html" />-->
+	<link rel="stylesheet" href="game.css">
 </head>
 <body>
-        <p class="thx">dziękujemy za zapisanie się do newsletera, przekierowanie nastąpi w ciagu 3 sekund</p>
+
+<p class="thx tx-section font-13em">Dziękujemy za zapisanie się do newslettera.<br/>W nagrodę spędź parę chwil z grą, którą dla Ciebie przygotowaliśmy.<br/>Miłej zabawy :)</p>
+
+<div class="game">
+	<button class="game-start bg-menu tx-white font-15em">START</button>
+
+	<div class="game-score font-15em">
+		<div class="game-time-span"><span>CZAS: </span><span class="game-time"></span><span> s</span></div>
+		<div class="game-money-span"><span>HAJS: </span><span>$ </span><span class="game-money"></span></div>
+		<div class="game-points-span"><span>PUNKTY: </span><span class="game-points"></span></div>
+	</div>
+
+	<div class="game-instruction font-13em">
+		<p class="text-info"><strong>Zdobądź maksymalną ilość hajsu.</strong><br/>
+		Czas na ukończenie gry wynosi 60 sekund.<br/>
+		Każde zadanie posiada wartość pieniężną oraz liczbę punktów odejmowaną z puli.<br/>
+		Należy klikać na zadania.</p>
+	</div>
+
+	<div class="game-board">
+<!--		<div class="game-task"><div class="game-task-text"><p>$<span class="task-money">100</span></p><p><span class="task-points">2</span>pkt</p></div></div>-->
+	</div>
+
+</div>
+
+<script src="game.js"></script>
+
 </body>
 </html>
