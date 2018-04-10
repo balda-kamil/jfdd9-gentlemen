@@ -29,7 +29,8 @@ const taskGame = {
 		gamePoints.innerHTML = (Number(gamePoints.innerHTML) - Number(taskPoints)).toString();
 
 		// TODO 3: make '.game-task' disappear when clicked
-		//elem.classList.add('display-none');		// or test 'visibility-none'
+		debugger;
+		elem.target.classList.add('display-none');		// or test 'visibility-none'
 	},
 	
 	// total points changed
@@ -45,30 +46,27 @@ const taskGame = {
 	
 	// setting game to initials
 	clearGame : function () {
-	/*
 		document.querySelector('.game-points').innerHTML = this.gameTotalPoints;
 		document.querySelector('.game-money').innerHTML = this.gameTotalMoney;
 		document.querySelector('.game-time').innerHTML = this.gameTotalTime;
-		
-		for (let i = 0; i < this.gamePoints.length; i++) {
-			gamePoints[i] = initialPoints[i];
-			gameMoney[i] = initialMoney[i];
+		for (let i = 0; i < this.initialPoints.length; i++) {
+			this.gamePoints[i] = this.initialPoints[i];
+			this.gameMoney[i] = this.initialMoney[i];
 		}
-	*/
 	},
 
 	startGame : function () {
 		
 		// TODO 1: clear board when start/restart the game
-		// this.clearGame();
+		this.clearGame();
 		// TODO 2: add class to '.game-task' on hover
 
 		// hide start button and instruction
 		let startButton = document.querySelector('.game-start');
-		// startButton.classList.remove('display-block');
+		//startButton.classList.remove('display-block');
 		startButton.classList.add('display-none');
 		let instructionText = document.querySelector('.game-instruction');
-		// instructionText.classList.remove('display-block');
+		//instructionText.classList.remove('display-block');
 		instructionText.classList.add('display-none');
 
 		// mixing the tables with task points and money
@@ -83,7 +81,7 @@ const taskGame = {
 		}
 
 		// display tasks on game board
-		for (let i = 0; i < this.gamePoints.length; i++) {	// chech 'this.gamePoints.length' !!! should be 12
+		for (let i = 0; i < this.gamePoints.length; i++) {	// check 'this.gamePoints.length' !!! should be 12
 
 			// display task element and ...
 			const board = document.querySelector('.game-board');
@@ -119,7 +117,7 @@ const taskGame = {
 
 		// show board game
 		// document.querySelector('.game-board').classList.remove('display-none');
-		// document.querySelector('.game-board').classList.add('display-block');
+		document.querySelector('.game-board').classList.add('display-block');
 	},
 	
 	// TODO 6: show 'END GAME' text and 'RESTART GAME' button at the end of the game when time or points are equal to 0
