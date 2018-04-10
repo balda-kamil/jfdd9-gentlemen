@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const taskGame = {
 
-	// game starting point data
+	// game initials
 	gamePoints : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
 	gameMoney : [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ],
 	gameTotalPoints : 40,
@@ -24,19 +24,34 @@ const taskGame = {
 		const taskPoints = elem.target.firstChild.firstChild.nextSibling.firstChild.innerHTML;
 		let gamePoints = document.querySelector('.game-points');
 		gamePoints.innerHTML = (Number(gamePoints.innerHTML) - Number(taskPoints)).toString();
+
+		// TODO 3: make '.game-task' disappear when clicked
+		//elem.classList.add('display-none');		// or test 'visibility-none'
 	},
+	
+	// total points changed
+	/*
+	pointsChanged : function (elem) {
+		let totalPoints = Number(elem.innerHTML);
+		if (totalPoints === 0) {
+			// add STOP THE GAME
+		}
+	},
+	*/
 
 	startGame : function () {
+		
+		// TODO 1: clear board when start/restart the game
+		//document.querySelector('.game-points').innerHTML = this.gameTotalPoints;
+		//document.querySelector('.game-money').innerHTML = this.gameTotalMoney;
+		
+		// TODO 2: add class to '.game-task' on hover
 
 		// hide start button and instruction
 		let startButton = document.querySelector('.game-start');
 		startButton.classList.add('display-none');
 		let instructionText = document.querySelector('.game-instruction');
 		instructionText.classList.add('display-none');
-
-		// TODO 1: clear board when restart the game
-		// TODO 2: add class to '.game-task' on hover
-		// TODO 3: make '.game-task' disappear when clicked
 
 		// mixing the tables with task points and money
 		for (let i = this.gamePoints.length - 1; i > 0; i--) {
@@ -67,8 +82,10 @@ const taskGame = {
 
 			task.addEventListener('click', this.taskClick.bind(this), true);
 			// TODO 8: how to make 'game-task-text' invisible to mouse click?
-			// TODO 9: add listener to ValueChange of gamePoints
 		}
+		
+		// TODO 9: add listener to ValueChange of gamePoints
+		//document.querySelector('.game-points').addEventListener('click', this.pointsChanged.bind(this));
 
 		// ... start timer downwards and stop it by 0
 		let gameTimeDiv = document.querySelector('.game-time');
@@ -76,6 +93,7 @@ const taskGame = {
 		let timerId = setInterval (function () {
 			gameTimer--;
 			if (gameTimer < 1) {
+				// add STOP THE GAME
 				clearInterval(timerId);
 			}
 			gameTimeDiv.innerHTML = gameTimer.toString();
