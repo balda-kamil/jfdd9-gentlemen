@@ -113,8 +113,8 @@
 }
 
 .inp-field:focus{
-    border-left: 2px solid #ff4081;
-    border-right: 2px solid #ff4081;
+    border-left: 1px solid #ff4081;
+    border-right: 1px solid #eeeeef;
 }
 
 .btn-name-field{
