@@ -9,10 +9,13 @@ document.addEventListener('DOMContentLoaded', function () {
 const taskGame = {
 
 	// game initials
-	gamePoints : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
-	gameMoney : [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ],
+	initialPoints : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+	initialMoney : [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ],
 	gameTotalPoints : 40,
 	gameTotalMoney : 0,
+	gameTotalTime : 60,
+	gamePoints : [],
+	gameMoney : [],
 
 	taskClick : function (elem) {
 		// add money to 'game-money' when '.game-task' clicked
@@ -32,25 +35,40 @@ const taskGame = {
 	// total points changed
 	/*
 	pointsChanged : function (elem) {
-		let totalPoints = Number(elem.innerHTML);
+		let totalPoints = Number(elem.innerHTML);	// check it thoroughly
 		if (totalPoints === 0) {
 			// add STOP THE GAME
+			this.stopGame();
 		}
 	},
 	*/
+	
+	// setting game to initials
+	clearGame : function () {
+	/*
+		document.querySelector('.game-points').innerHTML = this.gameTotalPoints;
+		document.querySelector('.game-money').innerHTML = this.gameTotalMoney;
+		document.querySelector('.game-time').innerHTML = this.gameTotalTime;
+		
+		for (let i = 0; i < this.gamePoints.length; i++) {
+			gamePoints[i] = initialPoints[i];
+			gameMoney[i] = initialMoney[i];
+		}
+	*/
+	},
 
 	startGame : function () {
 		
 		// TODO 1: clear board when start/restart the game
-		//document.querySelector('.game-points').innerHTML = this.gameTotalPoints;
-		//document.querySelector('.game-money').innerHTML = this.gameTotalMoney;
-		
+		// this.clearGame();
 		// TODO 2: add class to '.game-task' on hover
 
 		// hide start button and instruction
 		let startButton = document.querySelector('.game-start');
+		// startButton.classList.remove('display-block');
 		startButton.classList.add('display-none');
 		let instructionText = document.querySelector('.game-instruction');
+		// instructionText.classList.remove('display-block');
 		instructionText.classList.add('display-none');
 
 		// mixing the tables with task points and money
@@ -64,8 +82,8 @@ const taskGame = {
 			this.gameMoney[swap] = tmpMoney;
 		}
 
-		// display tasks on game board and ...
-		for (let i = 0; i < 12; i++) {
+		// display tasks on game board
+		for (let i = 0; i < this.gamePoints.length; i++) {	// chech 'this.gamePoints.length' !!! should be 12
 
 			// display task element and ...
 			const board = document.querySelector('.game-board');
@@ -85,23 +103,40 @@ const taskGame = {
 		}
 		
 		// TODO 9: add listener to ValueChange of gamePoints
-		//document.querySelector('.game-points').addEventListener('click', this.pointsChanged.bind(this));
+		// document.querySelector('.game-points').addEventListener('ValueChange', this.pointsChanged.bind(this));
 
-		// ... start timer downwards and stop it by 0
+		// start timer downwards and stop it by 0
 		let gameTimeDiv = document.querySelector('.game-time');
 		let gameTimer = gameTimeDiv.innerHTML;
 		let timerId = setInterval (function () {
 			gameTimer--;
 			if (gameTimer < 1) {
-				// add STOP THE GAME
+				// add STOP THE GAME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				clearInterval(timerId);
 			}
 			gameTimeDiv.innerHTML = gameTimer.toString();
 		}, 1000);
 
-		// TODO 6: show 'END GAME' text and 'RESTART GAME' button at the end of the game
-		// when time or points are equal to 0
-		// TODO 7: add max earned money (?)
+		// show board game
+		// document.querySelector('.game-board').classList.remove('display-none');
+		// document.querySelector('.game-board').classList.add('display-block');
+	},
+	
+	// TODO 6: show 'END GAME' text and 'RESTART GAME' button at the end of the game when time or points are equal to 0
+	stopGame : function () {
+	/*
+		// hide board game
+		document.querySelector('.game-board').classList.remove('display-block');
+		document.querySelector('.game-board').classList.add('display-none');
+
+		// show END GAME text
+		document.querySelector('.game-instruction').innerHTML = 'Gra została zakończona.\nJeśli chcesz zagrać ponownie, naciśniej przycisk START';
+
+		// show START button again
+		document.querySelector('.game-start').classList.add('display-none');
+	*/	
 	}
+	
+	// TODO 7: add max earned money (?)
 };
 
