@@ -86,6 +86,7 @@ const taskGame = {
 
 			task.addEventListener('click', this.taskClick.bind(this), true);
 			// TODO 8: how to make 'game-task-text' invisible to mouse click?
+			// TODO 9: add listener to ValueChange of gamePoints
 		}
 
 		// ... start timer downwards and stop it by 0
