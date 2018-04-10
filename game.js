@@ -19,6 +19,9 @@ const taskGame = {
 
 	taskClick : function (elem) {
 		// add money to 'game-money' when '.game-task' clicked
+
+		// elem.target.matches.('.game-money'); ==> instead of path to element
+
 		const taskMoney = elem.target.firstChild.firstChild.firstChild.nextSibling.innerHTML;
 		let gameMoney = document.querySelector('.game-money');
 		gameMoney.innerHTML = (Number(gameMoney.innerHTML) + Number(taskMoney)).toString();
@@ -46,9 +49,9 @@ const taskGame = {
 	
 	// setting game to initials
 	clearGame : function () {
-		document.querySelector('.game-points').innerHTML = this.gameTotalPoints;
-		document.querySelector('.game-money').innerHTML = this.gameTotalMoney;
-		document.querySelector('.game-time').innerHTML = this.gameTotalTime;
+		document.querySelector('.game-points').innerHTML = this.gameTotalPoints.toString();
+		document.querySelector('.game-money').innerHTML = this.gameTotalMoney.toString();
+		document.querySelector('.game-time').innerHTML = this.gameTotalTime.toString();
 		for (let i = 0; i < this.initialPoints.length; i++) {
 			this.gamePoints[i] = this.initialPoints[i];
 			this.gameMoney[i] = this.initialMoney[i];
@@ -96,7 +99,7 @@ const taskGame = {
 					' class="task-points">' + this.gamePoints[i] + '</span> pkt</p>';
 			task.appendChild(taskText);
 
-			task.addEventListener('click', this.taskClick.bind(this), true);
+			task.addEventListener('click', this.taskClick.bind(this));  // removed ', true'
 			// TODO 8: how to make 'game-task-text' invisible to mouse click?
 		}
 		
