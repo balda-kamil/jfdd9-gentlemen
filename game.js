@@ -16,37 +16,39 @@ const taskGame = {
 	gameTotalTime : 60,
 	gamePoints : [],
 	gameMoney : [],
+	money : 0,
 
-	taskClick : function (elem) {
-		// add money to 'game-money' when '.game-task' clicked
+	taskClick : function (event) {
+		let element = event.currentTarget;
 
-		// elem.target.matches.('.game-money'); ==> instead of path to element
+		if (element.matches('.game-task')) {
+			// add money to 'game-money' when '.game-task' clicked
+			let taskMoney = element.getAttribute('data-money');
+			let gameMoney = document.querySelector('.game-money');
+			this.gameTotalMoney += parseInt(taskMoney);
+			gameMoney.innerHTML = this.gameTotalMoney.toString();
 
-		const taskMoney = elem.target.firstChild.firstChild.firstChild.nextSibling.innerHTML;
-		let gameMoney = document.querySelector('.game-money');
-		gameMoney.innerHTML = (Number(gameMoney.innerHTML) + Number(taskMoney)).toString();
+			// subtract points from 'game-points' when '.game-task' clicked
+			let taskPoints = element.getAttribute('data-points');
+			let gamePoints = document.querySelector('.game-points');
+			this.gameTotalPoints -= parseInt(taskPoints);
+			gamePoints.innerHTML = this.gameTotalPoints.toString();
+		}
 
-		// subtract points from 'game-points' when '.game-task' clicked
-		const taskPoints = elem.target.firstChild.firstChild.nextSibling.firstChild.innerHTML;
-		let gamePoints = document.querySelector('.game-points');
-		gamePoints.innerHTML = (Number(gamePoints.innerHTML) - Number(taskPoints)).toString();
-
-		// TODO 3: make '.game-task' disappear when clicked
-		debugger;
-		elem.target.classList.add('display-none');		// or test 'visibility-none'
+		// make '.game-task' disappear when clicked
+		element.classList.add('visibility-hidden');
 	},
 	
 	// total points changed
-	/*
 	pointsChanged : function (elem) {
-		let totalPoints = Number(elem.innerHTML);	// check it thoroughly
-		if (totalPoints === 0) {
+		let totalPoints = parseInt(elem.target.innerHTML);	// check it thoroughly
+		if (totalPoints > 0) {
+		} else {
 			// add STOP THE GAME
 			this.stopGame();
 		}
 	},
-	*/
-	
+
 	// setting game to initials
 	clearGame : function () {
 		document.querySelector('.game-points').innerHTML = this.gameTotalPoints.toString();
@@ -60,7 +62,7 @@ const taskGame = {
 
 	startGame : function () {
 		
-		// TODO 1: clear board when start/restart the game
+		// 1: clear board when start/restart the game
 		this.clearGame();
 		// TODO 2: add class to '.game-task' on hover
 
@@ -92,6 +94,8 @@ const taskGame = {
 			board.appendChild(task);
 			task.classList.add('game-task');
 
+			task.setAttribute('data-money', this.gameMoney[i]);
+			task.setAttribute('data-points', this.gamePoints[i]);
 			// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
 			let taskText = document.createElement('div');
 			taskText.classList.add('game-task-text');
@@ -99,12 +103,13 @@ const taskGame = {
 					' class="task-points">' + this.gamePoints[i] + '</span> pkt</p>';
 			task.appendChild(taskText);
 
-			task.addEventListener('click', this.taskClick.bind(this));  // removed ', true'
-			// TODO 8: how to make 'game-task-text' invisible to mouse click?
+			task.addEventListener('click', this.taskClick.bind(this));
 		}
 		
 		// TODO 9: add listener to ValueChange of gamePoints
-		// document.querySelector('.game-points').addEventListener('ValueChange', this.pointsChanged.bind(this));
+		debugger;
+		let gmPt = document.querySelector('.game-points');
+		gmPt.addEventListener('ValueChange', this.pointsChanged.bind(this));
 
 		// start timer downwards and stop it by 0
 		let gameTimeDiv = document.querySelector('.game-time');
@@ -125,6 +130,7 @@ const taskGame = {
 	
 	// TODO 6: show 'END GAME' text and 'RESTART GAME' button at the end of the game when time or points are equal to 0
 	stopGame : function () {
+		console.log('stop game');
 	/*
 		// hide board game
 		document.querySelector('.game-board').classList.remove('display-block');
