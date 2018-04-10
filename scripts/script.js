@@ -9,13 +9,13 @@ var section5OffsetTop = $('.section5').offset().top;
         var scrollTop = $(document).scrollTop();
         var activeLi;
 
-        if (scrollTop + 120 < section2OffsetTop) {
+        if (scrollTop < section2OffsetTop) {
             activeLi = $('.menu>li:nth-child(1)');
-        } else if (scrollTop + 75 < section3OffsetTop){
+        } else if (scrollTop  < section3OffsetTop){
             activeLi = $('.menu>li:nth-child(2)');
-        } else if (scrollTop + 75 < section4OffsetTop){
+        } else if (scrollTop  < section4OffsetTop){
             activeLi = $('.menu>li:nth-child(3)');
-        } else if (scrollTop + 75 < section5OffsetTop){
+        } else if (scrollTop  < section5OffsetTop){
             activeLi = $('.menu>li:nth-child(4)');
         } else {
             activeLi = $('.menu>li:nth-child(5)');
