@@ -80,22 +80,29 @@
     text-align: center;
     width: 100%;
 }
-.funkcje {
+.new-function-all {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.function {
+.new-function-sample {
     padding: 0.5em;
     width: 220px;
+    height: 300px;
     margin: 0 0.5em;
+    opacity: 0;
+    transition: all .5s;
+}
+.new-function-sample.active {
+    opacity: 1;
+    transition: all .5s;
 }
 .describe-1, .describe-2, .describe-3, .describe-4 {
     text-align: justify;
 }
-.function:hover{
+.new-function-sample:hover{
     box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.15);
 }
 
