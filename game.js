@@ -14,23 +14,6 @@ const taskGame = {
 	gameTotalPoints : 40,
 	gameTotalMoney : 0,
 
-	/*
-	gameTask : function (points, price) { // function to display game board
-
-		// display task element and ...
-		let board = document.querySelector('.game-board');
-		let task = document.createElement('div');
-		board.appendChild(task);
-		task.classList.add('game-task');
-
-		// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
-		let taskText = document.createElement('div');
-		taskText.classList.add('game-task-text');
-		taskText.innerHTML = '<p>$' + price + '</p><p>' + points + ' pkt</p>';
-		task.appendChild(taskText);
-	},
-	*/
-
 	taskClick : function (elem) {
 		// add money to 'game-money' when '.game-task' clicked
 		const taskMoney = elem.target.firstChild.firstChild.firstChild.nextSibling.innerHTML;
@@ -81,8 +64,6 @@ const taskGame = {
 			taskText.innerHTML = '<p>$<span class="task-money">' + this.gameMoney[i] + '</span></p><p><span' +
 					' class="task-points">' + this.gamePoints[i] + '</span> pkt</p>';
 			task.appendChild(taskText);
-
-//			this.gameTask(this.gamePoints[i], this.gameMoney[i]);
 
 			task.addEventListener('click', this.taskClick.bind(this), true);
 			// TODO 8: how to make 'game-task-text' invisible to mouse click?
