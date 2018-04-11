@@ -2,8 +2,11 @@ $(document).on('scroll', function(){
 
     var scrollTop = $(document).scrollTop();
     var activeLi;
+    var bottom = $(window).scrollTop() + $(window).height() == $(document).height();
 
-        var section1OffsetTop = $('.section1').offset().top;
+// tutaj skonczyłeś, pokombinuj z window, document height - musi być zrobione dzisiaj!\
+    //daj sekcji team w cssie min-height 100vh i powinno zadzialać :)
+
         var section2OffsetTop = $('.section2').offset().top;
         var section3OffsetTop = $('.section3').offset().top;
         var section4OffsetTop = $('.section4').offset().top;
@@ -21,6 +24,7 @@ $(document).on('scroll', function(){
         activeLi.addClass('active');
         $('.menu>li').not(activeLi).removeClass('active');
     });
+
 
 
 
