@@ -173,3 +173,35 @@
     text-align: center;
     font-size: .8em;
 }
+
+/******************CSS sekcji NEW FUNCTION ******************************/
+
+.new-function {
+    padding-top: 3rem;
+    text-align: center;
+    width: 100%;
+}
+.new-function-all {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.new-function-sample {
+    padding: 0.5em;
+    width: 220px;
+    margin: 10px 0.5em;
+    opacity: 0;
+    transition: all .5s;
+}
+.new-function-sample.active {
+    opacity: 1;
+    transition: all .5s;
+}
+.describe-1, .describe-2, .describe-3, .describe-4 {
+    text-align: center;
+}
+.new-function-sample:hover{
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.15);
+}
