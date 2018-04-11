@@ -14,17 +14,17 @@ function debounce(func, wait = 20, immediate = true) {
 
 };
 
-const sliderImages = document.querySelectorAll('.new-function-sample');
+var sliderImages = document.querySelectorAll('.new-function-sample');
 
-function checkSlide(e) {
-       sliderImages.forEach(sliderImage => {
+function checkSlide() {
+       sliderImages.forEach(function(sliderImage) {
 
            //half way through the image
-       const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.clientHeight / 2;
+      var slideInAt = (window.scrollY + window.innerHeight) - sliderImage.clientHeight / 2;
             //bottom of the image
-       const imageBottom = sliderImage.offsetTop + sliderImage.clientHeight;
-       const isHalfShown = slideInAt > sliderImage.offsetTop;
-       const isNowScrolledPast = window.scrollY < imageBottom;
+       var imageBottom = sliderImage.offsetTop + sliderImage.clientHeight;
+       var isHalfShown = slideInAt > sliderImage.offsetTop;
+       var isNowScrolledPast = window.scrollY < imageBottom;
          if (isHalfShown && isNowScrolledPast) {
            sliderImage.classList.add('active');
        } else {
