@@ -24,10 +24,9 @@
 	<input type="checkbox" id="show-menu" role="button">
     <ul id="menu" class="menu font-12em weight-400">
         <li><a href="#about" class="tx-menu tx-white">O produkcie</a></li>
-        <li><a href="#team" class="tx-menu tx-white">Team</a></li>
-        <li><a href="#formula" class="tx-menu tx-white">Zapis na premierę</a></li>
         <li><a href="#functions" class="tx-menu tx-white">Planowane funkcje</a></li>
-        <li><a href="#contact" class="tx-menu tx-white">Kontakt</a></li>
+        <li><a href="#formula" class="tx-menu tx-white">Zapis na premierę</a></li>
+        <li><a href="#team" class="tx-menu tx-white">Team</a></li>
     </ul>
 </nav>
 
@@ -44,9 +43,40 @@
     </div>
 </div>
 
+<div id="functions" class="container section2" style="height: 300px; margin-top: 1px; border: 1px solid black;">
+    <p class="font-15em">Planowane funkcje</p>
+    <p class="font-12em"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;123 456 k789</p>
+    <p class="font-12em"><i class="fas fa-envelope"></i>&nbsp;&nbsp;imie.nazwisko@example.pl</p>
+</div>
+
+
+<div id="formula">
+<div class="form-div" style="border: 1px solid black;">
+    <div class="container section3">
+        <h1 class="tx-section">Zapis na premierę</h1>
+        <div class="form-field bg-white">
+            <form class="form-fields" method="POST" action="https://formspree.io/baldakamil@gmail.com">
+                <p class="form-zapro font-15em">Chcesz jako pierwszy dowiedzieć się o premierze naszego produktu?</p>
+                <div class="btn-name-field">
+                    <input type="name" class="inp-field font-11em" name="client-name" placeholder="Wpisz swoje imię" required>
+                </div>
+                <div class="btn-email-field">
+                    <input type="email" class="inp-field font-11em" name="client-email" placeholder="Wpisz swój adres email" required>
+                </div>
+                <input type="hidden" name="_next" value="thanks.html"/>
+                <div class="btn2">
+                    <button type="submit" class="btn bg-menu">Zapisz się</button>
+                </div>
+            </form>
+            <p class="form-sec tx-grey">Możesz być spokojny o swoje dane, nie wykorzystjemy ich w celach marketingowych, nie sprzedajemy ich. Są one tylko dla naszej informacji!</p>
+        </div>
+    </div>
+</div>
+</div>
+
 <div id="team">
 
-    <div class="container section2">
+    <div class="container section4" style="border: 1px solid black;">
         <h1 class="tx-section">Poznaj nasz Team</h1>
         <div class="flexcontainer">
             <div class="team-pole bg-white">
@@ -87,42 +117,13 @@
     </div>
 </div>
 
-<div id="formula"></div>
-<div class="form-div">
-    <div class="container section3">
-        <h1 class="tx-section">Zapis na premierę</h1>
-        <div class="form-field bg-white">
-            <form class="form-fields" method="POST" action="https://formspree.io/baldakamil@gmail.com">
-                <p class="form-zapro font-15em">Chcesz jako pierwszy dowiedzieć się o premierze naszego produktu?</p>
-                <div class="btn-name-field">
-                    <input type="name" class="inp-field font-11em" name="client-name" placeholder="Wpisz swoje imię" required>
-                </div>
-                <div class="btn-email-field">
-                    <input type="email" class="inp-field font-11em" name="client-email" placeholder="Wpisz swój adres email" required>
-                </div>
-                <input type="hidden" name="_next" value="thanks.html"/>
-                <div class="btn2">
-                    <button type="submit" class="btn bg-menu">Zapisz się</button>
-                </div>
-            </form>
-            <p class="form-sec tx-grey">Możesz być spokojny o swoje dane, nie wykorzystjemy ich w celach marketingowych, nie sprzedajemy ich. Są one tylko dla naszej informacji!</p>
-        </div>
-    </div>
-</div>
 
-<div id="functions" class="container section4" style="height: 300px; margin-top: 1px;">
-    <p class="font-15em">Planowane funkcje</p>
-    <p class="font-12em"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;123 456 k789</p>
-    <p class="font-12em"><i class="fas fa-envelope"></i>&nbsp;&nbsp;imie.nazwisko@example.pl</p>
-</div>
+    <div id="footer" class="footer">
+        <p>© Copyright -  <script>document.write(new Date().getFullYear());</script>  |   Made with ♥ by Team Gentlemen   |   All Rights Reserved  </p>
 
-<footer id="contact" class="bg-footer tx-white">
-    <div class="container section5" style="height: 300px; margin: 1px;">
-        <p class="font-15em">Kontakt do zespołu</p>
-        <p class="font-12em"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;123 456 789</p>
-        <p class="font-12em"><i class="fas fa-envelope"></i>&nbsp;&nbsp;imie.nazwisko@example.pl</p>
     </div>
-</footer>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="scripts/script.js"></script>

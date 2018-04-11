@@ -1,13 +1,12 @@
-var section1OffsetTop = $('.section1').offset().top;
-var section2OffsetTop = $('.section2').offset().top;
-var section3OffsetTop = $('.section3').offset().top;
-var section4OffsetTop = $('.section4').offset().top;
-var section5OffsetTop = $('.section5').offset().top;
+$(document).on('scroll', function(){
 
-    $(document).on('scroll',function(){
+    var scrollTop = $(document).scrollTop();
+    var activeLi;
 
-        var scrollTop = $(document).scrollTop();
-        var activeLi;
+        var section1OffsetTop = $('.section1').offset().top;
+        var section2OffsetTop = $('.section2').offset().top;
+        var section3OffsetTop = $('.section3').offset().top;
+        var section4OffsetTop = $('.section4').offset().top;
 
         if (scrollTop < section2OffsetTop) {
             activeLi = $('.menu>li:nth-child(1)');
@@ -15,10 +14,8 @@ var section5OffsetTop = $('.section5').offset().top;
             activeLi = $('.menu>li:nth-child(2)');
         } else if (scrollTop  < section4OffsetTop){
             activeLi = $('.menu>li:nth-child(3)');
-        } else if (scrollTop  < section5OffsetTop){
-            activeLi = $('.menu>li:nth-child(4)');
         } else {
-            activeLi = $('.menu>li:nth-child(5)');
+            activeLi = $('.menu>li:nth-child(4)');
         }
 
         activeLi.addClass('active');

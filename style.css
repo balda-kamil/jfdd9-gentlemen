@@ -163,3 +163,13 @@
 .pad150{
     padding-top: 150px;
 }
+
+.footer{
+    position: absolute;
+    width:100%;
+    color: #f8f9fa;
+    margin-bottom: 0px;
+    background-color: #222529;
+    text-align: center;
+    font-size: .8em;
+}
