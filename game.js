@@ -5,7 +5,7 @@
 
 'use strict';
 
-(function taskGame() {
+let taskGame = (function () {
 	document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.game-start').addEventListener('click', function() {
 			startGame();
@@ -15,13 +15,25 @@
 	// game initials
 	let initialPoints = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
 	let initialMoney = [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
-	let gameTotalPoints = 40;
-	let gameTotalMoney = 0;
-	let gameTotalTime = 60;
+	let initialTotalPoints = 40;
+	let initialTotalMoney = 0;
+	let initialTotalTime = 60;
+	let timerIntervalValue = 1000;
+	let timerId = 0;
+
+	let gameTotalPoints = initialTotalPoints;
+	let gameTotalMoney = initialTotalMoney;
+
 	let gamePoints = [];
 	let gameMoney = [];
-//	let money = 0;
-	let timerId = 0;
+
+	//////////////////////////////////
+	// show score
+	let showScore = function (money, points, time) {
+		document.querySelector('.game-money').innerText = money;
+		document.querySelector('.game-points').innerText = points;
+		document.querySelector('.game-time').innerText = time;
+	};
 
 	//////////////////////////////////
 	// click on the tile with a task
@@ -47,8 +59,8 @@
 					gamePoints.innerHTML = gameTotalPoints.toString();
 					stopGame();
 				}
-				gamePoints.innerHTML = gameTotalPoints.toString();
-				gameMoney.innerHTML = gameTotalMoney.toString();
+				gamePoints.innerText = gameTotalPoints.toString();
+				gameMoney.innerText = gameTotalMoney.toString();
 			}
 		}
 
@@ -60,9 +72,8 @@
 	// setting game to initials
 	let clearGame = function () {
 
-		document.querySelector('.game-points').innerHTML = gameTotalPoints.toString();
-		document.querySelector('.game-money').innerHTML = gameTotalMoney.toString();
-		document.querySelector('.game-time').innerHTML = gameTotalTime.toString();
+		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+
 		for (let i = 0; i < initialPoints.length; i++) {
 			gamePoints[i] = initialPoints[i];
 			gameMoney[i] = initialMoney[i];
@@ -137,7 +148,7 @@
 	// start timer downwards and stop it by 0
 	let startTimer = function () {
 		let gameTimeDiv = document.querySelector('.game-time');
-		let gameTimer = gameTimeDiv.innerHTML;
+		let gameTimer = parseInt(gameTimeDiv.innerText);
 		timerId = setInterval (function () {
 			gameTimer--;
 			if (gameTimer < 1) {
@@ -145,13 +156,13 @@
 				clearInterval(timerId);
 			}
 			gameTimeDiv.innerHTML = gameTimer.toString();
-		}, 1000);
+		}, timerIntervalValue);
 	};
 
 	/////////////////////////////
 	// S T A R T  G A M E
 	let startGame = function () {
-
+		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 		hideStartButton();
 		clearGame();
 		mixTables();
@@ -160,6 +171,9 @@
 
 		// show board game
 		document.querySelector('.game-board').classList.add('display-block');
-	}
+	};
 
+	return {
+		startGame : startGame
+	}
 })();
