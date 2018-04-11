@@ -5,93 +5,124 @@
 
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
-	document.querySelector('.game-start').addEventListener('click', function() {
-		taskGame.startGame();
+let taskGame = (function () {
+	document.addEventListener('DOMContentLoaded', function () {
+		document.querySelector('.game-start').addEventListener('click', function() {
+			startGame();
+		});
 	});
-});
-
-const taskGame = {
 
 	// game initials
-	initialPoints : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
-	initialMoney : [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ],
-	gameTotalPoints : 40,
-	gameTotalMoney : 0,
-	gameTotalTime : 60,
-	gamePoints : [],
-	gameMoney : [],
-	money : 0,
-	timerId : 0,
+	let initialPoints = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
+	let initialMoney = [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
+	let initialTotalPoints = 40;
+	let initialTotalMoney = 0;
+	let initialTotalTime = 60;
+	let timerIntervalValue = 1000;
+	let timerId = 0;
 
+	let gameTotalPoints = initialTotalPoints;
+	let gameTotalMoney = initialTotalMoney;
+
+	let gamePoints = [];
+	let gameMoney = [];
+
+	//////////////////////////////////
+	// show score
+	let showScore = function (money, points, time) {
+		document.querySelector('.game-money').innerText = money;
+		document.querySelector('.game-points').innerText = points;
+		document.querySelector('.game-time').innerText = time;
+	};
+
+	//////////////////////////////////
 	// click on the tile with a task
-	taskClick : function (event) {
+	let taskClick = function (event) {
+
 		let element = event.currentTarget;
 
 		if (element.matches('.game-task')) {
 			// add money to 'game-money' when '.game-task' clicked
 			let taskMoney = element.getAttribute('data-money');
 			let gameMoney = document.querySelector('.game-money');
-			this.gameTotalMoney += parseInt(taskMoney);
+			gameTotalMoney += parseInt(taskMoney);
 
 			// subtract points from 'game-points' when '.game-task' clicked
 			let taskPoints = element.getAttribute('data-points');
 			let gamePoints = document.querySelector('.game-points');
 
 			// check if the value of total points is less than 0 and then stop the game
-			if (this.gameTotalPoints > 0) {
-				this.gameTotalPoints -= parseInt(taskPoints);
-				if (this.gameTotalPoints <= 0) {
-					this.gameTotalPoints = 0;
-					gamePoints.innerHTML = this.gameTotalPoints.toString();
-					this.stopGame();
+			if (gameTotalPoints > 0) {
+				gameTotalPoints -= parseInt(taskPoints);
+				if (gameTotalPoints <= 0) {
+					gameTotalPoints = 0;
+					gamePoints.innerHTML = gameTotalPoints.toString();
+					stopGame();
 				}
-				gamePoints.innerHTML = this.gameTotalPoints.toString();
-				gameMoney.innerHTML = this.gameTotalMoney.toString();
+				gamePoints.innerText = gameTotalPoints.toString();
+				gameMoney.innerText = gameTotalMoney.toString();
 			}
 		}
 
 		// make '.game-task' disappear when clicked
 		element.classList.add('visibility-hidden');
-	},
-	
+	};
+
+	/////////////////////////////
 	// setting game to initials
-	clearGame : function () {
-		document.querySelector('.game-points').innerHTML = this.gameTotalPoints.toString();
-		document.querySelector('.game-money').innerHTML = this.gameTotalMoney.toString();
-		document.querySelector('.game-time').innerHTML = this.gameTotalTime.toString();
-		for (let i = 0; i < this.initialPoints.length; i++) {
-			this.gamePoints[i] = this.initialPoints[i];
-			this.gameMoney[i] = this.initialMoney[i];
+	let clearGame = function () {
+
+		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+
+		for (let i = 0; i < initialPoints.length; i++) {
+			gamePoints[i] = initialPoints[i];
+			gameMoney[i] = initialMoney[i];
 		}
 
 		// TODO: here add clear board of remaining tasks
-	},
+	};
 
-	startGame : function () {
-		
-		// 1: clear board when start/restart the game
-		this.clearGame();
+	/////////////////////////////
+	// show 'END GAME' text and 'RESTART GAME' button at the end of the game when time or points are equal to 0
+	let stopGame = function () {
 
-		// hide start button and instruction
-		let startButton = document.querySelector('.game-start');
-		startButton.classList.add('display-none');
-		let instructionText = document.querySelector('.game-instruction');
-		instructionText.classList.add('display-none');
+		clearInterval(timerId);
 
-		// mixing the tables with task points and money
-		for (let i = this.gamePoints.length - 1; i > 0; i--) {
+		// show END GAME text
+		document.querySelector('.text-info').innerHTML = `Gra została zakończona.<br/>Jeśli chcesz zagrać ponownie, naciśniej przycisk START.`;
+		document.querySelector('.game-instruction').classList.add('display-block');
+
+		// show START button again
+		document.querySelector('.game-start').classList.add('display-block');
+	};
+
+	/////////////////////////////
+	// hide start button and instruction
+	let hideStartButton = function () {
+		document.querySelector('.game-start').classList.add('display-none');
+		document.querySelector('.game-instruction').classList.add('display-none');
+	};
+
+	/////////////////////////////
+	// mixing the tables with task points and money
+	let mixTables = function () {
+
+		for (let i = gamePoints.length - 1; i > 0; i--) {
 			let swap = Math.floor(Math.random() * i);
-			let tmpPoints = this.gamePoints[i];
-			let tmpMoney = this.gameMoney[i];
-			this.gamePoints[i] = this.gamePoints[swap];
-			this.gameMoney[i] = this.gameMoney[swap];
-			this.gamePoints[swap] = tmpPoints;
-			this.gameMoney[swap] = tmpMoney;
+			let tmpPoints = gamePoints[i];
+			let tmpMoney = gameMoney[i];
+			gamePoints[i] = gamePoints[swap];
+			gameMoney[i] = gameMoney[swap];
+			gamePoints[swap] = tmpPoints;
+			gameMoney[swap] = tmpMoney;
 		}
+	};
 
-		// display tasks on game board
-		for (let i = 0; i < this.gamePoints.length; i++) {	// check 'this.gamePoints.length' !!! should be 12
+	/////////////////////////////
+	// display tasks on game board
+	let buildGameBoard = function () {
+
+		for (let i = 0; i < gamePoints.length; i++) {
 
 			// display task element and ...
 			const board = document.querySelector('.game-board');
@@ -100,46 +131,49 @@ const taskGame = {
 			task.classList.add('game-task');
 
 			// add attributes for latter easy search
-			task.setAttribute('data-money', this.gameMoney[i]);
-			task.setAttribute('data-points', this.gamePoints[i]);
+			task.setAttribute('data-money', gameMoney[i]);
+			task.setAttribute('data-points', gamePoints[i]);
 
 			// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
 			let taskText = document.createElement('div');
 			taskText.classList.add('game-task-text');
-			taskText.innerHTML = '<p>$<span class="task-money">' + this.gameMoney[i] + '</span></p><p><span' +
-					' class="task-points">' + this.gamePoints[i] + '</span> pkt</p>';
+			taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p><p><span class="task-points">' + gamePoints[i] + '</span> pkt</p>';
 			task.appendChild(taskText);
 
-			task.addEventListener('click', this.taskClick.bind(this));
+			task.addEventListener('click', taskClick.bind(this));
 		}
+	};
 
-		// start timer downwards and stop it by 0
+	/////////////////////////////
+	// start timer downwards and stop it by 0
+	let startTimer = function () {
 		let gameTimeDiv = document.querySelector('.game-time');
-		let gameTimer = gameTimeDiv.innerHTML;
-		this.timerId = setInterval (function () {
+		let gameTimer = parseInt(gameTimeDiv.innerText);
+		timerId = setInterval (function () {
 			gameTimer--;
 			if (gameTimer < 1) {
-				this.stopGame();
-				clearInterval(this.timerId);
+				stopGame();
+				clearInterval(timerId);
 			}
 			gameTimeDiv.innerHTML = gameTimer.toString();
-		}, 1000);
+		}, timerIntervalValue);
+	};
+
+	/////////////////////////////
+	// S T A R T  G A M E
+	let startGame = function () {
+		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+		hideStartButton();
+		clearGame();
+		mixTables();
+		buildGameBoard();
+		startTimer();
 
 		// show board game
 		document.querySelector('.game-board').classList.add('display-block');
-	},
-	
-	// show 'END GAME' text and 'RESTART GAME' button at the end of the game when time or points are equal to 0
-	stopGame : function () {
-		clearInterval(this.timerId);
+	};
 
-		// show END GAME text
-		document.querySelector('.text-info').innerHTML = `Gra została zakończona.<br/>Jeśli chcesz zagrać ponownie,` +
-				` naciśniej przycisk START.`;
-		document.querySelector('.game-instruction').classList.add('display-block');
-
-		// show START button again
-		document.querySelector('.game-start').classList.add('display-block');
+	return {
+		startGame : startGame
 	}
-};
-
+})();
