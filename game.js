@@ -10,7 +10,7 @@ var taskGame = (function () {
 	// game initials
 	var initialPoints = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
 	var initialMoney = [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
-	var initialTotalPoints = 50;
+	var initialTotalPoints = 30;
 	var initialTotalMoney = 0;
 	var initialTotalTime = 10;
 	var timerIntervalValue = 1000;
@@ -68,11 +68,55 @@ var taskGame = (function () {
 	};
 
 	/////////////////////////////
+	// hide START button and instruction
+	var hideStartButton = function () {
+		document.querySelector('.game-start').classList.remove('display-block');
+		document.querySelector('.game-start').classList.add('display-none');
+		document.querySelector('.game-instruction').classList.remove('display-block');
+		document.querySelector('.game-instruction').classList.add('display-none');
+	};
+
+	/////////////////////////////
+	// Show text info
+	var showTextInfo = function (option) {
+		var txt1 = '<strong>Zdobądź maksymalną ilość hajsu.</strong><br/>' +
+				'Czas na ukończenie gry wynosi ' + initialTotalTime + ' sekund.<br/>' +
+				'Każde zadanie posiada wartość pieniężną oraz liczbę punktów odejmowaną z puli.<br/>' +
+				'Należy klikać na zadania.';
+		var txt2 = 'Gra została zakończona.<br/>' +
+				'Jeśli chcesz zagrać ponownie, naciśnij przycisk START.<br/><br/>' +
+				'Zdobyty HAJS: $ ' + gameTotalMoney;
+		document.querySelector('.text-info').innerHTML = (option === 1) ? txt1 : txt2;
+		document.querySelector('.game-instruction').classList.add('display-block');
+	};
+
+	/////////////////////////////
+	// show 'END GAME' text and 'RESTART GAME' button when time or points are equal to 0
+	var stopGame = function () {
+
+		gameInProgress = false;
+
+		clearInterval(timerId);
+
+		// show blender
+		var blender = document.createElement('div');
+		blender.classList.add('game-blend');
+		document.querySelector('.game-board').appendChild(blender);
+
+		// show END GAME text
+		showTextInfo(2);
+
+		// show START button
+		document.querySelector('.game-start').classList.add('display-block');
+	};
+
+	/////////////////////////////
 	// setting game to initials
 	var clearGame = function () {
 
 		gameTotalPoints = initialTotalPoints;
 		gameTotalMoney = initialTotalMoney;
+
 		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
 		for (var i = 0; i < initialPoints.length; i++) {
@@ -89,48 +133,18 @@ var taskGame = (function () {
 	};
 
 	/////////////////////////////
-	// show 'END GAME' text and 'RESTART GAME' button at the end of the game when time or points are equal to 0
-	var stopGame = function () {
-
-		gameInProgress = false;
-
-		clearInterval(timerId);
-
-		// show blender
-		var blender = document.createElement('div');
-		blender.classList.add('game-blend');
-		document.querySelector('.game-board').appendChild(blender);
-
-		// show END GAME text
-		document.querySelector('.text-info').innerHTML = 'Gra została zakończona.<br/>' +
-			'Jeśli chcesz zagrać ponownie, naciśniej przycisk START.<br/>' +
-			'HAJS: $ ' + gameTotalMoney;
-		document.querySelector('.game-instruction').classList.add('display-block');
-
-		// show START button again
-		document.querySelector('.game-start').classList.add('display-block');
-	};
-
-	/////////////////////////////
-	// hide start button and instruction
-	var hideStartButton = function () {
-		document.querySelector('.game-start').classList.remove('display-block');
-		document.querySelector('.game-start').classList.add('display-none');
-		document.querySelector('.game-instruction').classList.remove('display-block');
-		document.querySelector('.game-instruction').classList.add('display-none');
-	};
-
-	/////////////////////////////
 	// mixing the tables with task points and money
 	var mixTables = function () {
 		for (var i = gamePoints.length - 1; i > 0; i--) {
-			var swap = Math.floor(Math.random() * i);
+			var swapPoints = Math.floor(Math.random() * i);
+			var swapMoney = Math.floor(Math.random() * i);
 			var tmpPoints = gamePoints[i];
 			var tmpMoney = gameMoney[i];
-			gamePoints[i] = gamePoints[swap];
-			gameMoney[i] = gameMoney[swap];
-			gamePoints[swap] = tmpPoints;
-			gameMoney[swap] = tmpMoney;
+
+			gamePoints[i] = gamePoints[swapPoints];
+			gameMoney[i] = gameMoney[swapMoney];
+			gamePoints[swapPoints] = tmpPoints;
+			gameMoney[swapMoney] = tmpMoney;
 		}
 	};
 
@@ -153,7 +167,8 @@ var taskGame = (function () {
 			// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
 			var taskText = document.createElement('div');
 			taskText.classList.add('game-task-text');
-			taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p><p><span class="task-points">' + gamePoints[i] + '</span> pkt</p>';
+			taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] +
+					'</span></p><p><span class="task-points">' + gamePoints[i] + '</span> pkt</p>';
 			task.appendChild(taskText);
 
 			task.addEventListener('click', taskClick);
@@ -178,7 +193,6 @@ var taskGame = (function () {
 	/////////////////////////////
 	// S T A R T  G A M E
 	var startGame = function () {
-		hideStartButton();
 		clearGame();
 		mixTables();
 		buildGameBoard();
@@ -190,5 +204,6 @@ var taskGame = (function () {
 	};
 
 	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+	showTextInfo(1);
 
 })();
