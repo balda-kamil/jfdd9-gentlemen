@@ -1,8 +1,3 @@
-// TODO 1: make clearGame function work properly
-// TODO 2: add score to text info
-// TODO 3: mute game board under the START button
-// TODO 4: add max earned money (?)
-
 'use strict';
 
 var taskGame = (function () {
@@ -15,7 +10,7 @@ var taskGame = (function () {
 	// game initials
 	var initialPoints = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
 	var initialMoney = [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
-	var initialTotalPoints = 40;
+	var initialTotalPoints = 50;
 	var initialTotalMoney = 0;
 	var initialTotalTime = 10;
 	var timerIntervalValue = 1000;
@@ -63,9 +58,9 @@ var taskGame = (function () {
 					gamePoints.innerHTML = gameTotalPoints.toString();
 					stopGame();
 				}
-				gamePoints.innerText = gameTotalPoints.toString();
-				gameMoney.innerText = gameTotalMoney.toString();
 			}
+			gamePoints.innerText = gameTotalPoints.toString();
+			gameMoney.innerText = gameTotalMoney.toString();
 		}
 
 		// make '.game-task' disappear when clicked
@@ -76,6 +71,8 @@ var taskGame = (function () {
 	// setting game to initials
 	var clearGame = function () {
 
+		gameTotalPoints = initialTotalPoints;
+		gameTotalMoney = initialTotalMoney;
 		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
 		for (var i = 0; i < initialPoints.length; i++) {
@@ -83,7 +80,7 @@ var taskGame = (function () {
 			gameMoney[i] = initialMoney[i];
 		}
 
-		// TODO: here add clear board of remaining tasks
+		// clear board of remaining tasks and hide START button
 		var board = document.querySelector('.game-board');
 		while (board.firstChild) {
 			board.removeChild(board.firstChild);
@@ -99,13 +96,15 @@ var taskGame = (function () {
 
 		clearInterval(timerId);
 
-		// show
+		// show blender
 		var blender = document.createElement('div');
 		blender.classList.add('game-blend');
 		document.querySelector('.game-board').appendChild(blender);
 
 		// show END GAME text
-		document.querySelector('.text-info').innerHTML = 'Gra została zakończona.<br/>Jeśli chcesz zagrać ponownie, naciśniej przycisk START.';
+		document.querySelector('.text-info').innerHTML = 'Gra została zakończona.<br/>' +
+			'Jeśli chcesz zagrać ponownie, naciśniej przycisk START.<br/>' +
+			'HAJS: $ ' + gameTotalMoney;
 		document.querySelector('.game-instruction').classList.add('display-block');
 
 		// show START button again
@@ -124,7 +123,6 @@ var taskGame = (function () {
 	/////////////////////////////
 	// mixing the tables with task points and money
 	var mixTables = function () {
-
 		for (var i = gamePoints.length - 1; i > 0; i--) {
 			var swap = Math.floor(Math.random() * i);
 			var tmpPoints = gamePoints[i];
@@ -158,7 +156,7 @@ var taskGame = (function () {
 			taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p><p><span class="task-points">' + gamePoints[i] + '</span> pkt</p>';
 			task.appendChild(taskText);
 
-			task.addEventListener('click', taskClick.bind(this));
+			task.addEventListener('click', taskClick);
 		}
 	};
 
@@ -180,7 +178,6 @@ var taskGame = (function () {
 	/////////////////////////////
 	// S T A R T  G A M E
 	var startGame = function () {
-		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 		hideStartButton();
 		clearGame();
 		mixTables();
@@ -194,7 +191,4 @@ var taskGame = (function () {
 
 	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
-	// return {
-	// 	startGame : startGame
-	// }
 })();
