@@ -17,9 +17,10 @@ var taskGame = (function () {
 	var initialMoney = [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
 	var initialTotalPoints = 40;
 	var initialTotalMoney = 0;
-	var initialTotalTime = 60;
+	var initialTotalTime = 10;
 	var timerIntervalValue = 1000;
 	var timerId = 0;
+	var gameInProgress = false;
 
 	var gameTotalPoints = initialTotalPoints;
 	var gameTotalMoney = initialTotalMoney;
@@ -39,9 +40,12 @@ var taskGame = (function () {
 	// click on the tile with a task
 	var taskClick = function (event) {
 
+		if (false === gameInProgress) return;
+
 		var element = event.currentTarget;
 
 		if (element.matches('.game-task')) {
+
 			// add money to 'game-money' when '.game-task' clicked
 			var taskMoney = element.getAttribute('data-money');
 			var gameMoney = document.querySelector('.game-money');
@@ -80,13 +84,25 @@ var taskGame = (function () {
 		}
 
 		// TODO: here add clear board of remaining tasks
+		var board = document.querySelector('.game-board');
+		while (board.firstChild) {
+			board.removeChild(board.firstChild);
+		}
+		hideStartButton();
 	};
 
 	/////////////////////////////
 	// show 'END GAME' text and 'RESTART GAME' button at the end of the game when time or points are equal to 0
 	var stopGame = function () {
 
+		gameInProgress = false;
+
 		clearInterval(timerId);
+
+		// show
+		var blender = document.createElement('div');
+		blender.classList.add('game-blend');
+		document.querySelector('.game-board').appendChild(blender);
 
 		// show END GAME text
 		document.querySelector('.text-info').innerHTML = 'Gra została zakończona.<br/>Jeśli chcesz zagrać ponownie, naciśniej przycisk START.';
@@ -99,7 +115,9 @@ var taskGame = (function () {
 	/////////////////////////////
 	// hide start button and instruction
 	var hideStartButton = function () {
+		document.querySelector('.game-start').classList.remove('display-block');
 		document.querySelector('.game-start').classList.add('display-none');
+		document.querySelector('.game-instruction').classList.remove('display-block');
 		document.querySelector('.game-instruction').classList.add('display-none');
 	};
 
@@ -171,9 +189,12 @@ var taskGame = (function () {
 
 		// show board game
 		document.querySelector('.game-board').classList.add('display-block');
+		gameInProgress = true;
 	};
 
-	return {
-		startGame : startGame
-	}
+	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+
+	// return {
+	// 	startGame : startGame
+	// }
 })();
