@@ -5,7 +5,7 @@
 
 'use strict';
 
-let taskGame = (function () {
+var taskGame = (function () {
 	document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.game-start').addEventListener('click', function() {
 			startGame();
@@ -13,23 +13,23 @@ let taskGame = (function () {
 	});
 
 	// game initials
-	let initialPoints = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
-	let initialMoney = [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
-	let initialTotalPoints = 40;
-	let initialTotalMoney = 0;
-	let initialTotalTime = 60;
-	let timerIntervalValue = 1000;
-	let timerId = 0;
+	var initialPoints = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
+	var initialMoney = [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
+	var initialTotalPoints = 40;
+	var initialTotalMoney = 0;
+	var initialTotalTime = 60;
+	var timerIntervalValue = 1000;
+	var timerId = 0;
 
-	let gameTotalPoints = initialTotalPoints;
-	let gameTotalMoney = initialTotalMoney;
+	var gameTotalPoints = initialTotalPoints;
+	var gameTotalMoney = initialTotalMoney;
 
-	let gamePoints = [];
-	let gameMoney = [];
+	var gamePoints = [];
+	var gameMoney = [];
 
 	//////////////////////////////////
 	// show score
-	let showScore = function (money, points, time) {
+	var showScore = function (money, points, time) {
 		document.querySelector('.game-money').innerText = money;
 		document.querySelector('.game-points').innerText = points;
 		document.querySelector('.game-time').innerText = time;
@@ -37,19 +37,19 @@ let taskGame = (function () {
 
 	//////////////////////////////////
 	// click on the tile with a task
-	let taskClick = function (event) {
+	var taskClick = function (event) {
 
-		let element = event.currentTarget;
+		var element = event.currentTarget;
 
 		if (element.matches('.game-task')) {
 			// add money to 'game-money' when '.game-task' clicked
-			let taskMoney = element.getAttribute('data-money');
-			let gameMoney = document.querySelector('.game-money');
+			var taskMoney = element.getAttribute('data-money');
+			var gameMoney = document.querySelector('.game-money');
 			gameTotalMoney += parseInt(taskMoney);
 
 			// subtract points from 'game-points' when '.game-task' clicked
-			let taskPoints = element.getAttribute('data-points');
-			let gamePoints = document.querySelector('.game-points');
+			var taskPoints = element.getAttribute('data-points');
+			var gamePoints = document.querySelector('.game-points');
 
 			// check if the value of total points is less than 0 and then stop the game
 			if (gameTotalPoints > 0) {
@@ -70,11 +70,11 @@ let taskGame = (function () {
 
 	/////////////////////////////
 	// setting game to initials
-	let clearGame = function () {
+	var clearGame = function () {
 
 		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
-		for (let i = 0; i < initialPoints.length; i++) {
+		for (var i = 0; i < initialPoints.length; i++) {
 			gamePoints[i] = initialPoints[i];
 			gameMoney[i] = initialMoney[i];
 		}
@@ -84,12 +84,12 @@ let taskGame = (function () {
 
 	/////////////////////////////
 	// show 'END GAME' text and 'RESTART GAME' button at the end of the game when time or points are equal to 0
-	let stopGame = function () {
+	var stopGame = function () {
 
 		clearInterval(timerId);
 
 		// show END GAME text
-		document.querySelector('.text-info').innerHTML = `Gra została zakończona.<br/>Jeśli chcesz zagrać ponownie, naciśniej przycisk START.`;
+		document.querySelector('.text-info').innerHTML = 'Gra została zakończona.<br/>Jeśli chcesz zagrać ponownie, naciśniej przycisk START.';
 		document.querySelector('.game-instruction').classList.add('display-block');
 
 		// show START button again
@@ -98,19 +98,19 @@ let taskGame = (function () {
 
 	/////////////////////////////
 	// hide start button and instruction
-	let hideStartButton = function () {
+	var hideStartButton = function () {
 		document.querySelector('.game-start').classList.add('display-none');
 		document.querySelector('.game-instruction').classList.add('display-none');
 	};
 
 	/////////////////////////////
 	// mixing the tables with task points and money
-	let mixTables = function () {
+	var mixTables = function () {
 
-		for (let i = gamePoints.length - 1; i > 0; i--) {
-			let swap = Math.floor(Math.random() * i);
-			let tmpPoints = gamePoints[i];
-			let tmpMoney = gameMoney[i];
+		for (var i = gamePoints.length - 1; i > 0; i--) {
+			var swap = Math.floor(Math.random() * i);
+			var tmpPoints = gamePoints[i];
+			var tmpMoney = gameMoney[i];
 			gamePoints[i] = gamePoints[swap];
 			gameMoney[i] = gameMoney[swap];
 			gamePoints[swap] = tmpPoints;
@@ -120,13 +120,13 @@ let taskGame = (function () {
 
 	/////////////////////////////
 	// display tasks on game board
-	let buildGameBoard = function () {
+	var buildGameBoard = function () {
 
-		for (let i = 0; i < gamePoints.length; i++) {
+		for (var i = 0; i < gamePoints.length; i++) {
 
 			// display task element and ...
-			const board = document.querySelector('.game-board');
-			const task = document.createElement('div');
+			var board = document.querySelector('.game-board');
+			var task = document.createElement('div');
 			board.appendChild(task);
 			task.classList.add('game-task');
 
@@ -135,7 +135,7 @@ let taskGame = (function () {
 			task.setAttribute('data-points', gamePoints[i]);
 
 			// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
-			let taskText = document.createElement('div');
+			var taskText = document.createElement('div');
 			taskText.classList.add('game-task-text');
 			taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p><p><span class="task-points">' + gamePoints[i] + '</span> pkt</p>';
 			task.appendChild(taskText);
@@ -146,9 +146,9 @@ let taskGame = (function () {
 
 	/////////////////////////////
 	// start timer downwards and stop it by 0
-	let startTimer = function () {
-		let gameTimeDiv = document.querySelector('.game-time');
-		let gameTimer = parseInt(gameTimeDiv.innerText);
+	var startTimer = function () {
+		var gameTimeDiv = document.querySelector('.game-time');
+		var gameTimer = parseInt(gameTimeDiv.innerText);
 		timerId = setInterval (function () {
 			gameTimer--;
 			if (gameTimer < 1) {
@@ -161,7 +161,7 @@ let taskGame = (function () {
 
 	/////////////////////////////
 	// S T A R T  G A M E
-	let startGame = function () {
+	var startGame = function () {
 		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 		hideStartButton();
 		clearGame();
