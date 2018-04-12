@@ -2,8 +2,10 @@
 .hero {
     margin: 73px auto;
     padding: 100px 0;
-    background-image: url("img/clipboard-list.png");
-    background-size: 30px;
+    background-image: url("img/clipboard-list1.png");
+    background-size: 50px, cover;
+    opacity: 1.5;
+    height: 100vh;
 }
 .hero-img-title {
     text-align: center;
