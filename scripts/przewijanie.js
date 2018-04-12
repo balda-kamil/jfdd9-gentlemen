@@ -1,9 +1,6 @@
 $(document).ready(function() {
-
     $('a[href^="#"]').on('click', function(event) {
-
         var target = $($(this).attr('href'));
-
         if( target.length ) {
             event.preventDefault();
             $('html, body').stop().animate({
@@ -11,5 +8,4 @@ $(document).ready(function() {
             }, 1000);
         }
     });
-
 });
