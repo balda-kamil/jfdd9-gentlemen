@@ -19,6 +19,7 @@ nav {
     left: 0;
     right: 0;
     z-index: 100;
+
 }
 nav img {
     padding: 5px;
@@ -43,6 +44,7 @@ nav li a {
 nav li a:hover {
     color: #d62261;
     background-color: #f8f9fa;
+    border-radius: 5px;
 }
 nav span a {
     border-radius: 5px;
@@ -76,6 +78,7 @@ nav span a:hover {
 .active {
     color: #d62261;
     background-color: #f8f9fa;
+    border-radius: 5px;
 }
 
 /* ... footer ... */

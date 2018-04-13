@@ -1,9 +1,10 @@
 /* ... BANNER ... */
 .hero {
-    margin: 73px auto;
+    margin-top: 73px;
     padding: 100px 0;
-    background-image: url("img/clipboard-list.png");
+    background-image: url("img/clipboard-list1.png");
     background-size: 30px;
+    min-height: 100vh;
 }
 .hero-img-title {
     text-align: center;
@@ -63,12 +64,17 @@
 }
 
 .form-div {
-    padding-top: 3em;
     text-align: center;
+    min-height: 100vh;
+
 }
-#form-div {
-    height:1em;
+
+.team{
+    padding: 50px 0 50px;
+    min-height: 100vh;
 }
+
+
 .form-zapro{
     padding-bottom: 30px;
 }
@@ -113,8 +119,8 @@
 }
 
 .inp-field:focus{
-    border-left: 2px solid #ff4081;
-    border-right: 2px solid #ff4081;
+    border-left: 1px solid #ff4081;
+    border-right: 1px solid #eeeeef;
 }
 
 .btn-name-field{
@@ -152,3 +158,59 @@
         margin: 0 auto;
     }
 }
+
+
+/*w tym miejscu zmieniamy style dla menu po skrolowanu*/
+.active > a {
+    background-color: #f8f9fa;
+    color: #d62261;
+}
+
+.pad150{
+    padding-top: 150px;
+}
+
+.footer{
+    position: absolute;
+    width:100%;
+    color: #f8f9fa;
+    margin-bottom: 0px;
+    background-color: #222529;
+    text-align: center;
+    font-size: .8em;
+}
+
+/******************CSS sekcji NEW FUNCTION ******************************/
+
+.new-function {
+    text-align: center;
+    width: 100%;
+    min-height: 100vh;
+
+
+}
+.new-function-all {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.new-function-sample {
+    padding: 0.5em;
+    width: 220px;
+    margin: 10px 0.5em;
+    opacity: 0;
+    transition: all .5s;
+}
+.new-function-sample.active {
+    opacity: 1;
+    transition: all .5s;
+}
+.describe-1, .describe-2, .describe-3, .describe-4 {
+    text-align: center;
+}
+.new-function-sample:hover{
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.15);
+}
+
