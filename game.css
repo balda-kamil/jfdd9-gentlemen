@@ -38,7 +38,7 @@ button:hover, .game-task:hover {
 
 .game {
 	width: 40rem;
-	height: 40rem;
+	height: 100vh;
 	margin: 0 auto;
 	border: 2px solid #d62261;
 }
