@@ -3,9 +3,9 @@ $(document).on('scroll', function(){
     var scrollTop = $(document).scrollTop();
     var activeLi;
 
-        var section2OffsetTop = $('.section2').offset().top;
-        var section3OffsetTop = $('.section3').offset().top;
-        var section4OffsetTop = $('.section4').offset().top;
+        var section2OffsetTop = $('.section2').offset().top - 1;
+        var section3OffsetTop = $('.section3').offset().top - 1;
+        var section4OffsetTop = $('.section4').offset().top - 1;
 
         if (scrollTop < section2OffsetTop) {
             activeLi = $('.menu>li:nth-child(1)');
