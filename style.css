@@ -49,12 +49,6 @@
     transition: 0.3s;
 }
 
-.formula{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 .form-field:hover{
     box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.15);
 }
