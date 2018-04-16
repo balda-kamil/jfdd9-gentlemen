@@ -2,16 +2,37 @@ var mazeGame = (function () {
     var gameContainer = document.getElementById('game');
     var scoreContainer = document.getElementById('score');
     var board = [
-        '       x  ',
-        '   xxx x  ',
-        '  fx   x  ',
-        '      f   ',
-        '  x x     ',
-        '     f x  ',
-        '   xxx x  ',
-        '   x   xf ',
-        '          ',
-        '  x x f   '
+        '        xf   x     x            x   x xfxf xxxx   ',
+        ' xxxxxx xx x x xxx x f fff ffff x x     x  xf   x ',
+        ' x         x x xf  x   f   f  f x x xxxxxx x xxxxf',
+        ' x xxxxxxxxx x xxx x f fff f  f x x x           xf',
+        ' x   x       x xfx x f   f ffff x x xx xxxxxxxx x ',
+        ' x x x xxxxxxx x x x f fff f  f x x x  x          ',
+        '   x x         x   x            x x xx x xxxxxxxxx',
+        'xxxx x x xxxfxxxxxxxxxxxxxxxxxxxx x       x       ',
+        '     x x x          x  x   x      xxxxx x x xxxxx ',
+        ' xxxxx x x xxxxxxxx  x   x   xxxxx      x x x     ',
+        ' x     x x       x x   x   xxx x x xxxxxx x x xxxx',
+        ' x xxxxx xxxxxxx x   x   x         x    x x x xfff',
+        ' x xf  x x         x   x   xxxx x  x xx x x x xfxf',
+        ' x xxx x x xxxxxxx   x   x    x xx x  x x x x xfxf',
+        ' x   x xfx    xffx x   x      x  x x fx x x x x x ',
+        ' x x   xxx x x  x    x     x xxx x xxxx x x x x x ',
+        '   x xx x  xx  x   x   x xxx  x  x      x x x x x ',
+        'xxxx x     x  x  xxxxxxx xfx xx xxxxxx  x x x x x ',
+        '     xxx xx  x           x x xf    x    x   x   x ',
+        ' x x xf  x  xfxxxxxxxxxx x   xxxxx xx xxxxxxxxxxx ',
+        ' x x  xxx  x          x  xx xx     x          x x ',
+        ' x x   x  x xxxx xxxx x xx  xf x x x xxxxxxxx x ',
+        ' x x x x x   x    x     x  xxxxx x x  x         x ',
+        ' x x x x x x x xx x x x x        x xx x xxxxxxx x ',
+        ' x   x   x x x xx x x x x xxxx x   x  xfx       x ',
+        ' x xxxxx x x x fx xfx xfx xf x xxx x xxxx xxxx  x ',
+        'xf x       x  xxx xxx xxx x  x          x x    x x',
+        'xxxxxxxxxxxxx             x xx xxx xxxx x x xxx  x',
+        'ff            xxx xxx xxx x    x  xf      x      x',
+
+
     ];
     var playerPosition = {
         x: 0,
@@ -57,7 +78,7 @@ var mazeGame = (function () {
     setInterval(function () {
         update();
         render();
-    }, 500);
+    }, 130);
 
     function update() {
         var newPosition = (
