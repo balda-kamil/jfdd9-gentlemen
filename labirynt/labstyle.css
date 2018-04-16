@@ -1,8 +1,7 @@
-@import "../game.css";
-
 td {
   border: none;
   width: 20px;
+  height: 20px;
   height: 20px;
 
 
@@ -12,3 +11,20 @@ table{
   border-collapse: collapse;
 }
 
+.jar{
+  width: 100%;
+  margin: auto;
+}
+
+.game{
+  margin: auto;
+  width: 1000px;
+}
+
+
+.points{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  color: #ff4081;
+  font-size: 2em;
+}
