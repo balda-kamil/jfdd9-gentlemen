@@ -37,7 +37,7 @@ button:hover, .game-task:hover {
 }
 
 .game {
-	width: 40rem;
+	max-width: 40rem;
 	height: 100vh;
 	margin: 0 auto;
 	border: 2px solid #d62261;
@@ -81,9 +81,9 @@ button:hover, .game-task:hover {
 	align-items: center;
 }
 .game-task {
-	margin: 1rem;
-	width: 7.5rem;
-	height: 7.5rem;
+	/*margin: 1rem;*/
+	/*width: 7.5rem;*/
+	/*height: 7.5rem;*/
 	font-size: 1.5rem;
 	color: white;
 	background-color: #d62261;
