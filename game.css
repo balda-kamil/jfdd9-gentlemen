@@ -74,7 +74,7 @@ button:hover, .game-task:hover {
 .game-board {
 	position: relative;
 	width: 100%;
-	height: 37.2rem;
+	/*height: 37.2rem;*/
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -110,7 +110,7 @@ button:hover, .game-task:hover {
 
 .game-blend {
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	/*width: 100%;*/
+	/*height: 100%;*/
 	background-color: rgba(90, 90, 90, 0.9);
 }
