@@ -46,8 +46,8 @@ var mazeGame = (function () {
             }
         }
     };
-    var width = 10;
-    var height = 10;
+    var width = 50;
+    var height = 29;
     var pressedKey = '';
 
     window.addEventListener('keydown', function (event) {
@@ -85,7 +85,7 @@ var mazeGame = (function () {
         var table = createTable(width, height);
         try {
             var playerCell = getCell(table, playerPosition.x, playerPosition.y);
-            colorize(playerCell, 'red');
+            colorize(playerCell, 'silver');
 
             obstacles.forEach(function (obstacle) {
                 var obstacleCell = getCell(table, obstacle.x, obstacle.y);

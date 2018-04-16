@@ -10,7 +10,6 @@ function makeNode(name) {
 
 function makeCell(x, y) {
     var cell = makeNode('td');
-    cell.innerText = x + ', ' + y;
     return cell;
 }
 
