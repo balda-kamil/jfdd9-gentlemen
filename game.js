@@ -23,54 +23,54 @@ var taskGame = (function () {
 	var gamePoints = [];
 	var gameMoney = [];
 
-    var howManyTasks;
-    var scoreHeight;
-    var gameHeight;
+	var howManyTasks;
+	var scoreHeight;
+	var gameHeight;
 	var boardHeight;
 	var boardWidth;
-    var taskSize;
-    var board;
+	var taskSize;
+	var board;
 
-    window.addEventListener('resize', function () {
-        //buildInitials();
-    });
+	window.addEventListener('resize', function () {
+		//buildInitials();
+	});
     
 	//////////////////////////////////
 	// build initials upon board size
 	var buildInitials = function () {
 		gameHeight = document.querySelector('.game').offsetHeight;
 		scoreHeight = document.querySelector('.game-score').offsetHeight;
-        board = document.querySelector('.game-board');
-        boardHeight = gameHeight - scoreHeight;
-        boardWidth = board.offsetWidth;
-        var tasksInRow = 0;
-        if (boardWidth > 540) {
-        	tasksInRow = 4;
-        } else if (boardWidth > 400) {
-            tasksInRow = 3;
+		board = document.querySelector('.game-board');
+		boardHeight = gameHeight - scoreHeight;
+		boardWidth = board.offsetWidth;
+		var tasksInRow = 0;
+		if (boardWidth > 540) {
+		  tasksInRow = 4;
+		} else if (boardWidth > 400) {
+			tasksInRow = 3;
 		} else if (boardWidth > 320) {
-            tasksInRow = 2;
+			tasksInRow = 2;
 		} else {
-            tasksInRow = 2;
+			tasksInRow = 2;
 		}
-        taskSize = Math.floor((boardWidth / tasksInRow) - 30);
-        howManyTasks = Math.floor(boardHeight / (taskSize + 30)) * Math.floor(boardWidth / (taskSize + 30));
+		taskSize = Math.floor((boardWidth / tasksInRow) - 30);
+		howManyTasks = Math.floor(boardHeight / (taskSize + 30)) * Math.floor(boardWidth / (taskSize + 30));
 
-        if (howManyTasks > 17) {
-            initialTotalTime = 20;
-            initialTotalPoints = 40;
+		if (howManyTasks > 17) {
+			initialTotalTime = 20;
+			initialTotalPoints = 40;
 		}
-        if (howManyTasks <= 17) {
-            initialTotalTime = 10;
-            initialTotalPoints = 30;
-        }
+		if (howManyTasks <= 17) {
+			initialTotalTime = 10;
+			initialTotalPoints = 30;
+		}
 
-        for (var i = 0; i < howManyTasks; i += 1) {
-            initialPoints[i] = i + 1;
-            initialMoney[howManyTasks - i - 1] = (i + 1) * 100;
-        }
+		for (var i = 0; i < howManyTasks; i += 1) {
+			initialPoints[i] = i + 1;
+			initialMoney[howManyTasks - i - 1] = (i + 1) * 100;
+		}
 
-        taskSize = taskSize.toString() + 'px';
+		taskSize = taskSize.toString() + 'px';
 	};
 
 	//////////////////////////////////
@@ -152,8 +152,8 @@ var taskGame = (function () {
 		var blender = document.createElement('div');
 		blender.classList.add('game-blend');
 		blender.style.height = boardHeight.toString() + 'px';
-        blender.style.width = '100%';
-        //blender.style.top = scoreHeight.toString() + 'px';
+		blender.style.width = '100%';
+		//blender.style.top = scoreHeight.toString() + 'px';
 		document.querySelector('.game-board').appendChild(blender);
 
 		// show END GAME text
@@ -168,22 +168,22 @@ var taskGame = (function () {
 	var clearGame = function () {
 
 		if (!gameInProgress) {
-            gameTotalPoints = initialTotalPoints;
-            gameTotalMoney = initialTotalMoney;
+			gameTotalPoints = initialTotalPoints;
+			gameTotalMoney = initialTotalMoney;
 
-            showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+			showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
-            for (var i = 0; i < initialPoints.length; i++) {
-                gamePoints[i] = initialPoints[i];
-                gameMoney[i] = initialMoney[i];
-            }
+			for (var i = 0; i < initialPoints.length; i++) {
+				gamePoints[i] = initialPoints[i];
+				gameMoney[i] = initialMoney[i];
+			}
 
-            // clear board of remaining tasks and hide START button
-            var board = document.querySelector('.game-board');
-            while (board.firstChild) {
-                board.removeChild(board.firstChild);
-            }
-        }
+			// clear board of remaining tasks and hide START button
+			var board = document.querySelector('.game-board');
+			while (board.firstChild) {
+				board.removeChild(board.firstChild);
+			}
+		}
 		hideStartButton();
 	};
 
