@@ -23,6 +23,9 @@ var taskGame = (function () {
 	var gamePoints = [];
 	var gameMoney = [];
 
+	var boardHeight;
+	var boardWidth;
+
 	//////////////////////////////////
 	// show score
 	var showScore = function (money, points, time) {
@@ -152,13 +155,22 @@ var taskGame = (function () {
 	// display tasks on game board
 	var buildGameBoard = function () {
 
+		var board = document.querySelector('.game-board');
+		boardHeight = board.offsetHeight;
+		boardWidth = board.offsetWidth;
+		var taskSize = ((boardWidth / 5) - 10).toString() + 'px';
+
 		for (var i = 0; i < gamePoints.length; i++) {
 
 			// display task element and ...
-			var board = document.querySelector('.game-board');
 			var task = document.createElement('div');
 			board.appendChild(task);
 			task.classList.add('game-task');
+
+			// add size and margin to task
+			task.style.width = taskSize;
+			task.style.height = taskSize;
+			task.style.margin = '10px';
 
 			// add attributes for latter easy search
 			task.setAttribute('data-money', gameMoney[i]);
