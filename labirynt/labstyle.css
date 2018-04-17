@@ -33,3 +33,14 @@ body{
 p{
   margin: 0;
 }
+
+.text-info, .top-text{
+  text-align: center;
+}
+
+.btn{
+  margin: auto;
+  width: 200px;
+  height: 50px;
+
+}

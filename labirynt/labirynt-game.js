@@ -3,7 +3,6 @@
 var mazeGame = (function () {
     var gameContainer = document.getElementById('game');
     var scoreContainer = document.getElementById('score');
-    var timeContainer = document.getElementById('#time');
     var board = [
         '        xf   x     x            x   x xfxf xxxx   ',
         ' xxxxxx xx x x xxx x f fff ffff x x     x  xf   x ',
@@ -16,9 +15,9 @@ var mazeGame = (function () {
         '     x x x          x  x   x      xxxxx x x xxxxx ',
         ' xxxxx x x xxxxxxxx  x   x   xxxxx      x x x     ',
         ' x     x x       x x   x   xxx x x xxxxxx x x xxxx',
-        ' x xxxxx xxxxxxx x   x   x         x    x x x xfff',
-        ' x xf  x x         x   x   xxxx x  x xx x x x xfxf',
-        ' x xxx x x xxxxxxx   x   x    x xx x  x x x x xfxf',
+        ' x xxxxx xxxxxxx x   x   x         x    x x x x   ',
+        ' x xf  x x         x   x   xxxx x  x xx x x x xfx ',
+        ' x xxx x x xxxxxxx   x   x    x xx x  x x x x xfx ',
         ' x   x xfx    xffx x   x      x  x x fx x x x x x ',
         ' x x   xxx x x  x    x     x xxx x xxxx x x x x x ',
         '   x xx x  xx  x   x   x xxx  x  x      x x x x x ',
@@ -31,9 +30,9 @@ var mazeGame = (function () {
         ' x x x x x x x xx x x x x        x xx x xxxxxxx x ',
         ' x   x   x x x xx x x x x xxxx x   x  xfx       x ',
         ' x xxxxx x x x fx xfx xfx xf x xxx x xxxx xxxx  x ',
-        'xf x       x  xxx xxx xxx x  x          x x    xfx',
-        'xxxxxxxxxxxxx             x xx xxx xxxx x x xxxffx',
-        'ff            xxx xxx xxx x    x  xf      x   fffx',
+        'xf x       x  xxx xxx xxx x  x          x x    x x',
+        'xxxxxxxxxxxxx             x xx xxx xxxx x x xxx  x',
+        'ff            xxx xxx xxx x    x  xf      x   f fx',
 
 
     ];
@@ -118,7 +117,7 @@ var mazeGame = (function () {
         var table = createTable(width, height);
         try {
             var playerCell = getCell(table, playerPosition.x, playerPosition.y);
-            colorize(playerCell, 'silver');
+            colorize(playerCell, '#ff4081');
 
             obstacles.forEach(function (obstacle) {
                 var obstacleCell = getCell(table, obstacle.x, obstacle.y);
@@ -127,7 +126,7 @@ var mazeGame = (function () {
 
             fruits.forEach(function (fruit) {
                 var fruitCell = getCell(table, fruit.x, fruit.y);
-                colorize(fruitCell, 'blue');
+                colorize(fruitCell, 'red');
             })
 
         } catch (e) {
@@ -174,16 +173,16 @@ var mazeGame = (function () {
         }
     },1000);
 
+
     var showTextInfo = function (option) {
-        var txt1 = '<strong>Jesteś w labiryncie supermarketu</strong><br/>' +
-            'Poruszaj się strzałkami, zbierz 10 pkt w' + timeleft + 'sekund<br/>'
+        var txt1 = '<strong>Jesteś w labiryncie supermarketu, masz mało czasu na zrobienie zakupów</strong><br/>' +
+            '<strong>Steruj rożowym kwadratem, czerwone to produkty w sklepie - czyli punkty</strong><br/>' +
+            'Poruszaj się strzałkami, zbierz 10 pkt w ' + timeleft + 'sekund<br/>'
             ;
         var txt2 = 'Koniec Gry.<br/>';
 
         document.querySelector('.text-info').innerHTML = (option === 1) ? txt1 : txt2;
-        document.querySelector('.game-instruction').classList.add('display-block');
-    };
-
+};
     showTextInfo(1);
 
 })();
