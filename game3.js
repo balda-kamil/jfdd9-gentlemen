@@ -37,7 +37,7 @@ function showElement(parentId, element) {
 ////RANDOMOWA POZYCJA JABLEK
 function getRandomPos2(maxX, maxY, excludes) {
     var allPossibilities = [];
-
+    /// SHOW ALL POSSIBILITIES
     Array.from({ length: maxY }, function (_, y) {
         Array.from({ length: maxX }, function (_, x) {
             allPossibilities.push({
@@ -46,12 +46,12 @@ function getRandomPos2(maxX, maxY, excludes) {
             })
         })
     });
-
+///FRUIT CAN'T BE ON PLAYER POSITION
     var goodPossibilities = allPossibilities.filter(function (pos) {
         return !excludes.find(function (item) {
             return item.x === pos.x && item.y === pos.y
         })
     });
-
+///RANDOM POSITION
     return goodPossibilities[Math.floor(Math.random() * goodPossibilities.length)]
 }

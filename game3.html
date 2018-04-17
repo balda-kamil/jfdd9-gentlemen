@@ -18,6 +18,9 @@
             display: block;
             justify-content: start;
 }
+        .game-task {
+            font-size: 16px;
+        }
         .table {
             display: flex;
             width: 1200px;
@@ -58,6 +61,21 @@
 <script>
 
     //////////// INITIAL VALUE
+    var initialPoints = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
+    var initialMoney = [ 6600, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
+    var initialTotalPoints = 30;
+    var initialTotalMoney = 0;
+    var initialTotalTime = 10;
+    var timerIntervalValue = 1000;
+    var timerId = 0;
+    var gameInProgress = false;
+
+    var gameTotalPoints = initialTotalPoints;
+    var gameTotalMoney = initialTotalMoney;
+
+    var gamePoints = [];
+    var gameMoney = [];
+
     var sizeX = 15,
         sizeY = 15,
         player = [{ x: 7, y: 7, className: 'player'}],
@@ -89,9 +107,22 @@
         if (newHead.x === fruit.x && newHead.y === fruit.y) {
             player.push(head);
 //      fruit = getRandomPos(10, 10);
+
             fruit = getRandomPos2(sizeX, sizeY, player);
 
-            fruit.className = 'fruit'
+            fruit.className = 'fruit';
+            //for (var i = 0; i < gamePoints.length; i++) {
+            //    fruit.classList.add('game-task');
+            //    fruit.setAttribute('data-money', gameMoney[i]);
+            //    fruit.setAttribute('data-points', gamePoints[i]);
+//
+            //    // ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
+            //    var taskText = document.createElement('div');
+            //    taskText.classList.add('game-task-text');
+            //    taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] +
+            //        '</span></p><p><span class="task-points">' + gamePoints[i] + '</span> pkt</p>';
+            //    fruit.appendChild(taskText);
+            //}
         }
 
         var table = createTable(player.concat(fruit), sizeX, sizeY);
@@ -119,6 +150,7 @@
             directionX = 0;
         }
     });
+
 
 </script>
 </body>
