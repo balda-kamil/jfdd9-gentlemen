@@ -1,3 +1,5 @@
+"use strict";
+
 var mazeGame = (function () {
     var gameContainer = document.getElementById('game');
     var scoreContainer = document.getElementById('score');
@@ -93,6 +95,15 @@ var mazeGame = (function () {
         ) {
             if (collide(newPosition, fruits)) {
                 score += 1;
+                if(score === 10){
+                    moves = 0;
+                    clearInterval(timer);
+                    console.log("wygraleś")
+                    var audio = new Audio('sounds/Fanfary2.mp3');
+                    audio.play();
+                    showTextInfo(2);
+
+                }
                 fruits = fruits.filter(function (fruit) {
                     return !(fruit.x === newPosition.x && fruit.y === newPosition.y)
                 })
@@ -136,7 +147,6 @@ var mazeGame = (function () {
         }) === undefined
     }
 
-
     function getFromBoard(board, charToFind) {
         return board.map(function (row, y) {
             return row.split('').map(function (char, x) {
@@ -153,7 +163,6 @@ var mazeGame = (function () {
         }, []);
     }
 
-
     var timeleft = 50;
     var timer = setInterval(function(){
         timeleft--;
@@ -161,6 +170,20 @@ var mazeGame = (function () {
         if(timeleft <= 0) {
             clearInterval(timer);
             moves = 0;
+            showTextInfo(2);
         }
     },1000);
+
+    var showTextInfo = function (option) {
+        var txt1 = '<strong>Jesteś w labiryncie supermarketu</strong><br/>' +
+            'Poruszaj się strzałkami, zbierz 10 pkt w' + timeleft + 'sekund<br/>'
+            ;
+        var txt2 = 'Koniec Gry.<br/>';
+
+        document.querySelector('.text-info').innerHTML = (option === 1) ? txt1 : txt2;
+        document.querySelector('.game-instruction').classList.add('display-block');
+    };
+
+    showTextInfo(1);
+
 })();
