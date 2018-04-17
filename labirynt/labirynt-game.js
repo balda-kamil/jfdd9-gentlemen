@@ -29,9 +29,9 @@ var mazeGame = (function () {
         ' x x x x x x x xx x x x x        x xx x xxxxxxx x ',
         ' x   x   x x x xx x x x x xxxx x   x  xfx       x ',
         ' x xxxxx x x x fx xfx xfx xf x xxx x xxxx xxxx  x ',
-        'xf x       x  xxx xxx xxx x  x          x x    x x',
-        'xxxxxxxxxxxxx             x xx xxx xxxx x x xxx  x',
-        'ff            xxx xxx xxx x    x  xf      x      x',
+        'xf x       x  xxx xxx xxx x  x          x x    xfx',
+        'xxxxxxxxxxxxx             x xx xxx xxxx x x xxxffx',
+        'ff            xxx xxx xxx x    x  xf      x   fffx',
 
 
     ];
@@ -137,22 +137,6 @@ var mazeGame = (function () {
     }
 
 
-    ////////////////TIMER
-    var startTimer = function () {
-        var gameTimeDiv = document.querySelector('#time');
-        var gameTimer = parseInt(gameTimeDiv.innerText);
-        timerId = setInterval (function () {
-            gameTimer--;
-            if (gameTimer < 1) {
-                stopGame();
-                clearInterval(timerId);
-            }
-            gameTimeDiv.innerHTML = gameTimer.toString();
-        }, timerIntervalValue);
-    };
-
-
-
     function getFromBoard(board, charToFind) {
         return board.map(function (row, y) {
             return row.split('').map(function (char, x) {
@@ -168,4 +152,15 @@ var mazeGame = (function () {
             return result.concat(next)
         }, []);
     }
+
+
+    var timeleft = 50;
+    var timer = setInterval(function(){
+        timeleft--;
+        document.getElementById("countdowntimer").textContent = timeleft;
+        if(timeleft <= 0) {
+            clearInterval(timer);
+            moves = 0;
+        }
+    },1000);
 })();
