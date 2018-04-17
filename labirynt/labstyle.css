@@ -1,10 +1,11 @@
-td {
+
+
+/* wyglad labiryntu, tego nie zmieniać */
+
+td{
   border: none;
   width: 20px;
   height: 20px;
-  height: 20px;
-
-
 }
 
 table{
@@ -22,9 +23,13 @@ table{
 }
 
 
-.points{
+body{
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   color: #ff4081;
   font-size: 2em;
+}
+
+p{
+  margin: 0px;
 }

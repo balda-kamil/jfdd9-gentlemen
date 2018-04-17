@@ -1,6 +1,7 @@
 var mazeGame = (function () {
     var gameContainer = document.getElementById('game');
     var scoreContainer = document.getElementById('score');
+    var timeContainer = document.getElementById('#time');
     var board = [
         '        xf   x     x            x   x xfxf xxxx   ',
         ' xxxxxx xx x x xxx x f fff ffff x x     x  xf   x ',
@@ -23,7 +24,7 @@ var mazeGame = (function () {
         '     xxx xx  x           x x xf    x    x   x   x ',
         ' x x xf  x  xfxxxxxxxxxx x   xxxxx xx xxxxxxxxxxx ',
         ' x x  xxx  x          x  xx xx     x          x x ',
-        ' x x   x  x xxxx xxxx x xx  xf x x x xxxxxxxx x ',
+        ' x x   x  x xxxx xxxx x xx  xf x x x xxxxxxxx x   ',
         ' x x x x x   x    x     x  xxxxx x x  x         x ',
         ' x x x x x x x xx x x x x        x xx x xxxxxxx x ',
         ' x   x   x x x xx x x x x xxxx x   x  xfx       x ',
@@ -134,6 +135,23 @@ var mazeGame = (function () {
             return item.x === position.x && item.y === position.y
         }) === undefined
     }
+
+
+    ////////////////TIMER
+    var startTimer = function () {
+        var gameTimeDiv = document.querySelector('#time');
+        var gameTimer = parseInt(gameTimeDiv.innerText);
+        timerId = setInterval (function () {
+            gameTimer--;
+            if (gameTimer < 1) {
+                stopGame();
+                clearInterval(timerId);
+            }
+            gameTimeDiv.innerHTML = gameTimer.toString();
+        }, timerIntervalValue);
+    };
+
+
 
     function getFromBoard(board, charToFind) {
         return board.map(function (row, y) {
