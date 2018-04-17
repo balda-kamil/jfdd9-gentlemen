@@ -23,6 +23,7 @@ var taskGame = (function () {
 	var gamePoints = [];
 	var gameMoney = [];
 
+	// game globals
 	var howManyTasks;
 	var scoreHeight;
 	var gameHeight;
@@ -34,18 +35,23 @@ var taskGame = (function () {
 	window.addEventListener('resize', function () {
 		//buildInitials();
 	});
-    
+
 	//////////////////////////////////
-	// build initials upon board size
-	var buildInitials = function () {
+	// get board size
+	var getBoardSize = function () {
 		gameHeight = document.querySelector('.game').offsetHeight;
 		scoreHeight = document.querySelector('.game-score').offsetHeight;
 		board = document.querySelector('.game-board');
 		boardHeight = gameHeight - scoreHeight;
 		boardWidth = board.offsetWidth;
+	};
+
+	//////////////////////////////////
+	// get task size upon board size
+	var setTaskSize = function () {
 		var tasksInRow = 0;
 		if (boardWidth > 540) {
-		  tasksInRow = 4;
+			tasksInRow = 4;
 		} else if (boardWidth > 400) {
 			tasksInRow = 3;
 		} else if (boardWidth > 320) {
@@ -54,8 +60,17 @@ var taskGame = (function () {
 			tasksInRow = 2;
 		}
 		taskSize = Math.floor((boardWidth / tasksInRow) - 30);
-		howManyTasks = Math.floor(boardHeight / (taskSize + 30)) * Math.floor(boardWidth / (taskSize + 30));
+	};
 
+	//////////////////////////////////
+	// set the number of tasks upon board size and task size
+	var setTasksCount = function () {
+		howManyTasks = Math.floor(boardHeight / (taskSize + 30)) * Math.floor(boardWidth / (taskSize + 30));
+	};
+
+	//////////////////////////////////
+	// set initial time and points upon number of tasks
+	var setInitTimePoints = function () {
 		if (howManyTasks > 17) {
 			initialTotalTime = 20;
 			initialTotalPoints = 40;
@@ -64,11 +79,19 @@ var taskGame = (function () {
 			initialTotalTime = 10;
 			initialTotalPoints = 30;
 		}
-
 		for (var i = 0; i < howManyTasks; i += 1) {
 			initialPoints[i] = i + 1;
 			initialMoney[howManyTasks - i - 1] = (i + 1) * 100;
 		}
+	};
+
+	//////////////////////////////////
+	// build initials upon board size
+	var buildInitials = function () {
+		getBoardSize();
+		setTaskSize();
+		setTasksCount();
+		setInitTimePoints();
 
 		taskSize = taskSize.toString() + 'px';
 	};
@@ -215,8 +238,7 @@ var taskGame = (function () {
 			task.classList.add('game-task');
 
 			// add size and margin to task
-			task.style.width = taskSize;
-			task.style.height = taskSize;
+			task.style.width = task.style.height = taskSize;
 			task.style.margin = '10px';
 
 			// add attributes for latter easy search
@@ -263,7 +285,7 @@ var taskGame = (function () {
 		gameInProgress = true;
 	};
 
-    buildInitials();
+	buildInitials();
 	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 	showTextInfo(1);
 
