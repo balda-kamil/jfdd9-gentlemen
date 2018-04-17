@@ -9,7 +9,7 @@ var taskGame = (function () {
 
 	// game initials
 	var initialPoints = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
-	var initialMoney = [ 1200, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
+	var initialMoney = [ 6600, 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100 ];
 	var initialTotalPoints = 30;
 	var initialTotalMoney = 0;
 	var initialTotalTime = 10;

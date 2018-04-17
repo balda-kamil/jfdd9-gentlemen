@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .table {
+            display: flex;
+            width: 1500px;
+            height: 1500px;
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .table > div {
+            display: flex;
+            flex-grow: 2;
+        }
+
+        .table > div > div {
+            flex-grow: 1;
+            margin: 5px;
+            border: 1px solid black;
+        }
+
+        .player {
+            background: #c00;
+        }
+        .fruit {
+            background: #d62261;
+        }
+    </style>
+</head>
+<body>
+<div id="score"></div>
+<section id="app">
+
+</section>
+<script src="game3.js"></script>
+<script>
+    var sizeX = 10,
+        sizeY = 10,
+        player = [{ x: 5, y: 3, className: 'player'}],
+//    fruit = getRandomPos(10, 10),
+        fruit = getRandomPos2(sizeX, sizeY, player),
+        directionX = 1,
+        directionY = 0;
+        var scoreContainer = document.getElementById('score');
+        var score= 0;
+    ;
+
+    fruit.className = 'fruit';
+
+    var table = createTable(player.concat(fruit), sizeX, sizeY);
+    showElement('app', table);
+
+    setInterval(function () {
+        scoreContainer.innerText = score;
+        console.log(player);
+        var head = {
+            x: player[0].x,
+            y: player[0].y,
+            className: player[0].className
+        };
+        var newHead = {
+            x: (head.x + directionX + sizeX) % sizeX,
+            y: (head.y + directionY + sizeY) % sizeY,
+            className: 'player'
+        };
+        player.unshift(newHead);
+        player.pop();
+
+        if (newHead.x === fruit.x && newHead.y === fruit.y) {
+            score += 1;
+            player.push(head);
+//      fruit = getRandomPos(10, 10);
+            fruit = getRandomPos2(sizeX, sizeY, player);
+
+            fruit.className = 'fruit'
+        }
+
+        var table = createTable(player.concat(fruit), sizeX, sizeY);
+        showElement('app', table);
+    }, 500);
+
+    window.addEventListener('keydown', function (event) {
+        console.log(event);
+        if (event.key === 'ArrowRight') {
+            directionX = 1;
+            directionY = 0;
+        }
+        if (event.key === 'ArrowLeft') {
+            directionX = -1;
+            directionY = 0;
+        }
+        if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            directionY = -1;
+            directionX = 0;
+        }
+        if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            directionY = 1;
+            directionX = 0;
+        }
+    });
+
+</script>
+</body>
+</html>
