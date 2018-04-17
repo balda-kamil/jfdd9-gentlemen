@@ -2,7 +2,8 @@
 function create(tagName) {
     return document.createElement(tagName)
 }
-
+//////////////////////
+// ///////////////////  CREATE TABLE
 function createTable(cells, sizeX, sizeY) {
     var table = create('section');
     var rangeX = Array.from({ length: sizeX });
@@ -27,19 +28,13 @@ function createTable(cells, sizeX, sizeY) {
 
     return table;
 }
-
+/// NIE WIEM?
 function showElement(parentId, element) {
-    document.getElementById(parentId).innerHTML = "";
-    document.getElementById(parentId).appendChild(element);
+  document.getElementById(parentId).innerHTML = "";
+  document.getElementById(parentId).appendChild(element);
 }
 
-function getRandomPos(maxX, maxY) {
-    return {
-        x: Math.floor(Math.random() * maxX),
-        y: Math.floor(Math.random() * maxY)
-    }
-}
-
+////RANDOMOWA POZYCJA JABLEK
 function getRandomPos2(maxX, maxY, excludes) {
     var allPossibilities = [];
 

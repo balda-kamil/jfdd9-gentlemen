@@ -13,11 +13,15 @@
             justify-content: center;
             height: 100vh;
         }
-
+        .game-score {
+            font-size: 2rem;
+            display: block;
+            justify-content: start;
+}
         .table {
             display: flex;
-            width: 500px;
-            height: 500px;
+            width: 1200px;
+            height: 1200px;
             align-items: stretch;
             flex-direction: column;
         }
@@ -29,7 +33,7 @@
 
         .table > div > div {
             flex-grow: 1;
-            margin: 10px;
+            margin: 2px;
             border: 1px solid black;
         }
 
@@ -42,15 +46,21 @@
     </style>
 </head>
 <body>
+<div class="game-score">
+    <div class="game-time-span"><span>CZAS: </span><span class="game-time"></span><span> s</span></div>
+    <div class="game-money-span"><span>HAJS: </span><span>$ </span><span class="game-money"></span></div>
+    <div class="game-points-span"><span>PUNKTY: </span><span class="game-points"></span></div>
+</div>
 <section id="app">
-
 </section>
-<script src="./utils.js"></script>
+
+<script src="game3.js"></script>
 <script>
-    var sizeX = 5,
-        sizeY = 5,
-        player = [{ x: 5, y: 3, className: 'player'}],
-//    fruit = getRandomPos(10, 10),
+
+    //////////// INITIAL VALUE
+    var sizeX = 15,
+        sizeY = 15,
+        player = [{ x: 7, y: 7, className: 'player'}],
         fruit = getRandomPos2(sizeX, sizeY, player),
         directionX = 1,
         directionY = 0
