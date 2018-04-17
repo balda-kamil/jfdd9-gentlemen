@@ -21,18 +21,17 @@
 	border: 1px solid #d62261;
 	border-radius: 50%;
 	position: absolute;
-	margin: 15rem;
+	/*display: block;*/
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 	z-index: 100;
 }
 .game-start:hover, .game-task:hover {
 	color: #d62261;
 	background-color: white;
-}
-
-button {
-	border: none;
-}
-button:hover, .game-task:hover {
 	cursor: pointer;
 }
 
@@ -45,7 +44,7 @@ button:hover, .game-task:hover {
 
 .game-score {
 	width: 100%;
-	height: 2.8rem;
+	min-height: 2.8rem;
 	border-bottom: 1px solid #999999;
 	display: flex;
 	justify-content: space-around;
@@ -61,10 +60,11 @@ button:hover, .game-task:hover {
 	position: absolute;
 	border: 1px solid #d62261;
 	background-color: #ddd;
-	width: 30rem;
-	margin-left: 5rem;
-	margin-top: 1rem;
-	z-index: 100;
+	max-width: 30rem;
+	margin: 1rem auto;
+	left: 1rem;
+	right: 1rem;
+	z-index: 50;
 }
 .game-instruction p {
 	margin: 1rem;
