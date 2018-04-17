@@ -86,6 +86,18 @@ var taskGame = (function () {
 	};
 
 	//////////////////////////////////
+	// place START button under game info upon game height
+	var centerStartButton = function () {
+		var thx = document.querySelector('.thx').offsetHeight;
+		var infoHeight = document.querySelector('.game-instruction').offsetHeight;
+		var offset = thx + infoHeight + scoreHeight;
+		console.log(offset);
+
+		var button = document.querySelector('.game-start');
+		button.style.top = offset.toString() + 'px';
+	};
+
+	//////////////////////////////////
 	// build initials upon board size
 	var buildInitials = function () {
 		getBoardSize();
@@ -94,6 +106,8 @@ var taskGame = (function () {
 		setInitTimePoints();
 
 		taskSize = taskSize.toString() + 'px';
+
+		centerStartButton();
 	};
 
 	//////////////////////////////////
@@ -274,7 +288,7 @@ var taskGame = (function () {
 	/////////////////////////////
 	// S T A R T  G A M E
 	var startGame = function () {
-		buildInitials();
+		// buildInitials();
 		clearGame();
 		mixTables();
 		buildGameBoard();
@@ -285,8 +299,8 @@ var taskGame = (function () {
 		gameInProgress = true;
 	};
 
-	buildInitials();
-	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 	showTextInfo(1);
+	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+	buildInitials();
 
 })();
