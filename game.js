@@ -33,31 +33,21 @@ var taskGame = (function () {
 	var board;
 	var sumInitialPoints = 0;
 
-	/*
-	window.addEventListener('resize', resizeThrottler, false);
-	var resizeTimeout;
-	function resizeThrottler() {
-		// ignore resize events as long as an actualResizeHandler execution is in the queue
-		if ( !resizeTimeout ) {
-			resizeTimeout = setTimeout(function() {
-				resizeTimeout = null;
-				actualResizeHandler();
-			}, 66);   // The actualResizeHandler will execute at a rate of 15fps
-		}
-	}
-	function actualResizeHandler() {
-		// handle the resize event
-		showTextInfo(1);
-		buildInitials();
-		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
-		setBoardSize();
-		clearGame();
-		mixTables();
-		buildGameBoard();
-		document.querySelector('.game-board').classList.add('display-block');
-		gameInProgress = false;
-	}
-*/
+	// window.addEventListener('resize', resizeThrottler, false);
+	// var resizeTimeout;
+	// function resizeThrottler() {
+	// 	// ignore resize events as long as an actualResizeHandler execution is in the queue
+	// 	if ( !resizeTimeout ) {
+	// 		resizeTimeout = setTimeout(function() {
+	// 			resizeTimeout = null;
+	// 			actualResizeHandler();
+	// 		}, 66);   // The actualResizeHandler will execute at a rate of 15fps
+	// 	}
+	// }
+	// function actualResizeHandler() {
+	// 	// handle the resize event
+	// 	stopGame();
+	// }
 
 	//////////////////////////////////
 	// get board size
