@@ -67,5 +67,21 @@
             tiles[i] = tiles[swap];
             tiles[swap] = tmp;
         }
+
+        for (var i =0; i < tileCount; i += 1) {
+            var tile = document.createElement('div');
+            tile.classList.add('game-tile');
+            divBoard.appendChild(tile);
+
+            tile.dataset.cardType = tiles[i];
+            tile.dataset.index = i;
+
+            tile.style.left = 5 + (tile.offsetWidth+10) * (i%tileOnRow) + 'px'
+            tile.style.top = 5 + (tile.offsetHeight+10) * (Math.floor(i/tileOnRow)) + 'px';
+
+            tile.addEventListener('click', tileClick);
+        }
+
+
     }
 
