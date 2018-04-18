@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        .game-board {
+            margin:30px auto;
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            width: 550px;
+            height: 444px;
+            border: 2px solid #ddd;
+        }
+
+        .game-tile {
+            position: absolute;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            background: #f6da17 url(images/title.png) center center no-repeat;
+        }
+
+        .game-tile:hover {
+            background-color:#F7C11A;
+        }
+
+        .game-score {
+            text-align:center;
+        }
+    </style>
+
+</head>
+<body>
+<div class="game">
+    <div class="game-board"></div>
+    <div class="game-score"></div>
+    <div class="game-time"></div>
+    <button class="game-start">Rozpocznij grę</button>
+</div>
+
+<script src="game3.js"></script>
+</body>
+</html>
