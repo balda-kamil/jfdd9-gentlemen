@@ -23,7 +23,7 @@ var taskGame = (function () {
 	var gamePoints = [];
 	var gameMoney = [];
 
-	//////////////////////////////////
+	/////////////
 	// show score
 	var showScore = function (money, points, time) {
 		document.querySelector('.game-money').innerText = money;
