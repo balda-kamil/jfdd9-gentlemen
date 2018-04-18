@@ -79,8 +79,8 @@ var taskGame = (function () {
 	//////////////////////////////////
 	// set initial time and points upon number of tasks
 	var setInitTimePoints = function () {
-		initialTotalPoints = Math.floor(sumInitialPoints / 10);
-		initialTotalTime = Math.floor(initialTotalPoints / 3);
+		initialTotalPoints = Math.floor(sumInitialPoints / 10 + 10);
+		initialTotalTime = Math.floor(initialTotalPoints / 3 + 5);
 	};
 
 	//////////////////////////////////
@@ -238,6 +238,8 @@ var taskGame = (function () {
 			while (board.firstChild) {
 				board.removeChild(board.firstChild);
 			}
+			board.style.justifyContent = 'start';
+			board.style.alignContent = 'start';
 		}
 		hideStartButton();
 	};
@@ -259,40 +261,92 @@ var taskGame = (function () {
 	};
 
 	/////////////////////////////
+	// fade in
+	function fadeIn(element) {
+		var op = 0.1;  // initial opacity
+		var timer = setInterval(function () {
+			if (op >= 1){
+				clearInterval(timer);
+			}
+			element.style.opacity = op.toString();
+			op += 0.1;
+		}, 30);
+	}
+
+	/////////////////////////////
 	// display tasks on game board
 	var buildGameBoard = function () {
 
-		for (var i = 0; i < gamePoints.length; i++) {
+		var i = 0;
+		var taskTimerId = setInterval(function () {
+			if (i < gamePoints.length) {
 
-			// display task element and ...
-			var task = document.createElement('div');
-			task.classList.add('game-task');
+				// display task element and ...
+				var task = document.createElement('div');
+				task.classList.add('game-task');
 
-			// add size, margin and board to task
-			task.style.width = task.style.height = taskSize;
-			task.style.margin = '10px';
-			task.style.borderWidth = '1px';
+				// add size, margin and board to task
+				task.style.width = task.style.height = taskSize;
+				task.style.margin = '10px';
+				task.style.borderWidth = '1px';
 
-			// add attributes for latter easy search
-			task.setAttribute('data-money', gameMoney[i]);
-			task.setAttribute('data-points', gamePoints[i]);
+				// add attributes for latter easy search
+				task.setAttribute('data-money', gameMoney[i]);
+				task.setAttribute('data-points', gamePoints[i]);
 
-			// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
-			var taskText = document.createElement('div');
-			taskText.classList.add('game-task-text');
-			taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p>' +
-				'<p><span class="task-points">' + gamePoints[i] + '</span> pt</p>';
-			task.appendChild(taskText);
+				// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
+				var taskText = document.createElement('div');
+				taskText.classList.add('game-task-text');
+				taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p>' +
+						'<p><span class="task-points">' + gamePoints[i] + '</span> pt</p>';
+				task.appendChild(taskText);
 
-			task.addEventListener('click', taskClick);
+				task.addEventListener('click', taskClick);
 
-			board.appendChild(task);
-		}
+				task.style.opacity = '0';
+				board.appendChild(task);
+				fadeIn(task);
+
+				i++;
+			} else {
+				clearInterval(taskTimerId);
+				startGameTimer();
+				board.style.justifyContent = 'space-evenly';
+				board.style.alignContent = 'space-evenly';
+			}
+		}, 60);
+
+		// for (var i = 0; i < gamePoints.length; i++) {
+		//
+		// 	// display task element and ...
+		// 	var task = document.createElement('div');
+		// 	task.classList.add('game-task');
+		//
+		// 	// add size, margin and board to task
+		// 	task.style.width = task.style.height = taskSize;
+		// 	task.style.margin = '10px';
+		// 	task.style.borderWidth = '1px';
+		//
+		// 	// add attributes for latter easy search
+		// 	task.setAttribute('data-money', gameMoney[i]);
+		// 	task.setAttribute('data-points', gamePoints[i]);
+		//
+		// 	// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
+		// 	var taskText = document.createElement('div');
+		// 	taskText.classList.add('game-task-text');
+		// 	taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p>' +
+		// 		'<p><span class="task-points">' + gamePoints[i] + '</span> pt</p>';
+		// 	task.appendChild(taskText);
+		//
+		// 	task.addEventListener('click', taskClick);
+		//
+		// 	board.appendChild(task);
+		// }
 	};
 
 	/////////////////////////////
 	// start timer downwards and stop it by 0
-	var startTimer = function () {
+	var startGameTimer = function () {
 		var gameTimeDiv = document.querySelector('.game-time');
 		var gameTimer = parseInt(gameTimeDiv.innerText);
 		timerId = setInterval (function () {
@@ -312,11 +366,11 @@ var taskGame = (function () {
 		clearGame();
 		mixTables();
 		buildGameBoard();
-		startTimer();
 
 		// show board game
 		document.querySelector('.game-board').classList.add('display-block');
 		gameInProgress = true;
+		//startGameTimer();
 	};
 
 	buildInitials();

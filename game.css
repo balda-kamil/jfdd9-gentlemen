@@ -27,6 +27,7 @@
 	bottom: 0;
 	margin: auto;
 	z-index: 100;
+	transition-duration: 0.5s;
 }
 .game-start:hover, .game-task:hover {
 	color: #d62261;
@@ -35,7 +36,7 @@
 }
 
 .game {
-	max-width: 40rem;
+	max-width: calc(122px * 10);
 	height: 100vh;
 	margin: 0 auto;
 	border: 2px solid #d62261;
@@ -78,8 +79,9 @@
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
-	align-content: space-evenly;
+	align-content: flex-start;
+	/*justify-content: space-evenly;*/
+	/*align-content: space-evenly;*/
 }
 .game-task {
 	font-size: 1.5rem;
@@ -90,6 +92,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: 0.3s;
 }
 .game-task-text {
 	text-align: center;
