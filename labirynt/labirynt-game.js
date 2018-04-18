@@ -1,8 +1,27 @@
 "use strict";
 
+function startGame(){
+    var button =  document.getElementById("startButton");
+    button.onclick = function(){
+        console.log('kliknąłeś start');
+        document.querySelector('.start-info').style.display='none'; //chowasz diva start info po kliknięciu
+        // this.parentNode.parentNode.style.display='none'
+        // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
+        timer = setInterval(function(){
+            timeleft--;
+            document.getElementById("countdowntimer").textContent = timeleft;
+            if(timeleft <= 0) {
+                clearInterval(timer);
+                moves = 0;
+                showTextInfo(2);
+            }
+        },1000);
+    }
+}
 
+startGame();
 
-var mazeGame = (function () {
+// var labiryntGame = (function () {
     var gameContainer = document.getElementById('game');
     var scoreContainer = document.getElementById('score');
     var board = [
@@ -35,14 +54,15 @@ var mazeGame = (function () {
         'xf x       x  xxx xxx xxx x  x          x x    x x',
         'xxxxxxxxxxxxx             x xx xxx xxxx x x xxx  x',
         'ff            xxx xxx xxx x    x  xf      x   f fx'
-
-
     ];
+
     var playerPosition = {
         x: 0,
         y: 0
     };
     var score = 0;
+    var timer;
+    var timeleft = 50;
     var obstacles = getFromBoard(board, 'x');
     var fruits = getFromBoard(board, 'f');
     var moves = {
@@ -79,6 +99,11 @@ var mazeGame = (function () {
         pressedKey = event.code
     });
 
+
+
+
+
+
     setInterval(function () {
         update();
         render();
@@ -95,8 +120,8 @@ var mazeGame = (function () {
             doesNotCollide(newPosition, obstacles)
         ) {
             if (collide(newPosition, fruits)) {
-                score += 10;
-                if(score === 1){
+                score += 1;
+                if(score === 10){
                     moves = 0;
                     clearInterval(timer);
                     console.log("wygraleś");
@@ -164,22 +189,11 @@ var mazeGame = (function () {
         }, []);
     }
 
-    var timeleft = 50;
-    var timer = setInterval(function(){
-        timeleft--;
-        document.getElementById("countdowntimer").textContent = timeleft;
-        if(timeleft <= 0) {
-            clearInterval(timer);
-            moves = 0;
-            showTextInfo(2);
-        }
-    },1000);
 
-
-    var showTextInfo = function (option) {
+        var showTextInfo = function (option) {
         var txt1 = '<strong>Wygrałeś, jesteś najlepszy!</strong><br/>';
         var txt2 = 'Czas minął, przegrałeś<br/>';
 
         document.querySelector('.text-info').innerHTML = (option === 1) ? txt1 : txt2;
 };
-})();
+// })();
