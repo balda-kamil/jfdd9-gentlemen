@@ -110,9 +110,10 @@
 	border-color: #d62261;
 }
 
-.game-blend {
+.game-cover {
 	position: absolute;
 	/*width: 100%;*/
 	/*height: 100%;*/
+	top: 0;
 	background-color: rgba(90, 90, 90, 0.9);
 }

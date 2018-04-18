@@ -75,10 +75,19 @@ var taskGame = (function () {
 			initialTotalTime = 20;
 			initialTotalPoints = 40;
 		}
-		if (howManyTasks <= 17) {
+		if (howManyTasks > 10 && howManyTasks <= 17) {
 			initialTotalTime = 10;
 			initialTotalPoints = 30;
 		}
+		if (howManyTasks < 10) {
+			initialTotalTime = 10;
+			initialTotalPoints = 20;
+		}
+	};
+
+	//////////////////////////////////
+	// tables with initial points and money
+	var buildTable = function () {
 		for (var i = 0; i < howManyTasks; i += 1) {
 			initialPoints[i] = i + 1;
 			initialMoney[howManyTasks - i - 1] = (i + 1) * 100;
@@ -91,7 +100,6 @@ var taskGame = (function () {
 		var thx = document.querySelector('.thx').offsetHeight;
 		var infoHeight = document.querySelector('.game-instruction').offsetHeight;
 		var offset = thx + infoHeight + scoreHeight;
-		console.log(offset);
 
 		var button = document.querySelector('.game-start');
 		button.style.top = offset.toString() + 'px';
@@ -104,6 +112,7 @@ var taskGame = (function () {
 		setTaskSize();
 		setTasksCount();
 		setInitTimePoints();
+		buildTable();
 
 		taskSize = taskSize.toString() + 'px';
 
@@ -178,6 +187,18 @@ var taskGame = (function () {
 	};
 
 	/////////////////////////////
+	// show cover above board game
+	var showCover = function () {
+		getBoardSize();
+
+		var cover = document.createElement('div');
+		cover.classList.add('game-cover');
+		cover.style.height = boardHeight.toString() - 4 + 'px';
+		cover.style.width = '100%';
+		document.querySelector('.game-board').appendChild(cover);
+	};
+
+	/////////////////////////////
 	// show 'END GAME' text and 'RESTART GAME' button when time or points are equal to 0
 	var stopGame = function () {
 
@@ -185,13 +206,7 @@ var taskGame = (function () {
 
 		clearInterval(timerId);
 
-		// show blender
-		var blender = document.createElement('div');
-		blender.classList.add('game-blend');
-		blender.style.height = boardHeight.toString() + 'px';
-		blender.style.width = '100%';
-		//blender.style.top = scoreHeight.toString() + 'px';
-		document.querySelector('.game-board').appendChild(blender);
+		showCover();
 
 		// show END GAME text
 		showTextInfo(2);
@@ -300,7 +315,7 @@ var taskGame = (function () {
 	};
 
 	showTextInfo(1);
-	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 	buildInitials();
+	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
 })();
