@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <meta charset="UTF-8">
+    <title>TASKMEN - subscription added</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
+        body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .game-information {
+            text-align: center;
+            margin: 0;
+        }
+
         .game-board {
             margin: 30px auto;
             position: relative;
@@ -10,7 +24,7 @@
             overflow: hidden;
             width: 550px;
             height: 444px;
-            border: 2px solid #ddd;
+
         }
 
         .game-tile {
@@ -18,26 +32,41 @@
             cursor: pointer;
             width: 100px;
             height: 100px;
-            background: #f6da17;
+            background: #D62261;
+            background-image: url(../img/edit.png);
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;;
         }
 
         .game-tile:hover {
-            background-color: #F7C11A;
+            background-color: #b79bf7;
         }
 
         .game-score {
             text-align: center;
         }
+
+        .button {
+            margin: 0 auto;
+            width: 110px;
+        }
     </style>
 
 </head>
 <body>
-
-<div class="game">
-    <div class="game-board"></div>
-    <div class="game-score"></div>
-    <div class="game-time"></div>
-    <button class="game-start">Rozpocznij grę</button>
+<div class="game3">
+    <div class="game-information">
+        <h3>Taskmen Memory Game</h3>
+        <div class="game-score"><span>Liczba punktów:</span></div>
+        <div class="game-time"><span>Pozostało:</span></div>
+    </div>
+    <div class="game">
+        <div class="game-board"></div>
+    </div>
+    <div class="button">
+        <button class="game-start">Rozpocznij grę</button>
+    </div>
 </div>
 
 <script src="game3.js"></script>

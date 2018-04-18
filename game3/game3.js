@@ -10,6 +10,7 @@ var tileOnRow = 5; //number of tile on row
 var canGet = true;
 var tilesChecked = [];
 var moveCount = 0;
+var score = 0;
 var tilesImg = [
     'title_1.png',
     'title_2.png',
@@ -21,7 +22,7 @@ var tilesImg = [
     'title_8.png',
     'title_9.png',
     'title_10.png'];
-
+var scoreContainer = document.getElementsByClassName('game-score')
 
 var deleteTiles = function () {
     tilesChecked[0].remove();
@@ -37,8 +38,8 @@ var deleteTiles = function () {
 }
 
 var resetTiles = function () {
-    tilesChecked[0].style.background = '#f6da17';
-    tilesChecked[1].style.background = '#f6da17';
+    tilesChecked[0].style.background = '#D62261';
+    tilesChecked[1].style.background = '#D62261';
 
     tilesChecked = [];
     canGet = true;
@@ -55,6 +56,7 @@ var tileClick = function (e) {
         canGet = false;
 
         if (tilesChecked[0].dataset.cardType === tilesChecked[1].dataset.cardType) {
+            score += 1;
             setTimeout(deleteTiles, 500);
         } else {
             setTimeout(resetTiles, 500);
@@ -65,7 +67,7 @@ var tileClick = function (e) {
 
 
 var startGame = function () {
-
+    scoreContainer.innerText = score;
     //clear board
     var divBoard = document.querySelector('.game-board');
     divBoard.innerHTML = '';
