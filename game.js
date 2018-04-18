@@ -31,75 +31,85 @@ var taskGame = (function () {
 	var boardWidth;
 	var taskSize;
 	var board;
+	var sumInitialPoints = 0;
 
-	window.addEventListener('resize', function () {
-		//buildInitials();
-	});
+	/*
+	window.addEventListener('resize', resizeThrottler, false);
+	var resizeTimeout;
+	function resizeThrottler() {
+		// ignore resize events as long as an actualResizeHandler execution is in the queue
+		if ( !resizeTimeout ) {
+			resizeTimeout = setTimeout(function() {
+				resizeTimeout = null;
+				actualResizeHandler();
+			}, 66);   // The actualResizeHandler will execute at a rate of 15fps
+		}
+	}
+	function actualResizeHandler() {
+		// handle the resize event
+		showTextInfo(1);
+		buildInitials();
+		showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+		setBoardSize();
+		clearGame();
+		mixTables();
+		buildGameBoard();
+		document.querySelector('.game-board').classList.add('display-block');
+		gameInProgress = false;
+	}
+*/
 
 	//////////////////////////////////
 	// get board size
-	var getBoardSize = function () {
-		gameHeight = document.querySelector('.game').offsetHeight;
+	var setBoardSize = function () {
+
+		// get game dimensions
+		gameHeight = document.querySelector('.game').offsetHeight - 4;  // 2 * 2px border
 		scoreHeight = document.querySelector('.game-score').offsetHeight;
 		board = document.querySelector('.game-board');
 		boardHeight = gameHeight - scoreHeight;
 		boardWidth = board.offsetWidth;
+
+		// set board size
+		board.style.height = boardHeight.toString() + 'px';
 	};
 
 	//////////////////////////////////
 	// get task size upon board size
 	var setTaskSize = function () {
-		var tasksInRow = 0;
-		if (boardWidth > 540) {
-			tasksInRow = 4;
-		} else if (boardWidth > 400) {
-			tasksInRow = 3;
-		} else if (boardWidth > 320) {
-			tasksInRow = 2;
-		} else {
-			tasksInRow = 2;
-		}
-		taskSize = Math.floor((boardWidth / tasksInRow) - 30);
+		taskSize = 100; // 100px task + 2 * 10px margin + 2 * 1px board = 22px
 	};
 
 	//////////////////////////////////
 	// set the number of tasks upon board size and task size
 	var setTasksCount = function () {
-		howManyTasks = Math.floor(boardHeight / (taskSize + 30)) * Math.floor(boardWidth / (taskSize + 30));
+		howManyTasks = Math.floor(boardHeight / (taskSize + 22)) * Math.floor(boardWidth / (taskSize + 22));
 	};
 
 	//////////////////////////////////
 	// set initial time and points upon number of tasks
 	var setInitTimePoints = function () {
-		if (howManyTasks > 17) {
-			initialTotalTime = 20;
-			initialTotalPoints = 40;
-		}
-		if (howManyTasks > 10 && howManyTasks <= 17) {
-			initialTotalTime = 10;
-			initialTotalPoints = 30;
-		}
-		if (howManyTasks < 10) {
-			initialTotalTime = 10;
-			initialTotalPoints = 20;
-		}
+		initialTotalPoints = Math.floor(sumInitialPoints / 10);
+		initialTotalTime = Math.floor(initialTotalPoints / 3);
 	};
 
 	//////////////////////////////////
 	// tables with initial points and money
 	var buildTable = function () {
+		sumInitialPoints = 0;
 		for (var i = 0; i < howManyTasks; i += 1) {
 			initialPoints[i] = i + 1;
-			initialMoney[howManyTasks - i - 1] = (i + 1) * 100;
+			initialMoney[howManyTasks - i - 1] = (i + 1) * 10;
+			sumInitialPoints += i + 1;
 		}
 	};
 
 	//////////////////////////////////
 	// place START button under game info upon game height
 	var centerStartButton = function () {
-		var thx = document.querySelector('.thx').offsetHeight;
-		var infoHeight = document.querySelector('.game-instruction').offsetHeight;
-		var offset = thx + infoHeight + scoreHeight;
+		var thx = document.querySelector('.thx').offsetHeight + 30; // 2 * 15px padding
+		var infoHeight = document.querySelector('.game-instruction').offsetHeight + 30; // 2 * 15px margin
+		var offset = thx + infoHeight + scoreHeight + 80 + 10;  // 80px half of START size + 10px margin top
 
 		var button = document.querySelector('.game-start');
 		button.style.top = offset.toString() + 'px';
@@ -108,14 +118,15 @@ var taskGame = (function () {
 	//////////////////////////////////
 	// build initials upon board size
 	var buildInitials = function () {
-		getBoardSize();
+		setBoardSize();
 		setTaskSize();
 		setTasksCount();
-		setInitTimePoints();
 		buildTable();
+		setInitTimePoints();
 
 		taskSize = taskSize.toString() + 'px';
 
+		setBoardSize();
 		centerStartButton();
 	};
 
@@ -157,6 +168,8 @@ var taskGame = (function () {
 			}
 			gamePoints.innerText = gameTotalPoints.toString();
 			gameMoney.innerText = gameTotalMoney.toString();
+
+			setBoardSize();
 		}
 
 		// make '.game-task' disappear when clicked
@@ -189,11 +202,11 @@ var taskGame = (function () {
 	/////////////////////////////
 	// show cover above board game
 	var showCover = function () {
-		getBoardSize();
+		setBoardSize();
 
 		var cover = document.createElement('div');
 		cover.classList.add('game-cover');
-		cover.style.height = boardHeight.toString() - 4 + 'px';
+		cover.style.height = boardHeight.toString() + 'px';
 		cover.style.width = '100%';
 		document.querySelector('.game-board').appendChild(cover);
 	};
@@ -263,12 +276,12 @@ var taskGame = (function () {
 
 			// display task element and ...
 			var task = document.createElement('div');
-			board.appendChild(task);
 			task.classList.add('game-task');
 
-			// add size and margin to task
+			// add size, margin and board to task
 			task.style.width = task.style.height = taskSize;
 			task.style.margin = '10px';
+			task.style.borderWidth = '1px';
 
 			// add attributes for latter easy search
 			task.setAttribute('data-money', gameMoney[i]);
@@ -277,11 +290,13 @@ var taskGame = (function () {
 			// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
 			var taskText = document.createElement('div');
 			taskText.classList.add('game-task-text');
-			taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] +
-					'</span></p><p><span class="task-points">' + gamePoints[i] + '</span> pkt</p>';
+			taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p>' +
+				'<p><span class="task-points">' + gamePoints[i] + '</span> pt</p>';
 			task.appendChild(taskText);
 
 			task.addEventListener('click', taskClick);
+
+			board.appendChild(task);
 		}
 	};
 
@@ -303,7 +318,7 @@ var taskGame = (function () {
 	/////////////////////////////
 	// S T A R T  G A M E
 	var startGame = function () {
-		// buildInitials();
+		buildInitials();
 		clearGame();
 		mixTables();
 		buildGameBoard();
@@ -314,8 +329,9 @@ var taskGame = (function () {
 		gameInProgress = true;
 	};
 
-	showTextInfo(1);
 	buildInitials();
+	showTextInfo(1);
+	setBoardSize();
 	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
 })();
