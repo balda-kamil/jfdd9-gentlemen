@@ -27,7 +27,8 @@ body{
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   color: #ff4081;
-  font-size: 2em;
+  font-size: 1.6em;
+  background-color: #222529;
 }
 
 p{
@@ -43,4 +44,8 @@ p{
   width: 200px;
   height: 50px;
 
+}
+
+.full-container{
+  height: 100vh;
 }

@@ -32,7 +32,7 @@ var mazeGame = (function () {
         ' x xxxxx x x x fx xfx xfx xf x xxx x xxxx xxxx  x ',
         'xf x       x  xxx xxx xxx x  x          x x    x x',
         'xxxxxxxxxxxxx             x xx xxx xxxx x x xxx  x',
-        'ff            xxx xxx xxx x    x  xf      x   f fx',
+        'ff            xxx xxx xxx x    x  xf      x   f fx'
 
 
     ];
@@ -117,16 +117,16 @@ var mazeGame = (function () {
         var table = createTable(width, height);
         try {
             var playerCell = getCell(table, playerPosition.x, playerPosition.y);
-            colorize(playerCell, '#ff4081');
+            imagize(playerCell, 'url("../img/human.png")');
 
             obstacles.forEach(function (obstacle) {
                 var obstacleCell = getCell(table, obstacle.x, obstacle.y);
-                colorize(obstacleCell, 'black');
+                imagize(obstacleCell, 'url("../img/wall.png")');
             });
 
             fruits.forEach(function (fruit) {
                 var fruitCell = getCell(table, fruit.x, fruit.y);
-                colorize(fruitCell, 'red');
+                imagize(fruitCell, 'url("../img/clipboard-list.png")');
             })
 
         } catch (e) {
@@ -176,7 +176,7 @@ var mazeGame = (function () {
 
     var showTextInfo = function (option) {
         var txt1 = '<strong>Jesteś w labiryncie supermarketu, masz mało czasu na zrobienie zakupów</strong><br/>' +
-            '<strong>Steruj rożowym kwadratem, czerwone to produkty w sklepie - czyli punkty</strong><br/>' +
+            '<strong>Steruj ludzikiem, ikony notatnika to produkty w sklepie które musisz kupić - czyli punkty</strong><br/>' +
             'Poruszaj się strzałkami, zbierz 10 pkt w ' + timeleft + 'sekund<br/>'
             ;
         var txt2 = 'Koniec Gry.<br/>';

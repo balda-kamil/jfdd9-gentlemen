@@ -52,6 +52,11 @@ function colorize(node, color) {
     node.style.backgroundColor = color
 }
 
+function imagize(node, background){
+    node.style.backgroundImage = background;
+    node.style.backgroundSize = "cover"
+}
+
 function empty(node) {
     // node.innerHTML = ''
     while (node.firstChild) {
