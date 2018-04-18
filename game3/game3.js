@@ -9,6 +9,7 @@ var tileCount = 20;  //number of tile
 var tileOnRow = 5; //number of tile on row
 var canGet = true;
 var tilesChecked = [];
+var moveCount = 0;
 var tilesImg = [
     'title_1.png',
     'title_2.png',
@@ -22,12 +23,17 @@ var tilesImg = [
     'title_10.png'];
 
 
-var deleteTiles = function() {
+var deleteTiles = function () {
     tilesChecked[0].remove();
     tilesChecked[1].remove();
 
     canGet = true;
     tilesChecked = [];
+
+    var tilePairs = +1;
+    if (tilePairs >= tileCount/2) {
+        alert("KONIEC! JESTEŚ SPOKO!")
+    }
 }
 
 var resetTiles = function () {
@@ -77,6 +83,7 @@ var startGame = function () {
     var tilesChecked = [];
     var canGet = true;
     var moveCount = 0;
+    var tilePairs = 0;
 
     //generating board with number of tiles (pairs)
     for (var i = 0; i < tileCount; i += 1) {
