@@ -23,25 +23,27 @@ var tilesImg = [
     'title_9.png',
     'title_10.png'];
 
-
+var tilePairs = 0;
+var timerIntervalValue = 1000;
+var timerId = 0;
 var deleteTiles = function () {
-    tilesChecked[0].remove();
-    tilesChecked[1].remove();
+    tilesChecked[0].classList.add('game-tile-none');
+    tilesChecked[1].classList.add('game-tile-none');
 
 
     canGet = true;
     tilesChecked = [];
 
-    var tilePairs = +1;
     if (tilePairs >= tileCount/2) {
-        alert("KONIEC! JESTEŚ SPOKO!")
+        alert("KONIEC!")
     }
 }
 
 var resetTiles = function () {
-    tilesChecked[0].style= '.game-tile';
-    tilesChecked[1].style= '.game-tile';
-
+    tilesChecked[0].classList.add('game-tile');
+    tilesChecked[0].style.backgroundImage= '';
+    tilesChecked[1].classList.add('game-tile');
+    tilesChecked[1].style.backgroundImage= '';
     tilesChecked = [];
     canGet = true;
 }
@@ -59,6 +61,9 @@ var tileClick = function (e) {
         if (tilesChecked[0].dataset.cardType === tilesChecked[1].dataset.cardType) {
             setTimeout(deleteTiles,500);
             score += 1;
+            tilePairs += 1;
+            var divScore = document.querySelector('.game-score');
+            divScore.innerHTML =  'Liczba punktów: '+ score;
             } else {
             setTimeout(resetTiles, 500);
         }
@@ -66,8 +71,45 @@ var tileClick = function (e) {
     }
 };
 
+var stopGame = function () {
+
+    canGet = false;
+
+    clearInterval(timerId);
+
+   ///// show blender
+   ///var blender = document.createElement('div');
+   ///blender.classList.add('game-blend');
+   ///document.querySelector('.game-board').appendChild(blender);
+
+   ///// show END GAME text
+   ///showTextInfo(2);
+
+   ///// show START button
+   ///document.querySelector('.game-start').classList.add('display-block');
+};
+
+
+
+var startTimer = function () {
+    var divTimer = document.querySelector('.game-time');
+    divTimer.innerText ='20';
+    var gameTimer = parseInt(divTimer.innerText);
+    timerId = setInterval (function () {
+        gameTimer--;
+        if (gameTimer < 1) {
+            stopGame();
+            clearInterval(timerId);
+        }
+        debugger;
+        divTimer.innerText = 'Pozostało: ' +gameTimer.toString() +'s' ;
+    }, timerIntervalValue);
+};
+
 
 var startGame = function () {
+
+    startTimer()
 
     //clear board
     var divBoard = document.querySelector('.game-board');
@@ -79,7 +121,7 @@ var startGame = function () {
 
     //clear timer
     var divTimer = document.querySelector('.game-time');
-    divTimer.innerHTML = 'Pozostało: ' + 's';
+    divTimer.innerHTML = 'Pozostało: 20s';
 
     //clear variables
     var tiles = [];
@@ -113,8 +155,15 @@ var startGame = function () {
       // tile.style.left = 5 + (tile.offsetWidth + 10) * (i % tileOnRow) + 'px'
       // tile.style.top = 5 + (tile.offsetHeight + 10) * (Math.floor(i / tileOnRow)) + 'px';
 
+
+
         tile.addEventListener('click', tileClick);
     }
+
+
+
+
+
 };
 
 
