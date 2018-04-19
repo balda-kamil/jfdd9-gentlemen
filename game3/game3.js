@@ -98,6 +98,7 @@ var startTimer = function () {
     var gameTimer = parseInt(divTimer.innerText);
     clearInterval(timerId);
     score = 0
+    canGet = true;
     timerId = setInterval (function () {
         gameTimer--;
         if (gameTimer < 1) {
