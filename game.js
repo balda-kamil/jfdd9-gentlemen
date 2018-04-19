@@ -102,7 +102,7 @@ var taskGame = (function () {
 	var centerStartButton = function () {
 		var thx = document.querySelector('.thx').offsetHeight + 30; // 2 * 15px padding
 		var infoHeight = document.querySelector('.game-instruction').offsetHeight + 30; // 2 * 15px margin
-		var offset = thx + infoHeight + scoreHeight + 80 + 10;  // 80px half of START size + 10px margin top
+		var offset = thx + infoHeight + scoreHeight + 10;  // 10px margin top
 
 		var button = document.querySelector('.game-start');
 		button.style.top = offset.toString() + 'px';
@@ -338,6 +338,7 @@ var taskGame = (function () {
 	/////////////////////////////
 	// S T A R T  G A M E
 	var startGame = function () {
+		document.querySelector('.thx').style.display = 'none';
 		buildInitials();
 		clearGame();
 		mixTables();
@@ -349,10 +350,10 @@ var taskGame = (function () {
 		//startGameTimer();
 	};
 
-	buildInitials();
 	showTextInfo(1);
-	setBoardSize();
 	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
+	buildInitials();
+	setBoardSize();
 
 	document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.game-start').addEventListener('click', function() {
