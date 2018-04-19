@@ -26,6 +26,7 @@ var tilesImg = [
 var tilePairs = 0;
 var timerIntervalValue = 1000;
 var timerId = 0;
+
 var deleteTiles = function () {
     tilesChecked[0].classList.add('game-tile-none');
     tilesChecked[1].classList.add('game-tile-none');
@@ -59,13 +60,13 @@ var tileClick = function (e) {
         canGet = false;
 
         if (tilesChecked[0].dataset.cardType === tilesChecked[1].dataset.cardType) {
-            setTimeout(deleteTiles,500);
+            setTimeout(deleteTiles,300);
             score += 1;
             tilePairs += 1;
             var divScore = document.querySelector('.game-score');
             divScore.innerHTML =  'Liczba punktów: '+ score;
             } else {
-            setTimeout(resetTiles, 500);
+            setTimeout(resetTiles, 300);
         }
 
     }
@@ -93,16 +94,18 @@ var stopGame = function () {
 
 var startTimer = function () {
     var divTimer = document.querySelector('.game-time');
-    divTimer.innerText ='20';
+    divTimer.innerText ='25';
     var gameTimer = parseInt(divTimer.innerText);
+    clearInterval(timerId);
+    score = 0
     timerId = setInterval (function () {
         gameTimer--;
         if (gameTimer < 1) {
+
             stopGame();
             clearInterval(timerId);
         }
-        debugger;
-        divTimer.innerText = 'Pozostało: ' +gameTimer.toString() +'s' ;
+          divTimer.innerText = 'Pozostało: ' +gameTimer.toString() +'s' ;
     }, timerIntervalValue);
 };
 
@@ -121,7 +124,7 @@ var startGame = function () {
 
     //clear timer
     var divTimer = document.querySelector('.game-time');
-    divTimer.innerHTML = 'Pozostało: 20s';
+    divTimer.innerHTML = 'Pozostało: 25s';
 
     //clear variables
     var tiles = [];
