@@ -38,8 +38,8 @@ var deleteTiles = function () {
 }
 
 var resetTiles = function () {
-    tilesChecked[0].style.background = '#D62261';
-    tilesChecked[1].style.background = '#D62261';
+    tilesChecked[0].style= '.game-tile';
+    tilesChecked[1].style= '.game-tile';
 
     tilesChecked = [];
     canGet = true;
