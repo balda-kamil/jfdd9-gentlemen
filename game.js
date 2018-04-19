@@ -214,11 +214,8 @@ var taskGame = (function () {
 		gameInProgress = false;
 
 		clearInterval(timerId);
-
 		showCover();
-
-		// show END GAME text
-		showTextInfo(2);
+		showTextInfo(2);  // show END GAME text
 
 		// show START button
 		document.querySelector('.game-start').classList.add('display-block');
@@ -280,7 +277,7 @@ var taskGame = (function () {
 	}
 
 	/////////////////////////////
-	// display tasks on game board
+	// display tasks on game board with fade in effect
 	var buildGameBoard = function () {
 
 		var i = 0;
@@ -321,33 +318,6 @@ var taskGame = (function () {
 				board.style.alignContent = 'space-evenly';
 			}
 		}, 60);
-
-		// for (var i = 0; i < gamePoints.length; i++) {
-		//
-		// 	// display task element and ...
-		// 	var task = document.createElement('div');
-		// 	task.classList.add('game-task');
-		//
-		// 	// add size, margin and board to task
-		// 	task.style.width = task.style.height = taskSize;
-		// 	task.style.margin = '10px';
-		// 	task.style.borderWidth = '1px';
-		//
-		// 	// add attributes for latter easy search
-		// 	task.setAttribute('data-money', gameMoney[i]);
-		// 	task.setAttribute('data-points', gamePoints[i]);
-		//
-		// 	// ... fill in the task element with data from the 'gamePoints' and 'gameMoney' tables
-		// 	var taskText = document.createElement('div');
-		// 	taskText.classList.add('game-task-text');
-		// 	taskText.innerHTML = '<p>$<span class="task-money">' + gameMoney[i] + '</span></p>' +
-		// 		'<p><span class="task-points">' + gamePoints[i] + '</span> pt</p>';
-		// 	task.appendChild(taskText);
-		//
-		// 	task.addEventListener('click', taskClick);
-		//
-		// 	board.appendChild(task);
-		// }
 	};
 
 	/////////////////////////////
