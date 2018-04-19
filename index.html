@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TASKMEN</title>
+
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="flexbox.css">
@@ -14,7 +15,7 @@
 <body class="bg-body">
 
 <nav class="bg-menu weight-500">
-  <span><a href="index.html" class="tx-white font-15em"><i class="fas fa-edit"></i></a></span>
+  <span><a href="#about" class="tx-menu tx-white font-15em"><i class="fas fa-edit"></i></a></span>
 	<label for="show-menu" class="show-menu button">
 		<span class="line"></span>
 		<span class="line"></span>
@@ -22,29 +23,87 @@
 	</label>
 	<input type="checkbox" id="show-menu" role="button">
     <ul id="menu" class="menu font-12em weight-400">
-        <li><a href="#" class="tx-white">O produkcie</a></li>
-        <li><a href="#team" class="tx-white">Team</a></li>
-        <li><a href="#form-div" class="tx-white">Zapis na premierę</a></li>
-        <li><a href="#" class="tx-white">Planowane funkcje</a></li>
-        <li><a href="#contact" class="tx-white">Kontakt</a></li>
+        <li><a href="#about" class="tx-menu tx-white">Home</a></li>
+        <li><a href="#functions" class="tx-menu tx-white">Planowane funkcje</a></li>
+        <li><a href="#formula" class="tx-menu tx-white">Zapis na premierę</a></li>
+        <li><a href="#team" class="tx-menu tx-white">Team</a></li>
     </ul>
 </nav>
 
 <div class="bg-banner tx-white">
-    <div class="hero">
-        <div class="container">
+    <div id="about" class="hero">
+        <div class="container section1">
             <div class="hero-img-title">
                 <img class="hero-image" src="img/edit.png" alt="brand logo">
                 <h1 class="hero-title font-50em weight-700">TASKMEN <i class="fas fa-check"></i></h1>
             </div>
             <p class="hero-describe font-20em weight-300">Najlepsza aplikacja <span class="weight-700">list-to-do</span> na Świecie!<br/>...bo prawdziwi gentelmeni nigdy nie zapominają.</p>
-            <p class="hero-newsletter font-15em">Zainteresowany? <a href="#form-div">Subskrybuj</a> nasz newsletter.</p>
+            <p class="hero-newsletter font-15em">Zainteresowany? <a href="#formula">Subskrybuj</a> nasz newsletter.</p>
         </div>
     </div>
 </div>
 
+<div id="functions" class="new-function container section2">
+    <h1 class="tx-section">Planowane funkcje produktu</h1>
+    <div class="new-function-all">
+        <div class="new-function-sample bg-white">
+            <div class="logo1 font-50em tx-grey"><i class="fas fa-clock"></i></div>
+            <div class="describe-1">
+                <p class="font-12em"><strong>Bądź zawsze na czas!</strong> Funkcja przypomnienia nigdy nie pozwoli Ci się spóźnić na spotkanie.</p>
+            </div>
+        </div>
+        <div class="new-function-sample bg-white">
+            <div class="logo1 font-50em tx-grey"><i class="fas fa-gift"></i></div>
+            <div class="describe-1">
+
+                <p class="font-12em"><strong>Pamiętaj o urodzinach!</strong> <br/>Już nigdy nie zapomnisz o urodzinach swoich bliskich.</p>
+            </div>
+        </div>
+        <div class="new-function-sample bg-white">
+            <div class="logo1 font-50em tx-grey"><i class="fas fa-shopping-cart"></i></div>
+            <div class="describe-1">
+
+                <p class="font-12em"><strong>Lista zakupów.</strong> <br/> Zapominj o stosie kartek- masz Taskmena.</p>
+            </div>
+        </div>
+        <div class="new-function-sample bg-white">
+            <div class="logo1 font-50em tx-grey"><i class="fas fa-mobile-alt"></i></div>
+            <div class="describe-1">
+
+                <p class="font-12em"><strong>Mobile First!</strong><br /> Nasza aplikacja jest dostosowana do urządzeń mobilnych.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="formula">
+<div class="form-div">
+    <div class="container section3">
+        <h1 class="tx-section">Zapis na premierę</h1>
+        <div class="form-field bg-white">
+            <form class="form-fields" method="POST" action="https://formspree.io/baldakamil@gmail.com">
+                <p class="form-zapro font-15em">Chcesz jako pierwszy dowiedzieć się o premierze naszego produktu?</p>
+                <div class="btn-name-field">
+                    <input type="name" class="inp-field font-11em" name="client-name" placeholder="Wpisz swoje imię" required>
+                </div>
+                <div class="btn-email-field">
+                    <input type="email" class="inp-field font-11em" name="client-email" placeholder="Wpisz swój adres email" required>
+                </div>
+                <input type="hidden" name="_next" value="thanks.html"/>
+                <div class="btn2">
+                    <button type="submit" class="btn bg-menu">Zapisz się</button>
+                </div>
+            </form>
+            <p class="form-sec tx-grey">Możesz być spokojny o swoje dane, nie wykorzystjemy ich w celach marketingowych, nie sprzedajemy ich. Są one tylko dla naszej informacji!</p>
+        </div>
+    </div>
+</div>
+</div>
+
 <div id="team">
-    <div class="container">
+
+    <div class="container team">
         <h1 class="tx-section">Poznaj nasz Team</h1>
         <div class="flexcontainer">
             <div class="team-pole bg-white">
@@ -84,36 +143,20 @@
         </div>
     </div>
 </div>
-<div id="form-div"></div>
-<div class="form-div">
-    <div class="container">
-        <h1 class="tx-section">Zapis na premierę</h1>
-        <div class="form-field bg-white">
-            <form class="form-fields" method="POST" action="https://formspree.io/baldakamil@gmail.com">
-                <p class="form-zapro font-15em">Chcesz jako pierwszy dowiedzieć się o premierze naszego produktu?</p>
-                <div class="btn-name-field">
-                    <input type="name" class="inp-field font-11em" name="client-name" placeholder="Wpisz swoje imię">
-                </div>
-                <div class="btn-email-field">
-                    <input type="email" class="inp-field font-11em" name="client-email" placeholder="Wpisz swój adres email">
-                </div>
-                <input type="hidden" name="_next" value="thanks.html"/>
-                <div class="btn2">
-                    <button type="submit" class="btn bg-menu">Zapisz się</button>
-                </div>
-            </form>
-            <p class="form-sec tx-grey">Możesz być spokojny o swoje dane, nie wykorzystjemy ich w celach marketingowych, nie sprzedajemy ich. Są one tylko dla naszej informacji!</p>
-        </div>
-    </div>
-</div>
 
-<footer id="contact" class="bg-footer tx-white">
-	<div class="container">
-		<p class="font-15em">Kontakt do zespołu</p>
-		<p class="font-12em"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;123 456 789</p>
-		<p class="font-12em"><i class="fas fa-envelope"></i>&nbsp;&nbsp;imie.nazwisko@example.pl</p>
-	</div>
-</footer>
+
+    <div id="footer" class="footer section4">
+        <p>© Copyright -  <script>document.write(new Date().getFullYear());</script>  |   Made with ♥ by Team Gentlemen   |   All Rights Reserved  </p>
+    </div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="scripts/script.js"></script>
+<script src="scripts/przewijanie.js"></script>
+<script src="scripts/bottom.js"></script>
+<script src="scripts/function-animate.js"></script>
+<script src="scripts/paralaxa.js"></script>
 
 </body>
 </html>
