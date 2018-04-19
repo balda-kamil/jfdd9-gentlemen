@@ -48,10 +48,6 @@ function getCell(table, x, y) {
     return row.querySelector('td:nth-child(' + (x + 1) + ')');
 }
 
-function colorize(node, color) {
-    node.style.backgroundColor = color
-}
-
 function imagize(node, background){
     node.style.backgroundImage = background;
     node.style.backgroundSize = "cover"

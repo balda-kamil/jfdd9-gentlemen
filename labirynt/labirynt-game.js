@@ -3,7 +3,6 @@
 function startGame(){
     var button =  document.getElementById("startButton");
     button.onclick = function(){
-        console.log('kliknąłeś start');
         document.querySelector('.start-info').style.display='none'; //chowasz diva start info po kliknięciu
         // this.parentNode.parentNode.style.display='none'
         // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)
@@ -11,6 +10,7 @@ function startGame(){
             timeleft--;
             document.getElementById("countdowntimer").textContent = timeleft;
             if(timeleft <= 0) {
+                document.querySelector('.p-to-hide').style.display = "none";
                 clearInterval(timer);
                 moves = 0;
                 showTextInfo(2);
@@ -21,7 +21,6 @@ function startGame(){
 
 startGame();
 
-// var labiryntGame = (function () {
     var gameContainer = document.getElementById('game');
     var scoreContainer = document.getElementById('score');
     var board = [
@@ -99,11 +98,6 @@ startGame();
         pressedKey = event.code
     });
 
-
-
-
-
-
     setInterval(function () {
         update();
         render();
@@ -122,9 +116,9 @@ startGame();
             if (collide(newPosition, fruits)) {
                 score += 1;
                 if(score === 10){
+                    document.querySelector('.p-to-hide').style.display = "none";
                     moves = 0;
                     clearInterval(timer);
-                    console.log("wygraleś");
                     var audio = new Audio('sounds/Fanfary2.mp3');
                     audio.play();
                     showTextInfo(1);
@@ -189,11 +183,11 @@ startGame();
         }, []);
     }
 
-
         var showTextInfo = function (option) {
         var txt1 = '<strong>Wygrałeś, jesteś najlepszy!</strong><br/>';
         var txt2 = 'Czas minął, przegrałeś<br/>';
 
         document.querySelector('.text-info').innerHTML = (option === 1) ? txt1 : txt2;
 };
+
 // })();

@@ -44,8 +44,6 @@ p{
   height: 50px;
 }
 
-
-
 .start-info{
   margin: auto;
   position: absolute;
@@ -57,4 +55,8 @@ p{
 
 .center-btn{
   text-align: center;
+}
+
+.full-container{
+  height: 99%;
 }
