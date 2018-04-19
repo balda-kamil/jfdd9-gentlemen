@@ -1,11 +1,6 @@
 'use strict';
 
 var taskGame = (function () {
-	document.addEventListener('DOMContentLoaded', function () {
-		document.querySelector('.game-start').addEventListener('click', function() {
-			startGame();
-		});
-	});
 
 	// game initials
 	var initialPoints = [];
@@ -33,21 +28,25 @@ var taskGame = (function () {
 	var board;
 	var sumInitialPoints = 0;
 
-	// window.addEventListener('resize', resizeThrottler, false);
-	// var resizeTimeout;
-	// function resizeThrottler() {
-	// 	// ignore resize events as long as an actualResizeHandler execution is in the queue
-	// 	if ( !resizeTimeout ) {
-	// 		resizeTimeout = setTimeout(function() {
-	// 			resizeTimeout = null;
-	// 			actualResizeHandler();
-	// 		}, 66);   // The actualResizeHandler will execute at a rate of 15fps
-	// 	}
-	// }
-	// function actualResizeHandler() {
-	// 	// handle the resize event
-	// 	stopGame();
-	// }
+	window.addEventListener('resize', resizeThrottler, false);
+	var resizeTimeout;
+	function resizeThrottler() {
+		// ignore resize events as long as an actualResizeHandler execution is in the queue
+		if (!resizeTimeout) {
+			resizeTimeout = setTimeout(function() {
+				resizeTimeout = null;
+				actualResizeHandler();
+			}, 66);   // The actualResizeHandler will execute at a rate of 15fps
+		}
+	}
+	function actualResizeHandler() {
+		// handle the resize event
+		gameInProgress = false;
+		howManyTasks = 0;
+		buildInitials();
+		clearGame();
+		stopGame();
+	}
 
 	//////////////////////////////////
 	// get board size
@@ -86,6 +85,10 @@ var taskGame = (function () {
 	//////////////////////////////////
 	// tables with initial points and money
 	var buildTable = function () {
+		initialPoints = [];
+		initialMoney = [];
+		gamePoints = [];
+		gameMoney = [];
 		sumInitialPoints = 0;
 		for (var i = 0; i < howManyTasks; i += 1) {
 			initialPoints[i] = i + 1;
@@ -381,4 +384,9 @@ var taskGame = (function () {
 	setBoardSize();
 	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
+	document.addEventListener('DOMContentLoaded', function () {
+		document.querySelector('.game-start').addEventListener('click', function() {
+			startGame();
+		});
+	});
 })();
