@@ -138,6 +138,9 @@ var taskGame = (function () {
 
 		if (element.matches('.game-task')) {
 
+			var click = new Audio('sound/click.mp3');
+			click.play();
+
 			// add money to 'game-money' when '.game-task' clicked
 			var taskMoney = element.getAttribute('data-money');
 			var gameMoney = document.querySelector('.game-money');
