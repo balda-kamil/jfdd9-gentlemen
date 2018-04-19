@@ -37,7 +37,7 @@
 
 .game {
 	max-width: calc(122px * 10);
-	height: 100vh;
+	height: calc(100vh - 4px);
 	margin: 0 auto;
 	border: 2px solid #d62261;
 }
