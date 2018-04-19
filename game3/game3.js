@@ -22,7 +22,7 @@ var tilesImg = [
     'title_8.png',
     'title_9.png',
     'title_10.png'];
-var scoreContainer = document.getElementsByClassName('game-score')
+
 
 var deleteTiles = function () {
     tilesChecked[0].remove();
@@ -56,9 +56,8 @@ var tileClick = function (e) {
         canGet = false;
 
         if (tilesChecked[0].dataset.cardType === tilesChecked[1].dataset.cardType) {
-            score += 1;
-            setTimeout(deleteTiles, 500);
-        } else {
+            setTimeout(deleteTiles,500);
+            } else {
             setTimeout(resetTiles, 500);
         }
 
@@ -67,18 +66,18 @@ var tileClick = function (e) {
 
 
 var startGame = function () {
-    scoreContainer.innerText = score;
+
     //clear board
     var divBoard = document.querySelector('.game-board');
     divBoard.innerHTML = '';
 
     //clear div with result
     var divScore = document.querySelector('.game-score');
-    divScore.innerHTML = '';
+    divScore.innerHTML =  'Liczba punktów: '+ score;
 
     //clear timer
     var divTimer = document.querySelector('.game-time');
-    divTimer.innerHTML = '';
+    divTimer.innerHTML = 'Pozostało: ' + 's';
 
     //clear variables
     var tiles = [];
@@ -90,7 +89,7 @@ var startGame = function () {
     //generating board with number of tiles (pairs)
     for (var i = 0; i < tileCount; i += 1) {
         tiles.push(Math.floor(i / 2));
-    }
+         }
 
     //random board
     for (var i = tileCount - 1; i > 0; i -= 1) {
@@ -108,8 +107,8 @@ var startGame = function () {
         tile.dataset.cardType = tiles[i];
         tile.dataset.index = i;
 //
-       // tile.style.left = 5 + (tile.offsetWidth + 10) * (i % tileOnRow) + 'px'
-       // tile.style.top = 5 + (tile.offsetHeight + 10) * (Math.floor(i / tileOnRow)) + 'px';
+      // tile.style.left = 5 + (tile.offsetWidth + 10) * (i % tileOnRow) + 'px'
+      // tile.style.top = 5 + (tile.offsetHeight + 10) * (Math.floor(i / tileOnRow)) + 'px';
 
         tile.addEventListener('click', tileClick);
     }
