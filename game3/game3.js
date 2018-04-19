@@ -88,15 +88,9 @@ var startGame = function () {
     var tilePairs = 0;
 
     //generating board with number of tiles (pairs)
-    for (var i = 0; i < tileCount.length; i += 1) {
+    for (var i = 0; i < tileCount; i += 1) {
         tiles.push(Math.floor(i / 2));
     }
-
-   ///// display task element and ...
-   ///var board = document.querySelector('.game-board');
-   ///var task = document.createElement('div');
-   ///board.appendChild(task);
-   ///task.classList.add('game-task');
 
     //random board
     for (var i = tileCount - 1; i > 0; i -= 1) {
@@ -111,10 +105,8 @@ var startGame = function () {
         tile.classList.add('game-tile');
         divBoard.appendChild(tile);
 
-        console.log(i);
-
-       // tile.dataset.cardType = tiles[i];
-       // tile.dataset.index = i;
+        tile.dataset.cardType = tiles[i];
+        tile.dataset.index = i;
 //
        // tile.style.left = 5 + (tile.offsetWidth + 10) * (i % tileOnRow) + 'px'
        // tile.style.top = 5 + (tile.offsetHeight + 10) * (Math.floor(i / tileOnRow)) + 'px';
