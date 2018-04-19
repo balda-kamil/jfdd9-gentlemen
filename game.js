@@ -46,6 +46,7 @@ var taskGame = (function () {
 		buildInitials();
 		clearGame();
 		stopGame();
+		centerStartButton();
 	}
 
 	//////////////////////////////////
@@ -100,9 +101,10 @@ var taskGame = (function () {
 	//////////////////////////////////
 	// place START button under game info upon game height
 	var centerStartButton = function () {
-		var thx = document.querySelector('.thx').offsetHeight + 30; // 2 * 15px padding
-		var infoHeight = document.querySelector('.game-instruction').offsetHeight + 30; // 2 * 15px margin
-		var offset = thx + infoHeight + scoreHeight + 10;  // 10px margin top
+		var thx = document.querySelector('.thx').offsetHeight + 20; // 2 * 10px padding
+		var infoHeight = document.querySelector('.game-instruction').offsetHeight + 20; // 2 * 10px margin
+		scoreHeight = document.querySelector('.game-score').offsetHeight;
+		var offset = thx + infoHeight + scoreHeight;
 
 		var button = document.querySelector('.game-start');
 		button.style.top = offset.toString() + 'px';
@@ -354,10 +356,13 @@ var taskGame = (function () {
 	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 	buildInitials();
 	setBoardSize();
+	showTextInfo(1);
+	showScore(initialTotalMoney, initialTotalPoints, initialTotalTime);
 
 	document.addEventListener('DOMContentLoaded', function () {
 		document.querySelector('.game-start').addEventListener('click', function() {
 			startGame();
 		});
 	});
+
 })();
