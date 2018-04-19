@@ -1,0 +1,62 @@
+
+
+/* wyglad labiryntu, tego nie zmieniać */
+
+td{
+  border: none;
+  width: 20px;
+  height: 20px;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+.jar{
+  width: 100%;
+  margin: auto;
+}
+
+.game{
+  margin: auto;
+  width: 1000px;
+}
+
+
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  color: #ff4081;
+  font-size: 1.6em;
+  background-color: #222529;
+}
+
+p{
+  margin: 0;
+}
+
+.text-info, .top-text{
+  text-align: center;
+}
+
+.btn{
+  width: 200px;
+  height: 50px;
+}
+
+.start-info{
+  margin: auto;
+  position: absolute;
+  background: rgba(255,255,255, 0.8);
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.center-btn{
+  text-align: center;
+}
+
+.full-container{
+  height: 99%;
+}
