@@ -28,6 +28,7 @@ var deleteTiles = function () {
     tilesChecked[0].remove();
     tilesChecked[1].remove();
 
+
     canGet = true;
     tilesChecked = [];
 
@@ -57,6 +58,7 @@ var tileClick = function (e) {
 
         if (tilesChecked[0].dataset.cardType === tilesChecked[1].dataset.cardType) {
             setTimeout(deleteTiles,500);
+            score += 1;
             } else {
             setTimeout(resetTiles, 500);
         }
@@ -97,6 +99,7 @@ var startGame = function () {
         var tmp = tiles[i];
         tiles[i] = tiles[swap];
         tiles[swap] = tmp;
+
     }
 
     for (var i = 0; i < tileCount; i += 1) {
