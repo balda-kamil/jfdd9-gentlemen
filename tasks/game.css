@@ -1,6 +1,7 @@
 @import "../main.css";
 
 .thx {
+	display: block;
 	padding: 15px;
 	text-align: center;
 }
