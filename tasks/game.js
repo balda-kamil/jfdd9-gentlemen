@@ -101,10 +101,9 @@ var taskGame = (function () {
 	//////////////////////////////////
 	// place START button under game info upon game height
 	var centerStartButton = function () {
-		var thx = document.querySelector('.thx').offsetHeight + 20; // 2 * 10px padding
 		var infoHeight = document.querySelector('.game-instruction').offsetHeight + 20; // 2 * 10px margin
 		scoreHeight = document.querySelector('.game-score').offsetHeight;
-		var offset = thx + infoHeight + scoreHeight;
+		var offset = infoHeight + scoreHeight + 20; // 20px margin
 
 		var button = document.querySelector('.game-start');
 		button.style.top = offset.toString() + 'px';
@@ -340,7 +339,6 @@ var taskGame = (function () {
 	/////////////////////////////
 	// S T A R T  G A M E
 	var startGame = function () {
-		document.querySelector('.thx').style.display = 'none';
 		buildInitials();
 		clearGame();
 		mixTables();

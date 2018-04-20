@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>TASKMEN - simple shooting game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="tasks/game.css">
 </head>
+<style>
+	img {
+		max-height: 300px;
+	}
+	.games {
+		position: relative;
+		margin: 0 auto;
+		width: 80%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+	.item {
+		text-align: center;
+		margin: 10px;
+		transition: 0.3s;
+	}
+	.item:hover {
+		opacity: 0.5;
+	}
+	.item:nth-child(2) img {
+		border: 1px solid #d62261;
+	}
+</style>
 <body>
+
+<p class="thx tx-section font-13em">Dziękujemy za zapisanie się do newslettera.<br/>W nagrodę spędź parę chwil z grami, które dla Ciebie przygotowaliśmy.<br/>Miłej zabawy :)</p>
+
+<div class="games">
+	<div class="item"><a href="tasks/tasks.html"><img src="img/tasks.png" alt=""><br />ZADANIA</a></div>
+	<div class="item"><a href="tasks/tasks.html"><img src="img/memory.png" alt=""><br />MEMORY</a></div>
+	<div class="item"><a href="labirynt/labirynt.html"><img src="img/labirynt.png" alt=""><br />LABIRYNT</a></div>
+</div>
 
 </body>
 </html>
