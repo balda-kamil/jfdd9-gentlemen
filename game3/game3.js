@@ -36,7 +36,7 @@ var deleteTiles = function () {
     tilesChecked = [];
 
     if (tilePairs >= tileCount/2) {
-        alert("KONIEC!")
+        alert("MISTRZ!")
     }
 }
 
@@ -105,6 +105,7 @@ var startTimer = function () {
 
             stopGame();
             clearInterval(timerId);
+            alert("KONIEC CZASU! "  + "TWOJA LICZBA PUNKTÓW: " + score)
         }
           divTimer.innerText = 'Pozostało: ' +gameTimer.toString() +'s' ;
     }, timerIntervalValue);
