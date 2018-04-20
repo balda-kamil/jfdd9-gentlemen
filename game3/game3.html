@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TASKMEN - subscription added</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+.game {
+    margin: 0 auto;
+}
+        .game-information {
+            text-align: center;
+            margin: 0;
+            height: 100px;
+        }
+
+        .game-board {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 0px auto;
+            background: #fff;
+            width: 550px;
+            height: 444px;
+
+        }
+
+        .game-tile {
+            display: flex;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            background: #D62261;
+            background-image: url(../img/edit.png);
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;;
+        }
+
+        .game-tile:hover {
+            background-color: #b79bf7;
+        }
+        .game-tile-none {
+            visibility: hidden;
+        }
+
+        .game-score {
+
+            text-align: center;
+
+        }
+
+        button {
+            font-size: 20px;
+            color: white;
+            background-color: #c01e5c;
+            height: 30px;
+            border: #D62261 solid 2;
+
+        }
+
+        .button {
+                        margin: 0 auto;
+            width: 110px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="game-information">
+        <div class="game-title>"><h3>Taskmen Memory Game</h3></div>
+        <div class="game-score"></div>
+        <div class="game-time"></div>
+    </div>
+    <div class="game">
+        <div class="game-board"></div>
+    </div>
+    <div class="button">
+        <button class="game-start">START</button>
+    </div>
+
+
+<script src="game3.js"></script>
+</body>
+</html>
