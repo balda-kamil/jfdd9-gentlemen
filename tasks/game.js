@@ -194,7 +194,8 @@ var taskGame = (function () {
 		var txt2 = 'Gra została zakończona.<br/>' +
 				'Jeśli chcesz zagrać ponownie, naciśnij przycisk START.<br/><br/>' +
 				'Zdobyty HAJS: $ ' + gameTotalMoney;
-		document.querySelector('.text-info').innerHTML = (option === 1) ? txt1 : txt2;
+		var txt3 = 'Tak się nie da grać.<br/>Powiększ okno przeglądarki.';
+		document.querySelector('.text-info').innerHTML = (option === 1) ? txt1 : (option === 2) ? txt2 : txt3;
 		document.querySelector('.game-instruction').classList.add('display-block');
 	};
 
@@ -350,6 +351,17 @@ var taskGame = (function () {
 		document.querySelector('.game-board').classList.add('display-block');
 		gameInProgress = true;
 		//startGameTimer();
+
+		if (boardHeight < 100) {
+			gameInProgress = false;
+			howManyTasks = 0;
+			clearInterval(taskTimerId);
+			buildInitials();
+			clearGame();
+			stopGame();
+			centerStartButton();
+			showTextInfo(3);
+		}
 	};
 
 	showTextInfo(1);
