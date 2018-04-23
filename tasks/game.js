@@ -10,6 +10,7 @@ var taskGame = (function () {
 	var initialTotalTime = 10;
 	var timerIntervalValue = 1000;
 	var timerId = 0;
+	var taskTimerId = 0;
 	var gameInProgress = false;
 
 	var gameTotalPoints = initialTotalPoints;
@@ -43,6 +44,7 @@ var taskGame = (function () {
 		// handle the resize event
 		gameInProgress = false;
 		howManyTasks = 0;
+		clearInterval(taskTimerId);
 		buildInitials();
 		clearGame();
 		stopGame();
@@ -282,7 +284,7 @@ var taskGame = (function () {
 	var buildGameBoard = function () {
 
 		var i = 0;
-		var taskTimerId = setInterval(function () {
+		taskTimerId = setInterval(function () {
 			if (i < gamePoints.length) {
 
 				// display task element and ...
