@@ -78,6 +78,8 @@ var stopGame = function () {
 
     clearInterval(timerId);
 
+    tilePairs = 0;
+
    ///// show blender
    ///var blender = document.createElement('div');
    ///blender.classList.add('game-blend');
