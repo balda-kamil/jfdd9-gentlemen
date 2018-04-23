@@ -31,7 +31,7 @@
 }
 
 .zdjecie:hover {
-    transform: rotate(180deg);
+    /*transform: rotate(180deg);*/
 }
 
 .zdjecie-jarek {
